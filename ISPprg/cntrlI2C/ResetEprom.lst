@@ -1,0 +1,736 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v6.2.7 *
+       3              ;* Date/Time created: Thu Jul 02 08:31:07 2015                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --diag_wrap=off --float_support=fpu32 --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../cntrlI2C/ResetEprom.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v6.2.7 Copyright (c) 1996-2014 Texas I
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\ActiveProject\EKT5\PKMT_NONBIOS\InvertorCntrl\ISPprg")
+      13              
+      14              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("WriteAndWait")
+      15                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_WriteAndWait")
+      16                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$5)
+      17                      .dwattr $C$DW$1, DW_AT_declaration
+      18                      .dwattr $C$DW$1, DW_AT_external
+      19              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      20                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$23)
+      21              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      22                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$23)
+      23                      .dwendtag $C$DW$1
+      24              
+      25                      .global _START_ROM
+      26 00000000               .sect   ".econst:_START_ROM"
+      27                      .clink
+      28                      .align  1
+      29 00000000       _START_ROM:
+      30 00000000 0000          .bits   0,16                    ; _START_ROM[0] @ 0
+      31 00000001 000A          .bits   10,16                   ; _START_ROM[1] @ 16
+      32 00000002 0032          .bits   50,16                   ; _START_ROM[2] @ 32
+      33 00000003 0032          .bits   50,16                   ; _START_ROM[3] @ 48
+      34 00000004 03E8          .bits   1000,16                 ; _START_ROM[4] @ 64
+      35 00000005 044C          .bits   1100,16                 ; _START_ROM[5] @ 80
+      36 00000006 00C8          .bits   200,16                  ; _START_ROM[6] @ 96
+      37 00000007 0000          .bits   0,16                    ; _START_ROM[7] @ 112
+      38 00000008 0000          .bits   0,16                    ; _START_ROM[8] @ 128
+      39 00000009 000A          .bits   10,16                   ; _START_ROM[9] @ 144
+      40 0000000a 000A          .bits   10,16                   ; _START_ROM[10] @ 160
+      41 0000000b 000A          .bits   10,16                   ; _START_ROM[11] @ 176
+      42 0000000c 000A          .bits   10,16                   ; _START_ROM[12] @ 192
+      43 0000000d 0000          .bits   0,16                    ; _START_ROM[13] @ 208
+      44 0000000e 0000          .bits   0,16                    ; _START_ROM[14] @ 224
+      45 0000000f 0000          .bits   0,16                    ; _START_ROM[15] @ 240
+      46 00000010 0000          .bits   0,16                    ; _START_ROM[16] @ 256
+      47 00000011 0000          .bits   0,16                    ; _START_ROM[17] @ 272
+      48 00000012 0000          .bits   0,16                    ; _START_ROM[18] @ 288
+      49 00000013 0000          .bits   0,16                    ; _START_ROM[19] @ 304
+      50 00000014 0000          .bits   0,16                    ; _START_ROM[20] @ 320
+      51 00000015 0005          .bits   5,16                    ; _START_ROM[21] @ 336
+      52 00000016 0ED8          .bits   3800,16                 ; _START_ROM[22] @ 352
+      53 00000017 1388          .bits   5000,16                 ; _START_ROM[23] @ 368
+      54 00000018 0000          .bits   0,16                    ; _START_ROM[24] @ 384
+      55 00000019 0000          .bits   0,16                    ; _START_ROM[25] @ 400
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    2
+
+      56 0000001a 000A          .bits   10,16                   ; _START_ROM[26] @ 416
+      57 0000001b 0000          .bits   0,16                    ; _START_ROM[27] @ 432
+      58 0000001c 0000          .bits   0,16                    ; _START_ROM[28] @ 448
+      59 0000001d 0000          .bits   0,16                    ; _START_ROM[29] @ 464
+      60 0000001e 01FF          .bits   511,16                  ; _START_ROM[30] @ 480
+      61 0000001f 01FF          .bits   511,16                  ; _START_ROM[31] @ 496
+      62 00000020 0000          .bits   0,16                    ; _START_ROM[32] @ 512
+      63 00000021 0000          .bits   0,16                    ; _START_ROM[33] @ 528
+      64 00000022 0000          .bits   0,16                    ; _START_ROM[34] @ 544
+      65 00000023 0000          .bits   0,16                    ; _START_ROM[35] @ 560
+      66 00000024 0000          .bits   0,16                    ; _START_ROM[36] @ 576
+      67 00000025 0000          .bits   0,16                    ; _START_ROM[37] @ 592
+      68 00000026 0002          .bits   2,16                    ; _START_ROM[38] @ 608
+      69 00000027 0002          .bits   2,16                    ; _START_ROM[39] @ 624
+      70 00000028 0001          .bits   1,16                    ; _START_ROM[40] @ 640
+      71 00000029 00FA          .bits   250,16                  ; _START_ROM[41] @ 656
+      72 0000002a 0ED8          .bits   3800,16                 ; _START_ROM[42] @ 672
+      73 0000002b 0708          .bits   1800,16                 ; _START_ROM[43] @ 688
+      74 0000002c 1CE8          .bits   7400,16                 ; _START_ROM[44] @ 704
+      75 0000002d 0DAC          .bits   3500,16                 ; _START_ROM[45] @ 720
+      76 0000002e 000A          .bits   10,16                   ; _START_ROM[46] @ 736
+      77 0000002f 0000          .bits   0,16                    ; _START_ROM[47] @ 752
+      78 00000030 0000          .bits   0,16                    ; _START_ROM[48] @ 768
+      79 00000031 0000          .bits   0,16                    ; _START_ROM[49] @ 784
+      80 00000032 0000          .bits   0,16                    ; _START_ROM[50] @ 800
+      81 00000033 0000          .bits   0,16                    ; _START_ROM[51] @ 816
+      82 00000034 0000          .bits   0,16                    ; _START_ROM[52] @ 832
+      83 00000035 0005          .bits   5,16                    ; _START_ROM[53] @ 848
+      84 00000036 0000          .bits   0,16                    ; _START_ROM[54] @ 864
+      85 00000037 0000          .bits   0,16                    ; _START_ROM[55] @ 880
+      86 00000038 0000          .bits   0,16                    ; _START_ROM[56] @ 896
+      87 00000039 0000          .bits   0,16                    ; _START_ROM[57] @ 912
+      88 0000003a 0000          .bits   0,16                    ; _START_ROM[58] @ 928
+      89 0000003b 0000          .bits   0,16                    ; _START_ROM[59] @ 944
+      90 0000003c 0000          .bits   0,16                    ; _START_ROM[60] @ 960
+      91 0000003d 0000          .bits   0,16                    ; _START_ROM[61] @ 976
+      92 0000003e 0000          .bits   0,16                    ; _START_ROM[62] @ 992
+      93 0000003f 0000          .bits   0,16                    ; _START_ROM[63] @ 1008
+      94 00000040 0000          .bits   0,16                    ; _START_ROM[64] @ 1024
+      95 00000041 0000          .bits   0,16                    ; _START_ROM[65] @ 1040
+      96 00000042 1388          .bits   5000,16                 ; _START_ROM[66] @ 1056
+      97 00000043 0000          .bits   0,16                    ; _START_ROM[67] @ 1072
+      98 00000044 0000          .bits   0,16                    ; _START_ROM[68] @ 1088
+      99 00000045 0005          .bits   5,16                    ; _START_ROM[69] @ 1104
+     100 00000046 0000          .bits   0,16                    ; _START_ROM[70] @ 1120
+     101 00000047 0000          .bits   0,16                    ; _START_ROM[71] @ 1136
+     102 00000048 0000          .bits   0,16                    ; _START_ROM[72] @ 1152
+     103 00000049 0000          .bits   0,16                    ; _START_ROM[73] @ 1168
+     104 0000004a 000A          .bits   10,16                   ; _START_ROM[74] @ 1184
+     105 0000004b 0000          .bits   0,16                    ; _START_ROM[75] @ 1200
+     106 0000004c 0000          .bits   0,16                    ; _START_ROM[76] @ 1216
+     107 0000004d 0000          .bits   0,16                    ; _START_ROM[77] @ 1232
+     108 0000004e 0000          .bits   0,16                    ; _START_ROM[78] @ 1248
+     109 0000004f 0000          .bits   0,16                    ; _START_ROM[79] @ 1264
+     110 00000050 0000          .bits   0,16                    ; _START_ROM[80] @ 1280
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    3
+
+     111 00000051 0000          .bits   0,16                    ; _START_ROM[81] @ 1296
+     112 00000052 0000          .bits   0,16                    ; _START_ROM[82] @ 1312
+     113 00000053 0000          .bits   0,16                    ; _START_ROM[83] @ 1328
+     114 00000054 0000          .bits   0,16                    ; _START_ROM[84] @ 1344
+     115 00000055 0000          .bits   0,16                    ; _START_ROM[85] @ 1360
+     116 00000056 0000          .bits   0,16                    ; _START_ROM[86] @ 1376
+     117 00000057 0000          .bits   0,16                    ; _START_ROM[87] @ 1392
+     118 00000058 03E8          .bits   1000,16                 ; _START_ROM[88] @ 1408
+     119 00000059 0000          .bits   0,16                    ; _START_ROM[89] @ 1424
+     120 0000005a 0000          .bits   0,16                    ; _START_ROM[90] @ 1440
+     121 0000005b 0000          .bits   0,16                    ; _START_ROM[91] @ 1456
+     122 0000005c 0000          .bits   0,16                    ; _START_ROM[92] @ 1472
+     123 0000005d 0000          .bits   0,16                    ; _START_ROM[93] @ 1488
+     124 0000005e 0000          .bits   0,16                    ; _START_ROM[94] @ 1504
+     125 0000005f 0000          .bits   0,16                    ; _START_ROM[95] @ 1520
+     126 00000060 0000          .bits   0,16                    ; _START_ROM[96] @ 1536
+     127 00000061 0000          .bits   0,16                    ; _START_ROM[97] @ 1552
+     128 00000062 0000          .bits   0,16                    ; _START_ROM[98] @ 1568
+     129 00000063 0000          .bits   0,16                    ; _START_ROM[99] @ 1584
+     130 00000064 0000          .bits   0,16                    ; _START_ROM[100] @ 1600
+     131 00000065 0005          .bits   5,16                    ; _START_ROM[101] @ 1616
+     132 00000066 0000          .bits   0,16                    ; _START_ROM[102] @ 1632
+     133 00000067 0000          .bits   0,16                    ; _START_ROM[103] @ 1648
+     134 00000068 0000          .bits   0,16                    ; _START_ROM[104] @ 1664
+     135 00000069 0000          .bits   0,16                    ; _START_ROM[105] @ 1680
+     136 0000006a 000A          .bits   10,16                   ; _START_ROM[106] @ 1696
+     137 0000006b 0000          .bits   0,16                    ; _START_ROM[107] @ 1712
+     138 0000006c 0000          .bits   0,16                    ; _START_ROM[108] @ 1728
+     139 0000006d 0000          .bits   0,16                    ; _START_ROM[109] @ 1744
+     140 0000006e 0000          .bits   0,16                    ; _START_ROM[110] @ 1760
+     141 0000006f 0000          .bits   0,16                    ; _START_ROM[111] @ 1776
+     142 00000070 0000          .bits   0,16                    ; _START_ROM[112] @ 1792
+     143 00000071 0000          .bits   0,16                    ; _START_ROM[113] @ 1808
+     144 00000072 0000          .bits   0,16                    ; _START_ROM[114] @ 1824
+     145 00000073 0000          .bits   0,16                    ; _START_ROM[115] @ 1840
+     146 00000074 0000          .bits   0,16                    ; _START_ROM[116] @ 1856
+     147 00000075 0000          .bits   0,16                    ; _START_ROM[117] @ 1872
+     148 00000076 0000          .bits   0,16                    ; _START_ROM[118] @ 1888
+     149 00000077 0000          .bits   0,16                    ; _START_ROM[119] @ 1904
+     150 00000078 0000          .bits   0,16                    ; _START_ROM[120] @ 1920
+     151 00000079 0000          .bits   0,16                    ; _START_ROM[121] @ 1936
+     152 0000007a 0000          .bits   0,16                    ; _START_ROM[122] @ 1952
+     153 0000007b 0000          .bits   0,16                    ; _START_ROM[123] @ 1968
+     154 0000007c 0000          .bits   0,16                    ; _START_ROM[124] @ 1984
+     155 0000007d 0000          .bits   0,16                    ; _START_ROM[125] @ 2000
+     156 0000007e 0000          .bits   0,16                    ; _START_ROM[126] @ 2016
+     157 0000007f 0000          .bits   0,16                    ; _START_ROM[127] @ 2032
+     158 00000080 0000          .bits   0,16                    ; _START_ROM[128] @ 2048
+     159 00000081 0000          .bits   0,16                    ; _START_ROM[129] @ 2064
+     160 00000082 0000          .bits   0,16                    ; _START_ROM[130] @ 2080
+     161 00000083 0000          .bits   0,16                    ; _START_ROM[131] @ 2096
+     162 00000084 0000          .bits   0,16                    ; _START_ROM[132] @ 2112
+     163 00000085 0000          .bits   0,16                    ; _START_ROM[133] @ 2128
+     164 00000086 0000          .bits   0,16                    ; _START_ROM[134] @ 2144
+     165 00000087 0000          .bits   0,16                    ; _START_ROM[135] @ 2160
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    4
+
+     166 00000088 0000          .bits   0,16                    ; _START_ROM[136] @ 2176
+     167 00000089 0000          .bits   0,16                    ; _START_ROM[137] @ 2192
+     168 0000008a 0000          .bits   0,16                    ; _START_ROM[138] @ 2208
+     169 0000008b 0000          .bits   0,16                    ; _START_ROM[139] @ 2224
+     170 0000008c 0000          .bits   0,16                    ; _START_ROM[140] @ 2240
+     171 0000008d 0000          .bits   0,16                    ; _START_ROM[141] @ 2256
+     172 0000008e 0000          .bits   0,16                    ; _START_ROM[142] @ 2272
+     173 0000008f 0000          .bits   0,16                    ; _START_ROM[143] @ 2288
+     174 00000090 0000          .bits   0,16                    ; _START_ROM[144] @ 2304
+     175 00000091 0000          .bits   0,16                    ; _START_ROM[145] @ 2320
+     176 00000092 0000          .bits   0,16                    ; _START_ROM[146] @ 2336
+     177 00000093 0000          .bits   0,16                    ; _START_ROM[147] @ 2352
+     178 00000094 0000          .bits   0,16                    ; _START_ROM[148] @ 2368
+     179 00000095 0000          .bits   0,16                    ; _START_ROM[149] @ 2384
+     180 00000096 0000          .bits   0,16                    ; _START_ROM[150] @ 2400
+     181 00000097 0000          .bits   0,16                    ; _START_ROM[151] @ 2416
+     182 00000098 0000          .bits   0,16                    ; _START_ROM[152] @ 2432
+     183 00000099 0000          .bits   0,16                    ; _START_ROM[153] @ 2448
+     184 0000009a 0000          .bits   0,16                    ; _START_ROM[154] @ 2464
+     185 0000009b 0000          .bits   0,16                    ; _START_ROM[155] @ 2480
+     186 0000009c 0000          .bits   0,16                    ; _START_ROM[156] @ 2496
+     187 0000009d 0000          .bits   0,16                    ; _START_ROM[157] @ 2512
+     188 0000009e 0000          .bits   0,16                    ; _START_ROM[158] @ 2528
+     189 0000009f 0000          .bits   0,16                    ; _START_ROM[159] @ 2544
+     190 000000a0 0000          .bits   0,16                    ; _START_ROM[160] @ 2560
+     191 000000a1 0000          .bits   0,16                    ; _START_ROM[161] @ 2576
+     192 000000a2 0000          .bits   0,16                    ; _START_ROM[162] @ 2592
+     193 000000a3 0000          .bits   0,16                    ; _START_ROM[163] @ 2608
+     194 000000a4 0000          .bits   0,16                    ; _START_ROM[164] @ 2624
+     195 000000a5 0000          .bits   0,16                    ; _START_ROM[165] @ 2640
+     196 000000a6 0000          .bits   0,16                    ; _START_ROM[166] @ 2656
+     197 000000a7 0000          .bits   0,16                    ; _START_ROM[167] @ 2672
+     198 000000a8 0000          .bits   0,16                    ; _START_ROM[168] @ 2688
+     199 000000a9 0000          .bits   0,16                    ; _START_ROM[169] @ 2704
+     200 000000aa 0000          .bits   0,16                    ; _START_ROM[170] @ 2720
+     201 000000ab 0000          .bits   0,16                    ; _START_ROM[171] @ 2736
+     202 000000ac 0000          .bits   0,16                    ; _START_ROM[172] @ 2752
+     203 000000ad 0000          .bits   0,16                    ; _START_ROM[173] @ 2768
+     204 000000ae 0000          .bits   0,16                    ; _START_ROM[174] @ 2784
+     205 000000af 0000          .bits   0,16                    ; _START_ROM[175] @ 2800
+     206 000000b0 0000          .bits   0,16                    ; _START_ROM[176] @ 2816
+     207 000000b1 0000          .bits   0,16                    ; _START_ROM[177] @ 2832
+     208 000000b2 0000          .bits   0,16                    ; _START_ROM[178] @ 2848
+     209 000000b3 0000          .bits   0,16                    ; _START_ROM[179] @ 2864
+     210 000000b4 0000          .bits   0,16                    ; _START_ROM[180] @ 2880
+     211 000000b5 0000          .bits   0,16                    ; _START_ROM[181] @ 2896
+     212 000000b6 0000          .bits   0,16                    ; _START_ROM[182] @ 2912
+     213 000000b7 0000          .bits   0,16                    ; _START_ROM[183] @ 2928
+     214 000000b8 0000          .bits   0,16                    ; _START_ROM[184] @ 2944
+     215 000000b9 0000          .bits   0,16                    ; _START_ROM[185] @ 2960
+     216 000000ba 0000          .bits   0,16                    ; _START_ROM[186] @ 2976
+     217 000000bb 0000          .bits   0,16                    ; _START_ROM[187] @ 2992
+     218 000000bc 0000          .bits   0,16                    ; _START_ROM[188] @ 3008
+     219 000000bd 0000          .bits   0,16                    ; _START_ROM[189] @ 3024
+     220 000000be 0000          .bits   0,16                    ; _START_ROM[190] @ 3040
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    5
+
+     221 000000bf 0000          .bits   0,16                    ; _START_ROM[191] @ 3056
+     222 000000c0 0000          .bits   0,16                    ; _START_ROM[192] @ 3072
+     223 000000c1 0000          .bits   0,16                    ; _START_ROM[193] @ 3088
+     224 000000c2 0000          .bits   0,16                    ; _START_ROM[194] @ 3104
+     225 000000c3 0000          .bits   0,16                    ; _START_ROM[195] @ 3120
+     226 000000c4 0000          .bits   0,16                    ; _START_ROM[196] @ 3136
+     227 000000c5 0000          .bits   0,16                    ; _START_ROM[197] @ 3152
+     228 000000c6 0000          .bits   0,16                    ; _START_ROM[198] @ 3168
+     229 000000c7 0000          .bits   0,16                    ; _START_ROM[199] @ 3184
+     230 000000c8 0000          .bits   0,16                    ; _START_ROM[200] @ 3200
+     231 000000c9 0000          .bits   0,16                    ; _START_ROM[201] @ 3216
+     232 000000ca 0000          .bits   0,16                    ; _START_ROM[202] @ 3232
+     233 000000cb 0000          .bits   0,16                    ; _START_ROM[203] @ 3248
+     234 000000cc 0000          .bits   0,16                    ; _START_ROM[204] @ 3264
+     235 000000cd 0000          .bits   0,16                    ; _START_ROM[205] @ 3280
+     236 000000ce 0000          .bits   0,16                    ; _START_ROM[206] @ 3296
+     237 000000cf 0000          .bits   0,16                    ; _START_ROM[207] @ 3312
+     238 000000d0 0000          .bits   0,16                    ; _START_ROM[208] @ 3328
+     239 000000d1 0000          .bits   0,16                    ; _START_ROM[209] @ 3344
+     240 000000d2 0000          .bits   0,16                    ; _START_ROM[210] @ 3360
+     241 000000d3 0000          .bits   0,16                    ; _START_ROM[211] @ 3376
+     242 000000d4 0000          .bits   0,16                    ; _START_ROM[212] @ 3392
+     243 000000d5 0000          .bits   0,16                    ; _START_ROM[213] @ 3408
+     244 000000d6 0000          .bits   0,16                    ; _START_ROM[214] @ 3424
+     245 000000d7 0000          .bits   0,16                    ; _START_ROM[215] @ 3440
+     246 000000d8 0000          .bits   0,16                    ; _START_ROM[216] @ 3456
+     247 000000d9 0000          .bits   0,16                    ; _START_ROM[217] @ 3472
+     248 000000da 0000          .bits   0,16                    ; _START_ROM[218] @ 3488
+     249 000000db 0000          .bits   0,16                    ; _START_ROM[219] @ 3504
+     250 000000dc 0000          .bits   0,16                    ; _START_ROM[220] @ 3520
+     251 000000dd 0000          .bits   0,16                    ; _START_ROM[221] @ 3536
+     252 000000de 0000          .bits   0,16                    ; _START_ROM[222] @ 3552
+     253 000000df 0000          .bits   0,16                    ; _START_ROM[223] @ 3568
+     254 000000e0 0000          .bits   0,16                    ; _START_ROM[224] @ 3584
+     255 000000e1 0000          .bits   0,16                    ; _START_ROM[225] @ 3600
+     256 000000e2 0000          .bits   0,16                    ; _START_ROM[226] @ 3616
+     257 000000e3 0000          .bits   0,16                    ; _START_ROM[227] @ 3632
+     258 000000e4 0000          .bits   0,16                    ; _START_ROM[228] @ 3648
+     259 000000e5 0000          .bits   0,16                    ; _START_ROM[229] @ 3664
+     260 000000e6 0000          .bits   0,16                    ; _START_ROM[230] @ 3680
+     261 000000e7 0000          .bits   0,16                    ; _START_ROM[231] @ 3696
+     262 000000e8 0000          .bits   0,16                    ; _START_ROM[232] @ 3712
+     263 000000e9 0000          .bits   0,16                    ; _START_ROM[233] @ 3728
+     264 000000ea 0000          .bits   0,16                    ; _START_ROM[234] @ 3744
+     265 000000eb 0000          .bits   0,16                    ; _START_ROM[235] @ 3760
+     266 000000ec 0000          .bits   0,16                    ; _START_ROM[236] @ 3776
+     267 000000ed 0000          .bits   0,16                    ; _START_ROM[237] @ 3792
+     268 000000ee 0000          .bits   0,16                    ; _START_ROM[238] @ 3808
+     269 000000ef 0000          .bits   0,16                    ; _START_ROM[239] @ 3824
+     270 000000f0 0000          .bits   0,16                    ; _START_ROM[240] @ 3840
+     271 000000f1 0000          .bits   0,16                    ; _START_ROM[241] @ 3856
+     272 000000f2 0000          .bits   0,16                    ; _START_ROM[242] @ 3872
+     273 000000f3 0000          .bits   0,16                    ; _START_ROM[243] @ 3888
+     274 000000f4 0000          .bits   0,16                    ; _START_ROM[244] @ 3904
+     275 000000f5 0000          .bits   0,16                    ; _START_ROM[245] @ 3920
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    6
+
+     276 000000f6 0000          .bits   0,16                    ; _START_ROM[246] @ 3936
+     277 000000f7 0000          .bits   0,16                    ; _START_ROM[247] @ 3952
+     278 000000f8 0000          .bits   0,16                    ; _START_ROM[248] @ 3968
+     279 000000f9 0000          .bits   0,16                    ; _START_ROM[249] @ 3984
+     280 000000fa 0000          .bits   0,16                    ; _START_ROM[250] @ 4000
+     281 000000fb 0000          .bits   0,16                    ; _START_ROM[251] @ 4016
+     282 000000fc 0000          .bits   0,16                    ; _START_ROM[252] @ 4032
+     283 000000fd 0000          .bits   0,16                    ; _START_ROM[253] @ 4048
+     284 000000fe 0000          .bits   0,16                    ; _START_ROM[254] @ 4064
+     285 000000ff 0000          .bits   0,16                    ; _START_ROM[255] @ 4080
+     286              
+     287              $C$DW$4 .dwtag  DW_TAG_variable, DW_AT_name("START_ROM")
+     288                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_START_ROM")
+     289                      .dwattr $C$DW$4, DW_AT_location[DW_OP_addr _START_ROM]
+     290                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$21)
+     291                      .dwattr $C$DW$4, DW_AT_external
+     292              ;       C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin\ac2000.exe -@C:\\Users\\Tester\\AppData\\Local\\Temp\\0274
+     293 00000000               .sect   ".text"
+     294                      .clink
+     295                      .global _ResetEEPROM
+     296              
+     297              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("ResetEEPROM")
+     298                      .dwattr $C$DW$5, DW_AT_low_pc(_ResetEEPROM)
+     299                      .dwattr $C$DW$5, DW_AT_high_pc(0x00)
+     300                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_ResetEEPROM")
+     301                      .dwattr $C$DW$5, DW_AT_external
+     302                      .dwattr $C$DW$5, DW_AT_TI_begin_file("../cntrlI2C/ResetEprom.c")
+     303                      .dwattr $C$DW$5, DW_AT_TI_begin_line(0x1b)
+     304                      .dwattr $C$DW$5, DW_AT_TI_begin_column(0x06)
+     305                      .dwattr $C$DW$5, DW_AT_TI_max_frame_size(-4)
+     306                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 28,column 1,is_stmt,address _ResetEEPROM
+     307              
+     308                      .dwfde $C$DW$CIE, _ResetEEPROM
+     309              
+     310              ;***************************************************************
+     311              ;* FNAME: _ResetEEPROM                  FR SIZE:   2           *
+     312              ;*                                                             *
+     313              ;* FUNCTION ENVIRONMENT                                        *
+     314              ;*                                                             *
+     315              ;* FUNCTION PROPERTIES                                         *
+     316              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+     317              ;***************************************************************
+     318              
+     319 00000000       _ResetEEPROM:
+     320                      .dwcfi  cfa_offset, -2
+     321                      .dwcfi  save_reg_to_mem, 26, 0
+     322                      .dwcfi  save_reg_to_reg, 78, 26
+     323 00000000 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     324                      .dwcfi  cfa_offset, -4
+     325              $C$DW$6 .dwtag  DW_TAG_variable, DW_AT_name("i")
+     326                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_i")
+     327                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$10)
+     328                      .dwattr $C$DW$6, DW_AT_location[DW_OP_breg20 -1]
+     329                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 30,column 10,is_stmt
+     330 00000001 2B41          MOV       *-SP[1],#0            ; [CPU_] |30| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    7
+
+     331                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 30,column 15,is_stmt
+     332 00000002 1B41          CMP       *-SP[1],#256          ; [CPU_] |30| 
+         00000003 0100 
+     333 00000004 6314          B         $C$L2,GEQ             ; [CPU_] |30| 
+     334                      ; branchcc occurs ; [] |30| 
+     335                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 32,column 9,is_stmt
+     336 00000005       $C$L1:    
+     337                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 32,column 16,is_stmt
+     338 00000005 5603          MOV       ACC,*-SP[1] << #1     ; [CPU_] |32| 
+         00000006 0141 
+     339 00000007 3B01          SETC      SXM                   ; [CPU_] 
+     340 00000008 8F00+         MOVL      XAR4,#_START_ROM      ; [CPU_U] |32| 
+         00000009 0000 
+     341 0000000a 88A9          MOVZ      AR6,AL                ; [CPU_] |32| 
+     342 0000000b 8541          MOV       ACC,*-SP[1]           ; [CPU_] |32| 
+     343 0000000c 5601          ADDL      XAR4,ACC              ; [CPU_] |32| 
+         0000000d 00A4 
+     344 0000000e 93C4          MOV       AH,*+XAR4[0]          ; [CPU_] |32| 
+     345 0000000f 92A6          MOV       AL,AR6                ; [CPU_] |32| 
+     346              $C$DW$7 .dwtag  DW_TAG_TI_branch
+     347                      .dwattr $C$DW$7, DW_AT_low_pc(0x00)
+     348                      .dwattr $C$DW$7, DW_AT_name("_WriteAndWait")
+     349                      .dwattr $C$DW$7, DW_AT_TI_call
+     350 00000010 7640!         LCR       #_WriteAndWait        ; [CPU_] |32| 
+         00000011 0000 
+     351                      ; call occurs [#_WriteAndWait] ; [] |32| 
+     352 00000012 5200          CMPB      AL,#0                 ; [CPU_] |32| 
+     353 00000013 ECF2          BF        $C$L1,EQ              ; [CPU_] |32| 
+     354                      ; branchcc occurs ; [] |32| 
+     355                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 30,column 33,is_stmt
+     356 00000014 0A41          INC       *-SP[1]               ; [CPU_] |30| 
+     357                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 30,column 15,is_stmt
+     358 00000015 1B41          CMP       *-SP[1],#256          ; [CPU_] |30| 
+         00000016 0100 
+     359 00000017 64EE          B         $C$L1,LT              ; [CPU_] |30| 
+     360                      ; branchcc occurs ; [] |30| 
+     361                      .dwpsn  file "../cntrlI2C/ResetEprom.c",line 34,column 1,is_stmt
+     362 00000018       $C$L2:    
+     363 00000018 FE82          SUBB      SP,#2                 ; [CPU_U] 
+     364                      .dwcfi  cfa_offset, -2
+     365              $C$DW$8 .dwtag  DW_TAG_TI_branch
+     366                      .dwattr $C$DW$8, DW_AT_low_pc(0x00)
+     367                      .dwattr $C$DW$8, DW_AT_TI_return
+     368 00000019 0006          LRETR     ; [CPU_] 
+     369                      ; return occurs ; [] 
+     370                      .dwattr $C$DW$5, DW_AT_TI_end_file("../cntrlI2C/ResetEprom.c")
+     371                      .dwattr $C$DW$5, DW_AT_TI_end_line(0x22)
+     372                      .dwattr $C$DW$5, DW_AT_TI_end_column(0x01)
+     373                      .dwendentry
+     374                      .dwendtag $C$DW$5
+     375              
+     376              ;**************************************************************
+     377              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     378              ;**************************************************************
+     379                      .global _WriteAndWait
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    8
+
+     380              
+     381              ;***************************************************************
+     382              ;* TYPE INFORMATION                                            *
+     383              ;***************************************************************
+     384              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     385                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     386                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     387                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     388              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     389                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     390                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     391                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     392              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     393                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     394                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     395                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     396              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     397                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     398                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     399                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     400              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     401                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     402                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     403                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     404              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     405                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     406                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     407                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     408              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     409                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     410                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     411                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     412              $C$DW$9 .dwtag  DW_TAG_TI_far_type
+     413                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$10)
+     414              $C$DW$T$20      .dwtag  DW_TAG_const_type
+     415                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$9)
+     416              
+     417              $C$DW$T$21      .dwtag  DW_TAG_array_type
+     418                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
+     419                      .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+     420                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x100)
+     421              $C$DW$10        .dwtag  DW_TAG_subrange_type
+     422                      .dwattr $C$DW$10, DW_AT_upper_bound(0xff)
+     423                      .dwendtag $C$DW$T$21
+     424              
+     425              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     426                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     427                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     428                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     429              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("uint")
+     430                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$11)
+     431                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+     432              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     433                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     434                      .dwattr $C$DW$T$12, DW_AT_name("long")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE    9
+
+     435                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     436              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     437                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     438                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     439                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     440              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     441                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     442                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     443                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     444              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     445                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     446                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     447                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     448              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     449                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     450                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     451                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     452              $C$DW$T$17      .dwtag  DW_TAG_base_type
+     453                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     454                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     455                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     456              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     457                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     458                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     459                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+     460                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     461              
+     462              ;***************************************************************
+     463              ;* DWARF CIE ENTRIES                                           *
+     464              ;***************************************************************
+     465              
+     466              $C$DW$CIE       .dwcie 78
+     467                      .dwcfi  cfa_register, 20
+     468                      .dwcfi  cfa_offset, 0
+     469                      .dwcfi  undefined, 0
+     470                      .dwcfi  undefined, 1
+     471                      .dwcfi  undefined, 2
+     472                      .dwcfi  undefined, 3
+     473                      .dwcfi  undefined, 20
+     474                      .dwcfi  undefined, 21
+     475                      .dwcfi  undefined, 22
+     476                      .dwcfi  undefined, 23
+     477                      .dwcfi  undefined, 24
+     478                      .dwcfi  undefined, 25
+     479                      .dwcfi  undefined, 26
+     480                      .dwcfi  same_value, 28
+     481                      .dwcfi  undefined, 29
+     482                      .dwcfi  undefined, 30
+     483                      .dwcfi  undefined, 31
+     484                      .dwcfi  undefined, 32
+     485                      .dwcfi  undefined, 33
+     486                      .dwcfi  undefined, 34
+     487                      .dwcfi  undefined, 35
+     488                      .dwcfi  undefined, 36
+     489                      .dwcfi  undefined, 37
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE   10
+
+     490                      .dwcfi  undefined, 38
+     491                      .dwcfi  undefined, 75
+     492                      .dwcfi  undefined, 76
+     493                      .dwcfi  undefined, 77
+     494                      .dwcfi  undefined, 4
+     495                      .dwcfi  same_value, 6
+     496                      .dwcfi  same_value, 8
+     497                      .dwcfi  same_value, 10
+     498                      .dwcfi  undefined, 12
+     499                      .dwcfi  undefined, 14
+     500                      .dwcfi  undefined, 16
+     501                      .dwcfi  undefined, 17
+     502                      .dwcfi  undefined, 18
+     503                      .dwcfi  undefined, 19
+     504                      .dwcfi  undefined, 5
+     505                      .dwcfi  same_value, 7
+     506                      .dwcfi  same_value, 9
+     507                      .dwcfi  same_value, 11
+     508                      .dwcfi  undefined, 13
+     509                      .dwcfi  undefined, 15
+     510                      .dwcfi  undefined, 43
+     511                      .dwcfi  undefined, 44
+     512                      .dwcfi  undefined, 47
+     513                      .dwcfi  undefined, 48
+     514                      .dwcfi  undefined, 51
+     515                      .dwcfi  undefined, 52
+     516                      .dwcfi  undefined, 55
+     517                      .dwcfi  undefined, 56
+     518                      .dwcfi  same_value, 59
+     519                      .dwcfi  same_value, 60
+     520                      .dwcfi  same_value, 63
+     521                      .dwcfi  same_value, 64
+     522                      .dwcfi  same_value, 67
+     523                      .dwcfi  same_value, 68
+     524                      .dwcfi  same_value, 71
+     525                      .dwcfi  same_value, 72
+     526                      .dwcfi  undefined, 73
+     527                      .dwcfi  undefined, 74
+     528                      .dwcfi  undefined, 39
+     529                      .dwcfi  undefined, 40
+     530                      .dwcfi  undefined, 27
+     531                      .dwcfi  undefined, 78
+     532                      .dwendentry
+     533              
+     534              ;***************************************************************
+     535              ;* DWARF REGISTER MAP                                          *
+     536              ;***************************************************************
+     537              
+     538              $C$DW$11        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AL")
+     539                      .dwattr $C$DW$11, DW_AT_location[DW_OP_reg0]
+     540              $C$DW$12        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AH")
+     541                      .dwattr $C$DW$12, DW_AT_location[DW_OP_reg1]
+     542              $C$DW$13        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PL")
+     543                      .dwattr $C$DW$13, DW_AT_location[DW_OP_reg2]
+     544              $C$DW$14        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PH")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE   11
+
+     545                      .dwattr $C$DW$14, DW_AT_location[DW_OP_reg3]
+     546              $C$DW$15        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+     547                      .dwattr $C$DW$15, DW_AT_location[DW_OP_reg20]
+     548              $C$DW$16        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XT")
+     549                      .dwattr $C$DW$16, DW_AT_location[DW_OP_reg21]
+     550              $C$DW$17        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T")
+     551                      .dwattr $C$DW$17, DW_AT_location[DW_OP_reg22]
+     552              $C$DW$18        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+     553                      .dwattr $C$DW$18, DW_AT_location[DW_OP_reg23]
+     554              $C$DW$19        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+     555                      .dwattr $C$DW$19, DW_AT_location[DW_OP_reg24]
+     556              $C$DW$20        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+     557                      .dwattr $C$DW$20, DW_AT_location[DW_OP_reg25]
+     558              $C$DW$21        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPC")
+     559                      .dwattr $C$DW$21, DW_AT_location[DW_OP_reg26]
+     560              $C$DW$22        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+     561                      .dwattr $C$DW$22, DW_AT_location[DW_OP_reg28]
+     562              $C$DW$23        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("DP")
+     563                      .dwattr $C$DW$23, DW_AT_location[DW_OP_reg29]
+     564              $C$DW$24        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXM")
+     565                      .dwattr $C$DW$24, DW_AT_location[DW_OP_reg30]
+     566              $C$DW$25        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PM")
+     567                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg31]
+     568              $C$DW$26        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("OVM")
+     569                      .dwattr $C$DW$26, DW_AT_location[DW_OP_regx 0x20]
+     570              $C$DW$27        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PAGE0")
+     571                      .dwattr $C$DW$27, DW_AT_location[DW_OP_regx 0x21]
+     572              $C$DW$28        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AMODE")
+     573                      .dwattr $C$DW$28, DW_AT_location[DW_OP_regx 0x22]
+     574              $C$DW$29        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+     575                      .dwattr $C$DW$29, DW_AT_location[DW_OP_regx 0x23]
+     576              $C$DW$30        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IFR")
+     577                      .dwattr $C$DW$30, DW_AT_location[DW_OP_regx 0x24]
+     578              $C$DW$31        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IER")
+     579                      .dwattr $C$DW$31, DW_AT_location[DW_OP_regx 0x25]
+     580              $C$DW$32        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("V")
+     581                      .dwattr $C$DW$32, DW_AT_location[DW_OP_regx 0x26]
+     582              $C$DW$33        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PSEUDOH")
+     583                      .dwattr $C$DW$33, DW_AT_location[DW_OP_regx 0x4c]
+     584              $C$DW$34        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("VOL")
+     585                      .dwattr $C$DW$34, DW_AT_location[DW_OP_regx 0x4d]
+     586              $C$DW$35        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+     587                      .dwattr $C$DW$35, DW_AT_location[DW_OP_reg4]
+     588              $C$DW$36        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+     589                      .dwattr $C$DW$36, DW_AT_location[DW_OP_reg6]
+     590              $C$DW$37        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+     591                      .dwattr $C$DW$37, DW_AT_location[DW_OP_reg8]
+     592              $C$DW$38        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+     593                      .dwattr $C$DW$38, DW_AT_location[DW_OP_reg10]
+     594              $C$DW$39        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+     595                      .dwattr $C$DW$39, DW_AT_location[DW_OP_reg12]
+     596              $C$DW$40        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+     597                      .dwattr $C$DW$40, DW_AT_location[DW_OP_reg14]
+     598              $C$DW$41        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+     599                      .dwattr $C$DW$41, DW_AT_location[DW_OP_reg16]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE   12
+
+     600              $C$DW$42        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+     601                      .dwattr $C$DW$42, DW_AT_location[DW_OP_reg17]
+     602              $C$DW$43        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+     603                      .dwattr $C$DW$43, DW_AT_location[DW_OP_reg18]
+     604              $C$DW$44        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+     605                      .dwattr $C$DW$44, DW_AT_location[DW_OP_reg19]
+     606              $C$DW$45        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+     607                      .dwattr $C$DW$45, DW_AT_location[DW_OP_reg5]
+     608              $C$DW$46        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+     609                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg7]
+     610              $C$DW$47        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+     611                      .dwattr $C$DW$47, DW_AT_location[DW_OP_reg9]
+     612              $C$DW$48        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+     613                      .dwattr $C$DW$48, DW_AT_location[DW_OP_reg11]
+     614              $C$DW$49        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+     615                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg13]
+     616              $C$DW$50        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+     617                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg15]
+     618              $C$DW$51        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0HL")
+     619                      .dwattr $C$DW$51, DW_AT_location[DW_OP_regx 0x2b]
+     620              $C$DW$52        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0H")
+     621                      .dwattr $C$DW$52, DW_AT_location[DW_OP_regx 0x2c]
+     622              $C$DW$53        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1HL")
+     623                      .dwattr $C$DW$53, DW_AT_location[DW_OP_regx 0x2f]
+     624              $C$DW$54        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1H")
+     625                      .dwattr $C$DW$54, DW_AT_location[DW_OP_regx 0x30]
+     626              $C$DW$55        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2HL")
+     627                      .dwattr $C$DW$55, DW_AT_location[DW_OP_regx 0x33]
+     628              $C$DW$56        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2H")
+     629                      .dwattr $C$DW$56, DW_AT_location[DW_OP_regx 0x34]
+     630              $C$DW$57        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3HL")
+     631                      .dwattr $C$DW$57, DW_AT_location[DW_OP_regx 0x37]
+     632              $C$DW$58        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3H")
+     633                      .dwattr $C$DW$58, DW_AT_location[DW_OP_regx 0x38]
+     634              $C$DW$59        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4HL")
+     635                      .dwattr $C$DW$59, DW_AT_location[DW_OP_regx 0x3b]
+     636              $C$DW$60        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4H")
+     637                      .dwattr $C$DW$60, DW_AT_location[DW_OP_regx 0x3c]
+     638              $C$DW$61        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5HL")
+     639                      .dwattr $C$DW$61, DW_AT_location[DW_OP_regx 0x3f]
+     640              $C$DW$62        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5H")
+     641                      .dwattr $C$DW$62, DW_AT_location[DW_OP_regx 0x40]
+     642              $C$DW$63        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6HL")
+     643                      .dwattr $C$DW$63, DW_AT_location[DW_OP_regx 0x43]
+     644              $C$DW$64        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6H")
+     645                      .dwattr $C$DW$64, DW_AT_location[DW_OP_regx 0x44]
+     646              $C$DW$65        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7HL")
+     647                      .dwattr $C$DW$65, DW_AT_location[DW_OP_regx 0x47]
+     648              $C$DW$66        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7H")
+     649                      .dwattr $C$DW$66, DW_AT_location[DW_OP_regx 0x48]
+     650              $C$DW$67        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RBL")
+     651                      .dwattr $C$DW$67, DW_AT_location[DW_OP_regx 0x49]
+     652              $C$DW$68        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RB")
+     653                      .dwattr $C$DW$68, DW_AT_location[DW_OP_regx 0x4a]
+     654              $C$DW$69        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STFL")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:07 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0274810                           PAGE   13
+
+     655                      .dwattr $C$DW$69, DW_AT_location[DW_OP_regx 0x27]
+     656              $C$DW$70        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STF")
+     657                      .dwattr $C$DW$70, DW_AT_location[DW_OP_regx 0x28]
+     658              $C$DW$71        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FPUHAZ")
+     659                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg27]
+     660              $C$DW$72        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+     661                      .dwattr $C$DW$72, DW_AT_location[DW_OP_regx 0x4e]
+     662                      .dwendtag $C$DW$CU
+     663              
+
+No Assembly Errors, No Assembly Warnings

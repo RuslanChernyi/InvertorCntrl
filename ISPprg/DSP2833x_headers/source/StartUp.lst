@@ -1,0 +1,18 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:26 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+../DSP2833x_headers/source/StartUp.asm                               PAGE    1
+
+       1              ;
+       2              ;запуск системы при старте без дебагера
+       3              ;
+       4              ;
+       5                .ref _c_int00
+       6              
+       7 00000000            .sect "codestart"
+       8 00000000 0040!      LB _c_int00                        ;branch to start of code
+         00000001 0000 
+       9              
+      10                      .end
+
+No Assembly Errors, No Assembly Warnings

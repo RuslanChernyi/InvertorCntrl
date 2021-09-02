@@ -1,0 +1,29 @@
+/************************************************************
+определение особенностей работы протокола MODBUS
+************************************************************/
+
+ #ifndef ____MODBUS_DEF____
+ 
+ #define ____MODBUS_DEF____
+  
+#define MAX_CNT_RX 127
+#define _MAX_MSG_ASCII (MAX_CNT_RX/2)
+
+ #define _GOOD 0            /*исполнено*/
+ #define _NOT_ACK   1       /*исполнение не возможно*/
+ #define _UnKnownCommand 2  /*неизвестная комманда*/
+ 
+ #define cMaxMssage 64      /*максимальная длинна ASCII кода*/
+ 
+ #define STOP_1 0x0d
+ #define STOP_2 0x0a
+ #define _START ':'
+ 
+ typedef unsigned char ACK;
+ 
+#define _READ_COILS_CMD 0x01
+#define _READ_INPUT_BIT_CMD 0x02
+#define _READ_REGISTER_CMD 0x03
+#define _READ_INP_REG_CMD 0x04
+ 
+ #endif 

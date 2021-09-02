@@ -1,0 +1,893 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v6.2.7 *
+       3              ;* Date/Time created: Thu Jul 02 08:31:35 2015                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --diag_wrap=off --float_support=fpu32 --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../Aqua/AquaRun.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v6.2.7 Copyright (c) 1996-2014 Texas I
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\ActiveProject\EKT5\PKMT_NONBIOS\InvertorCntrl\ISPprg")
+      13              
+      14              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("clrStatusOs")
+      15                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_clrStatusOs")
+      16                      .dwattr $C$DW$1, DW_AT_declaration
+      17                      .dwattr $C$DW$1, DW_AT_external
+      18              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      19                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$19)
+      20                      .dwendtag $C$DW$1
+      21              
+      22              
+      23              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlPIDregulator")
+      24                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_cntrlPIDregulator")
+      25                      .dwattr $C$DW$3, DW_AT_declaration
+      26                      .dwattr $C$DW$3, DW_AT_external
+      27              
+      28              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("setStatusOs")
+      29                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_setStatusOs")
+      30                      .dwattr $C$DW$4, DW_AT_declaration
+      31                      .dwattr $C$DW$4, DW_AT_external
+      32              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      33                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$19)
+      34                      .dwendtag $C$DW$4
+      35              
+      36              
+      37              $C$DW$6 .dwtag  DW_TAG_subprogram, DW_AT_name("testStatusConvertor")
+      38                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_testStatusConvertor")
+      39                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$29)
+      40                      .dwattr $C$DW$6, DW_AT_declaration
+      41                      .dwattr $C$DW$6, DW_AT_external
+      42              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      43                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$19)
+      44                      .dwendtag $C$DW$6
+      45              
+      46              
+      47              $C$DW$8 .dwtag  DW_TAG_subprogram, DW_AT_name("getPidOs")
+      48                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_getPidOs")
+      49                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$16)
+      50                      .dwattr $C$DW$8, DW_AT_declaration
+      51                      .dwattr $C$DW$8, DW_AT_external
+      52              
+      53              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("getNormaOs")
+      54                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_getNormaOs")
+      55                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$16)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    2
+
+      56                      .dwattr $C$DW$9, DW_AT_declaration
+      57                      .dwattr $C$DW$9, DW_AT_external
+      58              
+      59              $C$DW$10        .dwtag  DW_TAG_subprogram, DW_AT_name("getAnalogOs")
+      60                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_getAnalogOs")
+      61                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$16)
+      62                      .dwattr $C$DW$10, DW_AT_declaration
+      63                      .dwattr $C$DW$10, DW_AT_external
+      64              
+      65              $C$DW$11        .dwtag  DW_TAG_subprogram, DW_AT_name("getAquaFmax")
+      66                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_getAquaFmax")
+      67                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$16)
+      68                      .dwattr $C$DW$11, DW_AT_declaration
+      69                      .dwattr $C$DW$11, DW_AT_external
+      70              ;       C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin\ac2000.exe -@C:\\Users\\Tester\\AppData\\Local\\Temp\\0478
+      71 00000000               .sect   ".text"
+      72                      .clink
+      73                      .global _runWaterPcntrl
+      74              
+      75              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("runWaterPcntrl")
+      76                      .dwattr $C$DW$12, DW_AT_low_pc(_runWaterPcntrl)
+      77                      .dwattr $C$DW$12, DW_AT_high_pc(0x00)
+      78                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_runWaterPcntrl")
+      79                      .dwattr $C$DW$12, DW_AT_external
+      80                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$19)
+      81                      .dwattr $C$DW$12, DW_AT_TI_begin_file("../Aqua/AquaRun.c")
+      82                      .dwattr $C$DW$12, DW_AT_TI_begin_line(0x0a)
+      83                      .dwattr $C$DW$12, DW_AT_TI_begin_column(0x08)
+      84                      .dwattr $C$DW$12, DW_AT_TI_max_frame_size(-8)
+      85                      .dwpsn  file "../Aqua/AquaRun.c",line 11,column 51,is_stmt,address _runWaterPcntrl
+      86              
+      87                      .dwfde $C$DW$CIE, _runWaterPcntrl
+      88              $C$DW$13        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Ftask")
+      89                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_Ftask")
+      90                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$25)
+      91                      .dwattr $C$DW$13, DW_AT_location[DW_OP_reg12]
+      92              $C$DW$14        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Pmin")
+      93                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_Pmin")
+      94                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$25)
+      95                      .dwattr $C$DW$14, DW_AT_location[DW_OP_reg14]
+      96              $C$DW$15        .dwtag  DW_TAG_formal_parameter, DW_AT_name("state")
+      97                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_state")
+      98                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$24)
+      99                      .dwattr $C$DW$15, DW_AT_location[DW_OP_breg20 -10]
+     100              
+     101              ;***************************************************************
+     102              ;* FNAME: _runWaterPcntrl               FR SIZE:   6           *
+     103              ;*                                                             *
+     104              ;* FUNCTION ENVIRONMENT                                        *
+     105              ;*                                                             *
+     106              ;* FUNCTION PROPERTIES                                         *
+     107              ;*                            0 Parameter,  6 Auto,  0 SOE     *
+     108              ;***************************************************************
+     109              
+     110 00000000       _runWaterPcntrl:
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    3
+
+     111                      .dwcfi  cfa_offset, -2
+     112                      .dwcfi  save_reg_to_mem, 26, 0
+     113                      .dwcfi  save_reg_to_reg, 78, 26
+     114 00000000 FE06          ADDB      SP,#6                 ; [CPU_U] 
+     115                      .dwcfi  cfa_offset, -8
+     116              $C$DW$16        .dwtag  DW_TAG_variable, DW_AT_name("Ftask")
+     117                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_Ftask")
+     118                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$25)
+     119                      .dwattr $C$DW$16, DW_AT_location[DW_OP_breg20 -2]
+     120              $C$DW$17        .dwtag  DW_TAG_variable, DW_AT_name("Pmin")
+     121                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_Pmin")
+     122                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$25)
+     123                      .dwattr $C$DW$17, DW_AT_location[DW_OP_breg20 -4]
+     124              $C$DW$18        .dwtag  DW_TAG_variable, DW_AT_name("tmp")
+     125                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_tmp")
+     126                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$16)
+     127                      .dwattr $C$DW$18, DW_AT_location[DW_OP_breg20 -6]
+     128 00000001 A044          MOVL      *-SP[4],XAR5          ; [CPU_] |11| 
+     129 00000002 A842          MOVL      *-SP[2],XAR4          ; [CPU_] |11| 
+     130                      .dwpsn  file "../Aqua/AquaRun.c",line 13,column 5,is_stmt
+     131              $C$DW$19        .dwtag  DW_TAG_TI_branch
+     132                      .dwattr $C$DW$19, DW_AT_low_pc(0x00)
+     133                      .dwattr $C$DW$19, DW_AT_name("_cntrlPIDregulator")
+     134                      .dwattr $C$DW$19, DW_AT_TI_call
+     135 00000003 7640!         LCR       #_cntrlPIDregulator   ; [CPU_] |13| 
+         00000004 0000 
+     136                      ; call occurs [#_cntrlPIDregulator] ; [] |13| 
+     137                      .dwpsn  file "../Aqua/AquaRun.c",line 14,column 5,is_stmt
+     138              $C$DW$20        .dwtag  DW_TAG_TI_branch
+     139                      .dwattr $C$DW$20, DW_AT_low_pc(0x00)
+     140                      .dwattr $C$DW$20, DW_AT_name("_getPidOs")
+     141                      .dwattr $C$DW$20, DW_AT_TI_call
+     142 00000005 7640!         LCR       #_getPidOs            ; [CPU_] |14| 
+         00000006 0000 
+     143                      ; call occurs [#_getPidOs] ; [] |14| 
+     144 00000007 E203          MOV32     *-SP[6],R0H           ; [CPU_] |14| 
+         00000008 0046 
+     145                      .dwpsn  file "../Aqua/AquaRun.c",line 16,column 5,is_stmt
+     146 00000009 8A42          MOVL      XAR4,*-SP[2]          ; [CPU_] |16| 
+     147 0000000a 0646          MOVL      ACC,*-SP[6]           ; [CPU_] |16| 
+     148 0000000b 1EC4          MOVL      *+XAR4[0],ACC         ; [CPU_] |16| 
+     149                      .dwpsn  file "../Aqua/AquaRun.c",line 17,column 5,is_stmt
+     150 0000000c 6F33          B         $C$L7,UNC             ; [CPU_] |17| 
+     151                      ; branch occurs ; [] |17| 
+     152 0000000d       $C$L1:    
+     153                      .dwpsn  file "../Aqua/AquaRun.c",line 19,column 13,is_stmt
+     154 0000000d 8A4A          MOVL      XAR4,*-SP[10]         ; [CPU_] |19| 
+     155 0000000e 56BF          MOVB      *+XAR4[0],#9,UNC      ; [CPU_] |19| 
+         0000000f 09C4 
+     156                      .dwpsn  file "../Aqua/AquaRun.c",line 20,column 13,is_stmt
+     157 00000010 9A05          MOVB      AL,#5                 ; [CPU_] |20| 
+     158 00000011 6F3D          B         $C$L10,UNC            ; [CPU_] |20| 
+     159                      ; branch occurs ; [] |20| 
+     160 00000012       $C$L2:    
+     161                      .dwpsn  file "../Aqua/AquaRun.c",line 23,column 13,is_stmt
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    4
+
+     162 00000012 8A4A          MOVL      XAR4,*-SP[10]         ; [CPU_] |23| 
+     163 00000013 56BF          MOVB      *+XAR4[0],#8,UNC      ; [CPU_] |23| 
+         00000014 08C4 
+     164                      .dwpsn  file "../Aqua/AquaRun.c",line 24,column 13,is_stmt
+     165 00000015 9A05          MOVB      AL,#5                 ; [CPU_] |24| 
+     166 00000016 6F38          B         $C$L10,UNC            ; [CPU_] |24| 
+     167                      ; branch occurs ; [] |24| 
+     168 00000017       $C$L3:    
+     169                      .dwpsn  file "../Aqua/AquaRun.c",line 27,column 13,is_stmt
+     170              $C$DW$21        .dwtag  DW_TAG_TI_branch
+     171                      .dwattr $C$DW$21, DW_AT_low_pc(0x00)
+     172                      .dwattr $C$DW$21, DW_AT_name("_getAquaFmax")
+     173                      .dwattr $C$DW$21, DW_AT_TI_call
+     174 00000017 7640!         LCR       #_getAquaFmax         ; [CPU_] |27| 
+         00000018 0000 
+     175                      ; call occurs [#_getAquaFmax] ; [] |27| 
+     176 00000019 8A42          MOVL      XAR4,*-SP[2]          ; [CPU_] |27| 
+     177 0000001a E6CF          MOV32     R1H,R0H               ; [CPU_] |27| 
+         0000001b 0001 
+     178 0000001c E2AF          MOV32     R0H,*+XAR4[0]         ; [CPU_] |27| 
+         0000001d 00C4 
+     179              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     180                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     181                      .dwattr $C$DW$22, DW_AT_name("_testDryRun")
+     182                      .dwattr $C$DW$22, DW_AT_TI_call
+     183 0000001e 7640'         LCR       #_testDryRun          ; [CPU_] |27| 
+         0000001f 0050 
+     184                      ; call occurs [#_testDryRun] ; [] |27| 
+     185 00000020 5200          CMPB      AL,#0                 ; [CPU_] |27| 
+     186 00000021 EC07          BF        $C$L4,EQ              ; [CPU_] |27| 
+     187                      ; branchcc occurs ; [] |27| 
+     188                      .dwpsn  file "../Aqua/AquaRun.c",line 28,column 17,is_stmt
+     189 00000022 28A9          MOV       AL,#256               ; [CPU_] |28| 
+         00000023 0100 
+     190              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     191                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     192                      .dwattr $C$DW$23, DW_AT_name("_setStatusOs")
+     193                      .dwattr $C$DW$23, DW_AT_TI_call
+     194 00000024 7640!         LCR       #_setStatusOs         ; [CPU_] |28| 
+         00000025 0000 
+     195                      ; call occurs [#_setStatusOs] ; [] |28| 
+     196                      .dwpsn  file "../Aqua/AquaRun.c",line 29,column 17,is_stmt
+     197 00000026 9A07          MOVB      AL,#7                 ; [CPU_] |29| 
+     198 00000027 6F27          B         $C$L10,UNC            ; [CPU_] |29| 
+     199                      ; branch occurs ; [] |29| 
+     200 00000028       $C$L4:    
+     201                      .dwpsn  file "../Aqua/AquaRun.c",line 31,column 13,is_stmt
+     202              $C$DW$24        .dwtag  DW_TAG_TI_branch
+     203                      .dwattr $C$DW$24, DW_AT_low_pc(0x00)
+     204                      .dwattr $C$DW$24, DW_AT_name("_getAquaFmax")
+     205                      .dwattr $C$DW$24, DW_AT_TI_call
+     206 00000028 7640!         LCR       #_getAquaFmax         ; [CPU_] |31| 
+         00000029 0000 
+     207                      ; call occurs [#_getAquaFmax] ; [] |31| 
+     208 0000002a 8A42          MOVL      XAR4,*-SP[2]          ; [CPU_] |31| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    5
+
+     209 0000002b E6CF          MOV32     R1H,R0H               ; [CPU_] |31| 
+         0000002c 0001 
+     210 0000002d E2AF          MOV32     R0H,*+XAR4[0]         ; [CPU_] |31| 
+         0000002e 00C4 
+     211              $C$DW$25        .dwtag  DW_TAG_TI_branch
+     212                      .dwattr $C$DW$25, DW_AT_low_pc(0x00)
+     213                      .dwattr $C$DW$25, DW_AT_name("_testEndOfRange")
+     214                      .dwattr $C$DW$25, DW_AT_TI_call
+     215 0000002f 7640'         LCR       #_testEndOfRange      ; [CPU_] |31| 
+         00000030 0078 
+     216                      ; call occurs [#_testEndOfRange] ; [] |31| 
+     217 00000031 5200          CMPB      AL,#0                 ; [CPU_] |31| 
+     218 00000032 EC06          BF        $C$L5,EQ              ; [CPU_] |31| 
+     219                      ; branchcc occurs ; [] |31| 
+     220                      .dwpsn  file "../Aqua/AquaRun.c",line 32,column 17,is_stmt
+     221 00000033 28A9          MOV       AL,#512               ; [CPU_] |32| 
+         00000034 0200 
+     222              $C$DW$26        .dwtag  DW_TAG_TI_branch
+     223                      .dwattr $C$DW$26, DW_AT_low_pc(0x00)
+     224                      .dwattr $C$DW$26, DW_AT_name("_setStatusOs")
+     225                      .dwattr $C$DW$26, DW_AT_TI_call
+     226 00000035 7640!         LCR       #_setStatusOs         ; [CPU_] |32| 
+         00000036 0000 
+     227                      ; call occurs [#_setStatusOs] ; [] |32| 
+     228                      .dwpsn  file "../Aqua/AquaRun.c",line 33,column 13,is_stmt
+     229 00000037 6F05          B         $C$L6,UNC             ; [CPU_] |33| 
+     230                      ; branch occurs ; [] |33| 
+     231 00000038       $C$L5:    
+     232                      .dwpsn  file "../Aqua/AquaRun.c",line 34,column 17,is_stmt
+     233 00000038 28A9          MOV       AL,#512               ; [CPU_] |34| 
+         00000039 0200 
+     234              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     235                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     236                      .dwattr $C$DW$27, DW_AT_name("_clrStatusOs")
+     237                      .dwattr $C$DW$27, DW_AT_TI_call
+     238 0000003a 7640!         LCR       #_clrStatusOs         ; [CPU_] |34| 
+         0000003b 0000 
+     239                      ; call occurs [#_clrStatusOs] ; [] |34| 
+     240 0000003c       $C$L6:    
+     241                      .dwpsn  file "../Aqua/AquaRun.c",line 36,column 13,is_stmt
+     242 0000003c 8A4A          MOVL      XAR4,*-SP[10]         ; [CPU_] |36| 
+     243 0000003d 2BC4          MOV       *+XAR4[0],#0          ; [CPU_] |36| 
+     244                      .dwpsn  file "../Aqua/AquaRun.c",line 38,column 5,is_stmt
+     245 0000003e 6F08          B         $C$L8,UNC             ; [CPU_] |38| 
+     246                      ; branch occurs ; [] |38| 
+     247 0000003f       $C$L7:    
+     248                      .dwpsn  file "../Aqua/AquaRun.c",line 17,column 5,is_stmt
+     249 0000003f 8A4A          MOVL      XAR4,*-SP[10]         ; [CPU_] |17| 
+     250 00000040 92C4          MOV       AL,*+XAR4[0]          ; [CPU_] |17| 
+     251 00000041 5208          CMPB      AL,#8                 ; [CPU_] |17| 
+     252 00000042 ECD5          BF        $C$L3,EQ              ; [CPU_] |17| 
+     253                      ; branchcc occurs ; [] |17| 
+     254 00000043 5209          CMPB      AL,#9                 ; [CPU_] |17| 
+     255 00000044 ECCE          BF        $C$L2,EQ              ; [CPU_] |17| 
+     256                      ; branchcc occurs ; [] |17| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    6
+
+     257 00000045 6FC8          B         $C$L1,UNC             ; [CPU_] |17| 
+     258                      ; branch occurs ; [] |17| 
+     259 00000046       $C$L8:    
+     260                      .dwpsn  file "../Aqua/AquaRun.c",line 39,column 2,is_stmt
+     261 00000046 9A04          MOVB      AL,#4                 ; [CPU_] |39| 
+     262              $C$DW$28        .dwtag  DW_TAG_TI_branch
+     263                      .dwattr $C$DW$28, DW_AT_low_pc(0x00)
+     264                      .dwattr $C$DW$28, DW_AT_name("_testStatusConvertor")
+     265                      .dwattr $C$DW$28, DW_AT_TI_call
+     266 00000047 7640!         LCR       #_testStatusConvertor ; [CPU_] |39| 
+         00000048 0000 
+     267                      ; call occurs [#_testStatusConvertor] ; [] |39| 
+     268 00000049 5200          CMPB      AL,#0                 ; [CPU_] |39| 
+     269 0000004a EC03          BF        $C$L9,EQ              ; [CPU_] |39| 
+     270                      ; branchcc occurs ; [] |39| 
+     271                      .dwpsn  file "../Aqua/AquaRun.c",line 40,column 3,is_stmt
+     272 0000004b 9A05          MOVB      AL,#5                 ; [CPU_] |40| 
+     273 0000004c 6F02          B         $C$L10,UNC            ; [CPU_] |40| 
+     274                      ; branch occurs ; [] |40| 
+     275 0000004d       $C$L9:    
+     276                      .dwpsn  file "../Aqua/AquaRun.c",line 42,column 3,is_stmt
+     277 0000004d 9A06          MOVB      AL,#6                 ; [CPU_] |42| 
+     278 0000004e       $C$L10:    
+     279                      .dwpsn  file "../Aqua/AquaRun.c",line 44,column 1,is_stmt
+     280 0000004e FE86          SUBB      SP,#6                 ; [CPU_U] 
+     281                      .dwcfi  cfa_offset, -2
+     282              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     283                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     284                      .dwattr $C$DW$29, DW_AT_TI_return
+     285 0000004f 0006          LRETR     ; [CPU_] 
+     286                      ; return occurs ; [] 
+     287                      .dwattr $C$DW$12, DW_AT_TI_end_file("../Aqua/AquaRun.c")
+     288                      .dwattr $C$DW$12, DW_AT_TI_end_line(0x2c)
+     289                      .dwattr $C$DW$12, DW_AT_TI_end_column(0x01)
+     290                      .dwendentry
+     291                      .dwendtag $C$DW$12
+     292              
+     293 00000050               .sect   ".text"
+     294                      .clink
+     295                      .global _testDryRun
+     296              
+     297              $C$DW$30        .dwtag  DW_TAG_subprogram, DW_AT_name("testDryRun")
+     298                      .dwattr $C$DW$30, DW_AT_low_pc(_testDryRun)
+     299                      .dwattr $C$DW$30, DW_AT_high_pc(0x00)
+     300                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_testDryRun")
+     301                      .dwattr $C$DW$30, DW_AT_external
+     302                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$19)
+     303                      .dwattr $C$DW$30, DW_AT_TI_begin_file("../Aqua/AquaRun.c")
+     304                      .dwattr $C$DW$30, DW_AT_TI_begin_line(0x2e)
+     305                      .dwattr $C$DW$30, DW_AT_TI_begin_column(0x08)
+     306                      .dwattr $C$DW$30, DW_AT_TI_max_frame_size(-10)
+     307                      .dwpsn  file "../Aqua/AquaRun.c",line 46,column 43,is_stmt,address _testDryRun
+     308              
+     309                      .dwfde $C$DW$CIE, _testDryRun
+     310              $C$DW$31        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Ftask")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    7
+
+     311                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_Ftask")
+     312                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$16)
+     313                      .dwattr $C$DW$31, DW_AT_location[DW_OP_regx 0x2b]
+     314              $C$DW$32        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Fmax")
+     315                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_Fmax")
+     316                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$16)
+     317                      .dwattr $C$DW$32, DW_AT_location[DW_OP_regx 0x2f]
+     318              
+     319              ;***************************************************************
+     320              ;* FNAME: _testDryRun                   FR SIZE:   8           *
+     321              ;*                                                             *
+     322              ;* FUNCTION ENVIRONMENT                                        *
+     323              ;*                                                             *
+     324              ;* FUNCTION PROPERTIES                                         *
+     325              ;*                            2 Parameter,  6 Auto,  0 SOE     *
+     326              ;***************************************************************
+     327              
+     328 00000050       _testDryRun:
+     329                      .dwcfi  cfa_offset, -2
+     330                      .dwcfi  save_reg_to_mem, 26, 0
+     331                      .dwcfi  save_reg_to_reg, 78, 26
+     332 00000050 FE08          ADDB      SP,#8                 ; [CPU_U] 
+     333                      .dwcfi  cfa_offset, -10
+     334              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("Ftask")
+     335                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_Ftask")
+     336                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$16)
+     337                      .dwattr $C$DW$33, DW_AT_location[DW_OP_breg20 -4]
+     338              $C$DW$34        .dwtag  DW_TAG_variable, DW_AT_name("Fmax")
+     339                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_Fmax")
+     340                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$16)
+     341                      .dwattr $C$DW$34, DW_AT_location[DW_OP_breg20 -6]
+     342              $C$DW$35        .dwtag  DW_TAG_variable, DW_AT_name("p")
+     343                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_p")
+     344                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$16)
+     345                      .dwattr $C$DW$35, DW_AT_location[DW_OP_breg20 -8]
+     346 00000051 E203          MOV32     *-SP[6],R1H           ; [CPU_] |46| 
+         00000052 0146 
+     347 00000053 E203          MOV32     *-SP[4],R0H           ; [CPU_] |46| 
+         00000054 0044 
+     348                      .dwpsn  file "../Aqua/AquaRun.c",line 49,column 5,is_stmt
+     349 00000055 E801          MOVIZ     R0H,#16204            ; [CPU_] |49| 
+         00000056 FA60 
+     350 00000057 E80E          MOVXI     R0H,#52429            ; [CPU_] |49| 
+         00000058 6668 
+     351 00000059 E700          MPYF32    R0H,R1H,R0H           ; [CPU_] |49| 
+         0000005a 0008 
+     352 0000005b E2AF          MOV32     R1H,*-SP[4]           ; [CPU_] |49| 
+         0000005c 0144 
+     353 0000005d E694          CMPF32    R1H,R0H               ; [CPU_] |49| 
+         0000005e 0001 
+     354 0000005f AD14          MOVST0    ZF, NF                ; [CPU_] |49| 
+     355 00000060 6515          B         $C$L11,LEQ            ; [CPU_] |49| 
+     356                      ; branchcc occurs ; [] |49| 
+     357                      .dwpsn  file "../Aqua/AquaRun.c",line 50,column 9,is_stmt
+     358              $C$DW$36        .dwtag  DW_TAG_TI_branch
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    8
+
+     359                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     360                      .dwattr $C$DW$36, DW_AT_name("_getAnalogOs")
+     361                      .dwattr $C$DW$36, DW_AT_TI_call
+     362 00000061 7640!         LCR       #_getAnalogOs         ; [CPU_] |50| 
+         00000062 0000 
+     363                      ; call occurs [#_getAnalogOs] ; [] |50| 
+     364 00000063 E203          MOV32     *-SP[8],R0H           ; [CPU_] |50| 
+         00000064 0048 
+     365                      .dwpsn  file "../Aqua/AquaRun.c",line 51,column 9,is_stmt
+     366              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     367                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     368                      .dwattr $C$DW$37, DW_AT_name("_getNormaOs")
+     369                      .dwattr $C$DW$37, DW_AT_TI_call
+     370 00000065 7640!         LCR       #_getNormaOs          ; [CPU_] |51| 
+         00000066 0000 
+     371                      ; call occurs [#_getNormaOs] ; [] |51| 
+     372 00000067 E801          MOVIZ     R1H,#16179            ; [CPU_] |51| 
+         00000068 F999 
+     373 00000069 E809          MOVXI     R1H,#13107            ; [CPU_] |51| 
+         0000006a 9999 
+     374 0000006b E700          MPYF32    R0H,R0H,R1H           ; [CPU_] |51| 
+         0000006c 0040 
+     375 0000006d E2AF          MOV32     R3H,*-SP[8]           ; [CPU_] |51| 
+         0000006e 0348 
+     376 0000006f E694          CMPF32    R3H,R0H               ; [CPU_] |51| 
+         00000070 0003 
+     377 00000071 AD14          MOVST0    ZF, NF                ; [CPU_] |51| 
+     378 00000072 6303          B         $C$L11,GEQ            ; [CPU_] |51| 
+     379                      ; branchcc occurs ; [] |51| 
+     380                      .dwpsn  file "../Aqua/AquaRun.c",line 52,column 13,is_stmt
+     381 00000073 9A01          MOVB      AL,#1                 ; [CPU_] |52| 
+     382 00000074 6F02          B         $C$L12,UNC            ; [CPU_] |52| 
+     383                      ; branch occurs ; [] |52| 
+     384 00000075       $C$L11:    
+     385                      .dwpsn  file "../Aqua/AquaRun.c",line 55,column 5,is_stmt
+     386 00000075 9A00          MOVB      AL,#0                 ; [CPU_] |55| 
+     387 00000076       $C$L12:    
+     388                      .dwpsn  file "../Aqua/AquaRun.c",line 56,column 1,is_stmt
+     389 00000076 FE88          SUBB      SP,#8                 ; [CPU_U] 
+     390                      .dwcfi  cfa_offset, -2
+     391              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     392                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     393                      .dwattr $C$DW$38, DW_AT_TI_return
+     394 00000077 0006          LRETR     ; [CPU_] 
+     395                      ; return occurs ; [] 
+     396                      .dwattr $C$DW$30, DW_AT_TI_end_file("../Aqua/AquaRun.c")
+     397                      .dwattr $C$DW$30, DW_AT_TI_end_line(0x38)
+     398                      .dwattr $C$DW$30, DW_AT_TI_end_column(0x01)
+     399                      .dwendentry
+     400                      .dwendtag $C$DW$30
+     401              
+     402 00000078               .sect   ".text"
+     403                      .clink
+     404                      .global _testEndOfRange
+     405              
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE    9
+
+     406              $C$DW$39        .dwtag  DW_TAG_subprogram, DW_AT_name("testEndOfRange")
+     407                      .dwattr $C$DW$39, DW_AT_low_pc(_testEndOfRange)
+     408                      .dwattr $C$DW$39, DW_AT_high_pc(0x00)
+     409                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_testEndOfRange")
+     410                      .dwattr $C$DW$39, DW_AT_external
+     411                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$19)
+     412                      .dwattr $C$DW$39, DW_AT_TI_begin_file("../Aqua/AquaRun.c")
+     413                      .dwattr $C$DW$39, DW_AT_TI_begin_line(0x3a)
+     414                      .dwattr $C$DW$39, DW_AT_TI_begin_column(0x08)
+     415                      .dwattr $C$DW$39, DW_AT_TI_max_frame_size(-8)
+     416                      .dwpsn  file "../Aqua/AquaRun.c",line 58,column 47,is_stmt,address _testEndOfRange
+     417              
+     418                      .dwfde $C$DW$CIE, _testEndOfRange
+     419              $C$DW$40        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Ftask")
+     420                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_Ftask")
+     421                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$16)
+     422                      .dwattr $C$DW$40, DW_AT_location[DW_OP_regx 0x2b]
+     423              $C$DW$41        .dwtag  DW_TAG_formal_parameter, DW_AT_name("Fmax")
+     424                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_Fmax")
+     425                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$16)
+     426                      .dwattr $C$DW$41, DW_AT_location[DW_OP_regx 0x2f]
+     427              
+     428              ;***************************************************************
+     429              ;* FNAME: _testEndOfRange               FR SIZE:   6           *
+     430              ;*                                                             *
+     431              ;* FUNCTION ENVIRONMENT                                        *
+     432              ;*                                                             *
+     433              ;* FUNCTION PROPERTIES                                         *
+     434              ;*                            2 Parameter,  4 Auto,  0 SOE     *
+     435              ;***************************************************************
+     436              
+     437 00000078       _testEndOfRange:
+     438                      .dwcfi  cfa_offset, -2
+     439                      .dwcfi  save_reg_to_mem, 26, 0
+     440                      .dwcfi  save_reg_to_reg, 78, 26
+     441 00000078 FE06          ADDB      SP,#6                 ; [CPU_U] 
+     442                      .dwcfi  cfa_offset, -8
+     443              $C$DW$42        .dwtag  DW_TAG_variable, DW_AT_name("Ftask")
+     444                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("_Ftask")
+     445                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$16)
+     446                      .dwattr $C$DW$42, DW_AT_location[DW_OP_breg20 -4]
+     447              $C$DW$43        .dwtag  DW_TAG_variable, DW_AT_name("Fmax")
+     448                      .dwattr $C$DW$43, DW_AT_TI_symbol_name("_Fmax")
+     449                      .dwattr $C$DW$43, DW_AT_type(*$C$DW$T$16)
+     450                      .dwattr $C$DW$43, DW_AT_location[DW_OP_breg20 -6]
+     451 00000079 E203          MOV32     *-SP[6],R1H           ; [CPU_] |58| 
+         0000007a 0146 
+     452 0000007b E203          MOV32     *-SP[4],R0H           ; [CPU_] |58| 
+         0000007c 0044 
+     453                      .dwpsn  file "../Aqua/AquaRun.c",line 60,column 5,is_stmt
+     454 0000007d E801          MOVIZ     R0H,#16230            ; [CPU_] |60| 
+         0000007e FB30 
+     455 0000007f E80B          MOVXI     R0H,#26214            ; [CPU_] |60| 
+         00000080 3330 
+     456 00000081 E700          MPYF32    R0H,R1H,R0H           ; [CPU_] |60| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   10
+
+         00000082 0008 
+     457 00000083 E2AF          MOV32     R1H,*-SP[4]           ; [CPU_] |60| 
+         00000084 0144 
+     458 00000085 E694          CMPF32    R1H,R0H               ; [CPU_] |60| 
+         00000086 0001 
+     459 00000087 AD14          MOVST0    ZF, NF                ; [CPU_] |60| 
+     460 00000088 6503          B         $C$L13,LEQ            ; [CPU_] |60| 
+     461                      ; branchcc occurs ; [] |60| 
+     462                      .dwpsn  file "../Aqua/AquaRun.c",line 61,column 9,is_stmt
+     463 00000089 9A01          MOVB      AL,#1                 ; [CPU_] |61| 
+     464 0000008a 6F02          B         $C$L14,UNC            ; [CPU_] |61| 
+     465                      ; branch occurs ; [] |61| 
+     466 0000008b       $C$L13:    
+     467                      .dwpsn  file "../Aqua/AquaRun.c",line 63,column 5,is_stmt
+     468 0000008b 9A00          MOVB      AL,#0                 ; [CPU_] |63| 
+     469 0000008c       $C$L14:    
+     470                      .dwpsn  file "../Aqua/AquaRun.c",line 64,column 1,is_stmt
+     471 0000008c FE86          SUBB      SP,#6                 ; [CPU_U] 
+     472                      .dwcfi  cfa_offset, -2
+     473              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     474                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     475                      .dwattr $C$DW$44, DW_AT_TI_return
+     476 0000008d 0006          LRETR     ; [CPU_] 
+     477                      ; return occurs ; [] 
+     478                      .dwattr $C$DW$39, DW_AT_TI_end_file("../Aqua/AquaRun.c")
+     479                      .dwattr $C$DW$39, DW_AT_TI_end_line(0x40)
+     480                      .dwattr $C$DW$39, DW_AT_TI_end_column(0x01)
+     481                      .dwendentry
+     482                      .dwendtag $C$DW$39
+     483              
+     484              ;**************************************************************
+     485              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     486              ;**************************************************************
+     487                      .global _clrStatusOs
+     488                      .global _cntrlPIDregulator
+     489                      .global _setStatusOs
+     490                      .global _testStatusConvertor
+     491                      .global _getPidOs
+     492                      .global _getNormaOs
+     493                      .global _getAnalogOs
+     494                      .global _getAquaFmax
+     495              
+     496              ;***************************************************************
+     497              ;* TYPE INFORMATION                                            *
+     498              ;***************************************************************
+     499              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     500                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     501                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     502                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     503              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     504                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     505                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     506                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     507              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     508                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   11
+
+     509                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     510                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     511              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     512                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     513                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     514                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     515              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     516                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     517                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     518                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     519              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     520                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     521                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     522                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     523              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     524                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     525                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     526                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     527              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     528                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     529                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     530                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     531              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("UINT16")
+     532                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$11)
+     533                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+     534              $C$DW$T$24      .dwtag  DW_TAG_pointer_type
+     535                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$19)
+     536                      .dwattr $C$DW$T$24, DW_AT_address_class(0x16)
+     537              $C$DW$T$29      .dwtag  DW_TAG_typedef, DW_AT_name("UINT8")
+     538                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$11)
+     539                      .dwattr $C$DW$T$29, DW_AT_language(DW_LANG_C)
+     540              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     541                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     542                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     543                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     544              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     545                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     546                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     547                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     548              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     549                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     550                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     551                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     552              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     553                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     554                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     555                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     556              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     557                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     558                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     559                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     560              $C$DW$T$25      .dwtag  DW_TAG_pointer_type
+     561                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$16)
+     562                      .dwattr $C$DW$T$25, DW_AT_address_class(0x16)
+     563              $C$DW$T$17      .dwtag  DW_TAG_base_type
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   12
+
+     564                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     565                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     566                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     567              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     568                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     569                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     570                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+     571                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     572              
+     573              ;***************************************************************
+     574              ;* DWARF CIE ENTRIES                                           *
+     575              ;***************************************************************
+     576              
+     577              $C$DW$CIE       .dwcie 78
+     578                      .dwcfi  cfa_register, 20
+     579                      .dwcfi  cfa_offset, 0
+     580                      .dwcfi  undefined, 0
+     581                      .dwcfi  undefined, 1
+     582                      .dwcfi  undefined, 2
+     583                      .dwcfi  undefined, 3
+     584                      .dwcfi  undefined, 20
+     585                      .dwcfi  undefined, 21
+     586                      .dwcfi  undefined, 22
+     587                      .dwcfi  undefined, 23
+     588                      .dwcfi  undefined, 24
+     589                      .dwcfi  undefined, 25
+     590                      .dwcfi  undefined, 26
+     591                      .dwcfi  same_value, 28
+     592                      .dwcfi  undefined, 29
+     593                      .dwcfi  undefined, 30
+     594                      .dwcfi  undefined, 31
+     595                      .dwcfi  undefined, 32
+     596                      .dwcfi  undefined, 33
+     597                      .dwcfi  undefined, 34
+     598                      .dwcfi  undefined, 35
+     599                      .dwcfi  undefined, 36
+     600                      .dwcfi  undefined, 37
+     601                      .dwcfi  undefined, 38
+     602                      .dwcfi  undefined, 75
+     603                      .dwcfi  undefined, 76
+     604                      .dwcfi  undefined, 77
+     605                      .dwcfi  undefined, 4
+     606                      .dwcfi  same_value, 6
+     607                      .dwcfi  same_value, 8
+     608                      .dwcfi  same_value, 10
+     609                      .dwcfi  undefined, 12
+     610                      .dwcfi  undefined, 14
+     611                      .dwcfi  undefined, 16
+     612                      .dwcfi  undefined, 17
+     613                      .dwcfi  undefined, 18
+     614                      .dwcfi  undefined, 19
+     615                      .dwcfi  undefined, 5
+     616                      .dwcfi  same_value, 7
+     617                      .dwcfi  same_value, 9
+     618                      .dwcfi  same_value, 11
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   13
+
+     619                      .dwcfi  undefined, 13
+     620                      .dwcfi  undefined, 15
+     621                      .dwcfi  undefined, 43
+     622                      .dwcfi  undefined, 44
+     623                      .dwcfi  undefined, 47
+     624                      .dwcfi  undefined, 48
+     625                      .dwcfi  undefined, 51
+     626                      .dwcfi  undefined, 52
+     627                      .dwcfi  undefined, 55
+     628                      .dwcfi  undefined, 56
+     629                      .dwcfi  same_value, 59
+     630                      .dwcfi  same_value, 60
+     631                      .dwcfi  same_value, 63
+     632                      .dwcfi  same_value, 64
+     633                      .dwcfi  same_value, 67
+     634                      .dwcfi  same_value, 68
+     635                      .dwcfi  same_value, 71
+     636                      .dwcfi  same_value, 72
+     637                      .dwcfi  undefined, 73
+     638                      .dwcfi  undefined, 74
+     639                      .dwcfi  undefined, 39
+     640                      .dwcfi  undefined, 40
+     641                      .dwcfi  undefined, 27
+     642                      .dwcfi  undefined, 78
+     643                      .dwendentry
+     644              
+     645              ;***************************************************************
+     646              ;* DWARF REGISTER MAP                                          *
+     647              ;***************************************************************
+     648              
+     649              $C$DW$45        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AL")
+     650                      .dwattr $C$DW$45, DW_AT_location[DW_OP_reg0]
+     651              $C$DW$46        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AH")
+     652                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg1]
+     653              $C$DW$47        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PL")
+     654                      .dwattr $C$DW$47, DW_AT_location[DW_OP_reg2]
+     655              $C$DW$48        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PH")
+     656                      .dwattr $C$DW$48, DW_AT_location[DW_OP_reg3]
+     657              $C$DW$49        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+     658                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg20]
+     659              $C$DW$50        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XT")
+     660                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg21]
+     661              $C$DW$51        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T")
+     662                      .dwattr $C$DW$51, DW_AT_location[DW_OP_reg22]
+     663              $C$DW$52        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+     664                      .dwattr $C$DW$52, DW_AT_location[DW_OP_reg23]
+     665              $C$DW$53        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+     666                      .dwattr $C$DW$53, DW_AT_location[DW_OP_reg24]
+     667              $C$DW$54        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+     668                      .dwattr $C$DW$54, DW_AT_location[DW_OP_reg25]
+     669              $C$DW$55        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPC")
+     670                      .dwattr $C$DW$55, DW_AT_location[DW_OP_reg26]
+     671              $C$DW$56        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+     672                      .dwattr $C$DW$56, DW_AT_location[DW_OP_reg28]
+     673              $C$DW$57        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("DP")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   14
+
+     674                      .dwattr $C$DW$57, DW_AT_location[DW_OP_reg29]
+     675              $C$DW$58        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXM")
+     676                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg30]
+     677              $C$DW$59        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PM")
+     678                      .dwattr $C$DW$59, DW_AT_location[DW_OP_reg31]
+     679              $C$DW$60        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("OVM")
+     680                      .dwattr $C$DW$60, DW_AT_location[DW_OP_regx 0x20]
+     681              $C$DW$61        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PAGE0")
+     682                      .dwattr $C$DW$61, DW_AT_location[DW_OP_regx 0x21]
+     683              $C$DW$62        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AMODE")
+     684                      .dwattr $C$DW$62, DW_AT_location[DW_OP_regx 0x22]
+     685              $C$DW$63        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+     686                      .dwattr $C$DW$63, DW_AT_location[DW_OP_regx 0x23]
+     687              $C$DW$64        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IFR")
+     688                      .dwattr $C$DW$64, DW_AT_location[DW_OP_regx 0x24]
+     689              $C$DW$65        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IER")
+     690                      .dwattr $C$DW$65, DW_AT_location[DW_OP_regx 0x25]
+     691              $C$DW$66        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("V")
+     692                      .dwattr $C$DW$66, DW_AT_location[DW_OP_regx 0x26]
+     693              $C$DW$67        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PSEUDOH")
+     694                      .dwattr $C$DW$67, DW_AT_location[DW_OP_regx 0x4c]
+     695              $C$DW$68        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("VOL")
+     696                      .dwattr $C$DW$68, DW_AT_location[DW_OP_regx 0x4d]
+     697              $C$DW$69        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+     698                      .dwattr $C$DW$69, DW_AT_location[DW_OP_reg4]
+     699              $C$DW$70        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+     700                      .dwattr $C$DW$70, DW_AT_location[DW_OP_reg6]
+     701              $C$DW$71        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+     702                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg8]
+     703              $C$DW$72        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+     704                      .dwattr $C$DW$72, DW_AT_location[DW_OP_reg10]
+     705              $C$DW$73        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+     706                      .dwattr $C$DW$73, DW_AT_location[DW_OP_reg12]
+     707              $C$DW$74        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+     708                      .dwattr $C$DW$74, DW_AT_location[DW_OP_reg14]
+     709              $C$DW$75        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+     710                      .dwattr $C$DW$75, DW_AT_location[DW_OP_reg16]
+     711              $C$DW$76        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+     712                      .dwattr $C$DW$76, DW_AT_location[DW_OP_reg17]
+     713              $C$DW$77        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+     714                      .dwattr $C$DW$77, DW_AT_location[DW_OP_reg18]
+     715              $C$DW$78        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+     716                      .dwattr $C$DW$78, DW_AT_location[DW_OP_reg19]
+     717              $C$DW$79        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+     718                      .dwattr $C$DW$79, DW_AT_location[DW_OP_reg5]
+     719              $C$DW$80        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+     720                      .dwattr $C$DW$80, DW_AT_location[DW_OP_reg7]
+     721              $C$DW$81        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+     722                      .dwattr $C$DW$81, DW_AT_location[DW_OP_reg9]
+     723              $C$DW$82        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+     724                      .dwattr $C$DW$82, DW_AT_location[DW_OP_reg11]
+     725              $C$DW$83        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+     726                      .dwattr $C$DW$83, DW_AT_location[DW_OP_reg13]
+     727              $C$DW$84        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+     728                      .dwattr $C$DW$84, DW_AT_location[DW_OP_reg15]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:35 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0478010                           PAGE   15
+
+     729              $C$DW$85        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0HL")
+     730                      .dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x2b]
+     731              $C$DW$86        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0H")
+     732                      .dwattr $C$DW$86, DW_AT_location[DW_OP_regx 0x2c]
+     733              $C$DW$87        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1HL")
+     734                      .dwattr $C$DW$87, DW_AT_location[DW_OP_regx 0x2f]
+     735              $C$DW$88        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1H")
+     736                      .dwattr $C$DW$88, DW_AT_location[DW_OP_regx 0x30]
+     737              $C$DW$89        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2HL")
+     738                      .dwattr $C$DW$89, DW_AT_location[DW_OP_regx 0x33]
+     739              $C$DW$90        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2H")
+     740                      .dwattr $C$DW$90, DW_AT_location[DW_OP_regx 0x34]
+     741              $C$DW$91        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3HL")
+     742                      .dwattr $C$DW$91, DW_AT_location[DW_OP_regx 0x37]
+     743              $C$DW$92        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3H")
+     744                      .dwattr $C$DW$92, DW_AT_location[DW_OP_regx 0x38]
+     745              $C$DW$93        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4HL")
+     746                      .dwattr $C$DW$93, DW_AT_location[DW_OP_regx 0x3b]
+     747              $C$DW$94        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4H")
+     748                      .dwattr $C$DW$94, DW_AT_location[DW_OP_regx 0x3c]
+     749              $C$DW$95        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5HL")
+     750                      .dwattr $C$DW$95, DW_AT_location[DW_OP_regx 0x3f]
+     751              $C$DW$96        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5H")
+     752                      .dwattr $C$DW$96, DW_AT_location[DW_OP_regx 0x40]
+     753              $C$DW$97        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6HL")
+     754                      .dwattr $C$DW$97, DW_AT_location[DW_OP_regx 0x43]
+     755              $C$DW$98        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6H")
+     756                      .dwattr $C$DW$98, DW_AT_location[DW_OP_regx 0x44]
+     757              $C$DW$99        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7HL")
+     758                      .dwattr $C$DW$99, DW_AT_location[DW_OP_regx 0x47]
+     759              $C$DW$100       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7H")
+     760                      .dwattr $C$DW$100, DW_AT_location[DW_OP_regx 0x48]
+     761              $C$DW$101       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RBL")
+     762                      .dwattr $C$DW$101, DW_AT_location[DW_OP_regx 0x49]
+     763              $C$DW$102       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RB")
+     764                      .dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x4a]
+     765              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STFL")
+     766                      .dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x27]
+     767              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STF")
+     768                      .dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x28]
+     769              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FPUHAZ")
+     770                      .dwattr $C$DW$105, DW_AT_location[DW_OP_reg27]
+     771              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+     772                      .dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x4e]
+     773                      .dwendtag $C$DW$CU
+     774              
+
+No Assembly Errors, No Assembly Warnings

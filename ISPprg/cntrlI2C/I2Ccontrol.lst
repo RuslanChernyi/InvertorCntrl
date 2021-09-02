@@ -1,0 +1,1093 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v6.2.7 *
+       3              ;* Date/Time created: Thu Jul 02 08:31:06 2015                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --diag_wrap=off --float_support=fpu32 --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../cntrlI2C/I2Ccontrol.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v6.2.7 Copyright (c) 1996-2014 Texas I
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\ActiveProject\EKT5\PKMT_NONBIOS\InvertorCntrl\ISPprg")
+      13              ;**************************************************************
+      14              ;* CINIT RECORDS                                              *
+      15              ;**************************************************************
+      16 00000000               .sect   ".cinit"
+      17                      .align  1
+      18 00000000 FFFF          .field          -1,16
+      19 00000001 0000-         .field          _I2C_State+0,32
+         00000002 0000 
+      20 00000003 0000          .bits   0,16                    ; _I2C_State @ 0
+      21              
+      22 00000004               .sect   ".cinit"
+      23                      .align  1
+      24 00000004 FFFE          .field          -2,16
+      25 00000005 0002-         .field          _currentI2C+0,32
+         00000006 0000 
+      26 00000007 0000          .bits   0,32                    ; _currentI2C @ 0
+         00000008 0000 
+      27              
+      28              
+      29              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("restartI2Cwrite")
+      30                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_restartI2Cwrite")
+      31                      .dwattr $C$DW$1, DW_AT_declaration
+      32                      .dwattr $C$DW$1, DW_AT_external
+      33              
+      34              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("InitI2CCore")
+      35                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_InitI2CCore")
+      36                      .dwattr $C$DW$2, DW_AT_declaration
+      37                      .dwattr $C$DW$2, DW_AT_external
+      38              
+      39              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("stopI2Cmsg")
+      40                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_stopI2Cmsg")
+      41                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$5)
+      42                      .dwattr $C$DW$3, DW_AT_declaration
+      43                      .dwattr $C$DW$3, DW_AT_external
+      44              
+      45              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("testI2cNACK")
+      46                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_testI2cNACK")
+      47                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$5)
+      48                      .dwattr $C$DW$4, DW_AT_declaration
+      49                      .dwattr $C$DW$4, DW_AT_external
+      50              
+      51              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("startReadI2Cmsg")
+      52                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_startReadI2Cmsg")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    2
+
+      53                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$5)
+      54                      .dwattr $C$DW$5, DW_AT_declaration
+      55                      .dwattr $C$DW$5, DW_AT_external
+      56              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      57                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$5)
+      58              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      59                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$21)
+      60              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      61                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$5)
+      62                      .dwendtag $C$DW$5
+      63              
+      64              
+      65              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("getReadI2Cmsg")
+      66                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_getReadI2Cmsg")
+      67                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$5)
+      68                      .dwattr $C$DW$9, DW_AT_declaration
+      69                      .dwattr $C$DW$9, DW_AT_external
+      70              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      71                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$21)
+      72              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      73                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$5)
+      74                      .dwendtag $C$DW$9
+      75              
+      76              
+      77              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("writeI2Cmsg")
+      78                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_writeI2Cmsg")
+      79                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$5)
+      80                      .dwattr $C$DW$12, DW_AT_declaration
+      81                      .dwattr $C$DW$12, DW_AT_external
+      82              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+      83                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$5)
+      84              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+      85                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$21)
+      86              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+      87                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$5)
+      88                      .dwendtag $C$DW$12
+      89              
+      90              
+      91              $C$DW$16        .dwtag  DW_TAG_subprogram, DW_AT_name("Idle_I2C")
+      92                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_Idle_I2C")
+      93                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$5)
+      94                      .dwattr $C$DW$16, DW_AT_declaration
+      95                      .dwattr $C$DW$16, DW_AT_external
+      96                      .global _I2C_State
+      97 00000000       _I2C_State:     .usect  ".ebss",1,1,0
+      98              $C$DW$17        .dwtag  DW_TAG_variable, DW_AT_name("I2C_State")
+      99                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_I2C_State")
+     100                      .dwattr $C$DW$17, DW_AT_location[DW_OP_addr _I2C_State]
+     101                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$24)
+     102                      .dwattr $C$DW$17, DW_AT_external
+     103              
+     104              $C$DW$18        .dwtag  DW_TAG_subprogram, DW_AT_name("startReadFromAdrI2Cmsg")
+     105                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_startReadFromAdrI2Cmsg")
+     106                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$5)
+     107                      .dwattr $C$DW$18, DW_AT_declaration
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    3
+
+     108                      .dwattr $C$DW$18, DW_AT_external
+     109              $C$DW$19        .dwtag  DW_TAG_formal_parameter
+     110                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$5)
+     111              $C$DW$20        .dwtag  DW_TAG_formal_parameter
+     112                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$21)
+     113              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+     114                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$5)
+     115                      .dwendtag $C$DW$18
+     116              
+     117              
+     118              $C$DW$22        .dwtag  DW_TAG_subprogram, DW_AT_name("ReadyI2C")
+     119                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_ReadyI2C")
+     120                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$5)
+     121                      .dwattr $C$DW$22, DW_AT_declaration
+     122                      .dwattr $C$DW$22, DW_AT_external
+     123                      .global _currentI2C
+     124 00000002       _currentI2C:    .usect  ".ebss",2,1,1
+     125              $C$DW$23        .dwtag  DW_TAG_variable, DW_AT_name("currentI2C")
+     126                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_currentI2C")
+     127                      .dwattr $C$DW$23, DW_AT_location[DW_OP_addr _currentI2C]
+     128                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$25)
+     129                      .dwattr $C$DW$23, DW_AT_external
+     130              ;       C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin\ac2000.exe -@C:\\Users\\Tester\\AppData\\Local\\Temp\\0515
+     131 00000000               .sect   ".text"
+     132                      .clink
+     133                      .global _PutI2CTask
+     134              
+     135              $C$DW$24        .dwtag  DW_TAG_subprogram, DW_AT_name("PutI2CTask")
+     136                      .dwattr $C$DW$24, DW_AT_low_pc(_PutI2CTask)
+     137                      .dwattr $C$DW$24, DW_AT_high_pc(0x00)
+     138                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_PutI2CTask")
+     139                      .dwattr $C$DW$24, DW_AT_external
+     140                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$5)
+     141                      .dwattr $C$DW$24, DW_AT_TI_begin_file("../cntrlI2C/I2Ccontrol.c")
+     142                      .dwattr $C$DW$24, DW_AT_TI_begin_line(0x17)
+     143                      .dwattr $C$DW$24, DW_AT_TI_begin_column(0x06)
+     144                      .dwattr $C$DW$24, DW_AT_TI_max_frame_size(-4)
+     145                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 24,column 1,is_stmt,address _PutI2CTask
+     146              
+     147                      .dwfde $C$DW$CIE, _PutI2CTask
+     148              $C$DW$25        .dwtag  DW_TAG_formal_parameter, DW_AT_name("task")
+     149                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_task")
+     150                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$25)
+     151                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg12]
+     152              
+     153              ;***************************************************************
+     154              ;* FNAME: _PutI2CTask                   FR SIZE:   2           *
+     155              ;*                                                             *
+     156              ;* FUNCTION ENVIRONMENT                                        *
+     157              ;*                                                             *
+     158              ;* FUNCTION PROPERTIES                                         *
+     159              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     160              ;***************************************************************
+     161              
+     162 00000000       _PutI2CTask:
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    4
+
+     163                      .dwcfi  cfa_offset, -2
+     164                      .dwcfi  save_reg_to_mem, 26, 0
+     165                      .dwcfi  save_reg_to_reg, 78, 26
+     166 00000000 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     167                      .dwcfi  cfa_offset, -4
+     168              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("task")
+     169                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_task")
+     170                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$25)
+     171                      .dwattr $C$DW$26, DW_AT_location[DW_OP_breg20 -2]
+     172 00000001 A842          MOVL      *-SP[2],XAR4          ; [CPU_] |24| 
+     173                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 25,column 5,is_stmt
+     174 00000002 761F-         MOVW      DP,#_currentI2C       ; [CPU_U] 
+         00000003 0000 
+     175 00000004 0602-         MOVL      ACC,@_currentI2C      ; [CPU_] |25| 
+     176 00000005 ED08          BF        $C$L1,NEQ             ; [CPU_] |25| 
+     177                      ; branchcc occurs ; [] |25| 
+     178                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 27,column 9,is_stmt
+     179 00000006 0642          MOVL      ACC,*-SP[2]           ; [CPU_] |27| 
+     180 00000007 1E02-         MOVL      @_currentI2C,ACC      ; [CPU_] |27| 
+     181                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 28,column 9,is_stmt
+     182 00000008 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |28| 
+     183 00000009 0200          MOVB      ACC,#0                ; [CPU_] |28| 
+     184 0000000a 1EF4          MOVL      *+XAR4[6],ACC         ; [CPU_] |28| 
+     185                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 29,column 9,is_stmt
+     186 0000000b 9A01          MOVB      AL,#1                 ; [CPU_] |29| 
+     187 0000000c 6F0D          B         $C$L3,UNC             ; [CPU_] |29| 
+     188                      ; branch occurs ; [] |29| 
+     189 0000000d       $C$L1:    
+     190                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 33,column 9,is_stmt
+     191 0000000d 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |33| 
+     192 0000000e 06F4          MOVL      ACC,*+XAR4[6]         ; [CPU_] |33| 
+     193 0000000f ED09          BF        $C$L2,NEQ             ; [CPU_] |33| 
+     194                      ; branchcc occurs ; [] |33| 
+     195                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 35,column 13,is_stmt
+     196 00000010 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |35| 
+     197 00000011 0642          MOVL      ACC,*-SP[2]           ; [CPU_] |35| 
+     198 00000012 1EF4          MOVL      *+XAR4[6],ACC         ; [CPU_] |35| 
+     199                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 36,column 13,is_stmt
+     200 00000013 8A42          MOVL      XAR4,*-SP[2]          ; [CPU_] |36| 
+     201 00000014 0200          MOVB      ACC,#0                ; [CPU_] |36| 
+     202 00000015 1EF4          MOVL      *+XAR4[6],ACC         ; [CPU_] |36| 
+     203                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 37,column 13,is_stmt
+     204 00000016 9A01          MOVB      AL,#1                 ; [CPU_] |37| 
+     205 00000017 6F02          B         $C$L3,UNC             ; [CPU_] |37| 
+     206                      ; branch occurs ; [] |37| 
+     207 00000018       $C$L2:    
+     208                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 40,column 13,is_stmt
+     209 00000018 9A00          MOVB      AL,#0                 ; [CPU_] |40| 
+     210 00000019       $C$L3:    
+     211                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 42,column 1,is_stmt
+     212 00000019 FE82          SUBB      SP,#2                 ; [CPU_U] 
+     213                      .dwcfi  cfa_offset, -2
+     214              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     215                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     216                      .dwattr $C$DW$27, DW_AT_TI_return
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    5
+
+     217 0000001a 0006          LRETR     ; [CPU_] 
+     218                      ; return occurs ; [] 
+     219                      .dwattr $C$DW$24, DW_AT_TI_end_file("../cntrlI2C/I2Ccontrol.c")
+     220                      .dwattr $C$DW$24, DW_AT_TI_end_line(0x2a)
+     221                      .dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
+     222                      .dwendentry
+     223                      .dwendtag $C$DW$24
+     224              
+     225 0000001b               .sect   ".text"
+     226                      .clink
+     227                      .global _I2C_Control
+     228              
+     229              $C$DW$28        .dwtag  DW_TAG_subprogram, DW_AT_name("I2C_Control")
+     230                      .dwattr $C$DW$28, DW_AT_low_pc(_I2C_Control)
+     231                      .dwattr $C$DW$28, DW_AT_high_pc(0x00)
+     232                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_I2C_Control")
+     233                      .dwattr $C$DW$28, DW_AT_external
+     234                      .dwattr $C$DW$28, DW_AT_TI_begin_file("../cntrlI2C/I2Ccontrol.c")
+     235                      .dwattr $C$DW$28, DW_AT_TI_begin_line(0x2e)
+     236                      .dwattr $C$DW$28, DW_AT_TI_begin_column(0x06)
+     237                      .dwattr $C$DW$28, DW_AT_TI_max_frame_size(-2)
+     238                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 47,column 1,is_stmt,address _I2C_Control
+     239              
+     240                      .dwfde $C$DW$CIE, _I2C_Control
+     241              
+     242              ;***************************************************************
+     243              ;* FNAME: _I2C_Control                  FR SIZE:   0           *
+     244              ;*                                                             *
+     245              ;* FUNCTION ENVIRONMENT                                        *
+     246              ;*                                                             *
+     247              ;* FUNCTION PROPERTIES                                         *
+     248              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     249              ;***************************************************************
+     250              
+     251 0000001b       _I2C_Control:
+     252                      .dwcfi  cfa_offset, -2
+     253                      .dwcfi  save_reg_to_mem, 26, 0
+     254                      .dwcfi  save_reg_to_reg, 78, 26
+     255                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 48,column 5,is_stmt
+     256 0000001b 761F-         MOVW      DP,#_currentI2C       ; [CPU_U] 
+         0000001c 0000 
+     257 0000001d 0602-         MOVL      ACC,@_currentI2C      ; [CPU_] |48| 
+     258 0000001e 56C1          BF        $C$L22,EQ             ; [CPU_] |48| 
+         0000001f 00A5 
+     259                      ; branchcc occurs ; [] |48| 
+     260                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 50,column 9,is_stmt
+     261              $C$DW$29        .dwtag  DW_TAG_TI_branch
+     262                      .dwattr $C$DW$29, DW_AT_low_pc(0x00)
+     263                      .dwattr $C$DW$29, DW_AT_name("_ReadyI2C")
+     264                      .dwattr $C$DW$29, DW_AT_TI_call
+     265 00000020 7640!         LCR       #_ReadyI2C            ; [CPU_] |50| 
+         00000021 0000 
+     266                      ; call occurs [#_ReadyI2C] ; [] |50| 
+     267 00000022 5200          CMPB      AL,#0                 ; [CPU_] |50| 
+     268 00000023 56C1          BF        $C$L22,EQ             ; [CPU_] |50| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    6
+
+         00000024 00A0 
+     269                      ; branchcc occurs ; [] |50| 
+     270                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 52,column 13,is_stmt
+     271 00000025 FFEF          B         $C$L20,UNC            ; [CPU_] |52| 
+         00000026 0082 
+     272                      ; branch occurs ; [] |52| 
+     273 00000027       $C$L4:    
+     274                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 56,column 21,is_stmt
+     275              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     276                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     277                      .dwattr $C$DW$30, DW_AT_name("_Idle_I2C")
+     278                      .dwattr $C$DW$30, DW_AT_TI_call
+     279 00000027 7640!         LCR       #_Idle_I2C            ; [CPU_] |56| 
+         00000028 0000 
+     280                      ; call occurs [#_Idle_I2C] ; [] |56| 
+     281                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 57,column 21,is_stmt
+     282 00000029 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         0000002a 0000 
+     283 0000002b 56BF-         MOVB      @_I2C_State,#1,UNC    ; [CPU_] |57| 
+         0000002c 0100 
+     284                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 58,column 21,is_stmt
+     285 0000002d FFEF          B         $C$L22,UNC            ; [CPU_] |58| 
+         0000002e 0096 
+     286                      ; branch occurs ; [] |58| 
+     287 0000002f       $C$L5:    
+     288                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 68,column 21,is_stmt
+     289 0000002f 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |68| 
+     290 00000030 92C4          MOV       AL,*+XAR4[0]          ; [CPU_] |68| 
+     291 00000031 5202          CMPB      AL,#2                 ; [CPU_] |68| 
+     292 00000032 ED0F          BF        $C$L6,NEQ             ; [CPU_] |68| 
+     293                      ; branchcc occurs ; [] |68| 
+     294                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 69,column 22,is_stmt
+     295 00000033 C402-         MOVL      XAR6,@_currentI2C     ; [CPU_] |69| 
+     296 00000034 8302-         MOVL      XAR5,@_currentI2C     ; [CPU_] |69| 
+     297 00000035 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |69| 
+     298 00000036 92CE          MOV       AL,*+XAR6[1]          ; [CPU_] |69| 
+     299 00000037 93E5          MOV       AH,*+XAR5[4]          ; [CPU_] |69| 
+     300 00000038 8AD4          MOVL      XAR4,*+XAR4[2]        ; [CPU_] |69| 
+     301              $C$DW$31        .dwtag  DW_TAG_TI_branch
+     302                      .dwattr $C$DW$31, DW_AT_low_pc(0x00)
+     303                      .dwattr $C$DW$31, DW_AT_name("_writeI2Cmsg")
+     304                      .dwattr $C$DW$31, DW_AT_TI_call
+     305 00000039 7640!         LCR       #_writeI2Cmsg         ; [CPU_] |69| 
+         0000003a 0000 
+     306                      ; call occurs [#_writeI2Cmsg] ; [] |69| 
+     307                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 71,column 22,is_stmt
+     308 0000003b 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         0000003c 0000 
+     309 0000003d 56BF-         MOVB      @_I2C_State,#3,UNC    ; [CPU_] |71| 
+         0000003e 0300 
+     310                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 72,column 21,is_stmt
+     311 0000003f FFEF          B         $C$L22,UNC            ; [CPU_] |72| 
+         00000040 0084 
+     312                      ; branch occurs ; [] |72| 
+     313 00000041       $C$L6:    
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    7
+
+     314                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 75,column 22,is_stmt
+     315 00000041 56BF-         MOVB      @_I2C_State,#5,UNC    ; [CPU_] |75| 
+         00000042 0500 
+     316                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 76,column 22,is_stmt
+     317 00000043 6F14          B         $C$L10,UNC            ; [CPU_] |76| 
+     318                      ; branch occurs ; [] |76| 
+     319 00000044       $C$L7:    
+     320                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 78,column 9,is_stmt
+     321 00000044 56BF-         MOVB      @_I2C_State,#6,UNC    ; [CPU_] |78| 
+         00000045 0600 
+     322                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 79,column 9,is_stmt
+     323 00000046 6F7D          B         $C$L22,UNC            ; [CPU_] |79| 
+     324                      ; branch occurs ; [] |79| 
+     325 00000047       $C$L8:    
+     326                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 82,column 9,is_stmt
+     327 00000047 8302-         MOVL      XAR5,@_currentI2C     ; [CPU_] |82| 
+     328 00000048 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |82| 
+     329 00000049 9B01          MOVB      AH,#1                 ; [CPU_] |82| 
+     330 0000004a 92CD          MOV       AL,*+XAR5[1]          ; [CPU_] |82| 
+     331 0000004b 8AD4          MOVL      XAR4,*+XAR4[2]        ; [CPU_] |82| 
+     332              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     333                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     334                      .dwattr $C$DW$32, DW_AT_name("_startReadI2Cmsg")
+     335                      .dwattr $C$DW$32, DW_AT_TI_call
+     336 0000004c 7640!         LCR       #_startReadI2Cmsg     ; [CPU_] |82| 
+         0000004d 0000 
+     337                      ; call occurs [#_startReadI2Cmsg] ; [] |82| 
+     338                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 83,column 9,is_stmt
+     339 0000004e 6F75          B         $C$L22,UNC            ; [CPU_] |83| 
+     340                      ; branch occurs ; [] |83| 
+     341 0000004f       $C$L9:    
+     342                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 86,column 9,is_stmt
+     343 0000004f 8302-         MOVL      XAR5,@_currentI2C     ; [CPU_] |86| 
+     344 00000050 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |86| 
+     345 00000051 9B02          MOVB      AH,#2                 ; [CPU_] |86| 
+     346 00000052 92CD          MOV       AL,*+XAR5[1]          ; [CPU_] |86| 
+     347 00000053 8AD4          MOVL      XAR4,*+XAR4[2]        ; [CPU_] |86| 
+     348              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     349                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     350                      .dwattr $C$DW$33, DW_AT_name("_startReadFromAdrI2Cmsg")
+     351                      .dwattr $C$DW$33, DW_AT_TI_call
+     352 00000054 7640!         LCR       #_startReadFromAdrI2Cmsg ; [CPU_] |86| 
+         00000055 0000 
+     353                      ; call occurs [#_startReadFromAdrI2Cmsg] ; [] |86| 
+     354                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 87,column 9,is_stmt
+     355 00000056 6F6D          B         $C$L22,UNC            ; [CPU_] |87| 
+     356                      ; branch occurs ; [] |87| 
+     357 00000057       $C$L10:    
+     358                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 76,column 22,is_stmt
+     359 00000057 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |76| 
+     360 00000058 92C4          MOV       AL,*+XAR4[0]          ; [CPU_] |76| 
+     361 00000059 ECEE          BF        $C$L8,EQ              ; [CPU_] |76| 
+     362                      ; branchcc occurs ; [] |76| 
+     363 0000005a 5201          CMPB      AL,#1                 ; [CPU_] |76| 
+     364 0000005b ECF4          BF        $C$L9,EQ              ; [CPU_] |76| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    8
+
+     365                      ; branchcc occurs ; [] |76| 
+     366 0000005c 6FE8          B         $C$L7,UNC             ; [CPU_] |76| 
+     367                      ; branch occurs ; [] |76| 
+     368 0000005d       $C$L11:    
+     369                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 97,column 18,is_stmt
+     370              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     371                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     372                      .dwattr $C$DW$34, DW_AT_name("_testI2cNACK")
+     373                      .dwattr $C$DW$34, DW_AT_TI_call
+     374 0000005d 7640!         LCR       #_testI2cNACK         ; [CPU_] |97| 
+         0000005e 0000 
+     375                      ; call occurs [#_testI2cNACK] ; [] |97| 
+     376 0000005f 5200          CMPB      AL,#0                 ; [CPU_] |97| 
+     377 00000060 ED08          BF        $C$L12,NEQ            ; [CPU_] |97| 
+     378                      ; branchcc occurs ; [] |97| 
+     379                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 98,column 19,is_stmt
+     380 00000061 761F-         MOVW      DP,#_currentI2C       ; [CPU_U] 
+         00000062 0000 
+     381 00000063 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |98| 
+     382 00000064 2BE4          MOV       *+XAR4[4],#0          ; [CPU_] |98| 
+     383                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 100,column 7,is_stmt
+     384 00000065 56BF-         MOVB      @_I2C_State,#6,UNC    ; [CPU_] |100| 
+         00000066 0600 
+     385                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 101,column 7,is_stmt
+     386 00000067 6F5C          B         $C$L22,UNC            ; [CPU_] |101| 
+     387                      ; branch occurs ; [] |101| 
+     388 00000068       $C$L12:    
+     389                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 104,column 19,is_stmt
+     390              $C$DW$35        .dwtag  DW_TAG_TI_branch
+     391                      .dwattr $C$DW$35, DW_AT_low_pc(0x00)
+     392                      .dwattr $C$DW$35, DW_AT_name("_restartI2Cwrite")
+     393                      .dwattr $C$DW$35, DW_AT_TI_call
+     394 00000068 7640!         LCR       #_restartI2Cwrite     ; [CPU_] |104| 
+         00000069 0000 
+     395                      ; call occurs [#_restartI2Cwrite] ; [] |104| 
+     396                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 106,column 7,is_stmt
+     397 0000006a 6F59          B         $C$L22,UNC            ; [CPU_] |106| 
+     398                      ; branch occurs ; [] |106| 
+     399 0000006b       $C$L13:    
+     400                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 113,column 18,is_stmt
+     401              $C$DW$36        .dwtag  DW_TAG_TI_branch
+     402                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     403                      .dwattr $C$DW$36, DW_AT_name("_testI2cNACK")
+     404                      .dwattr $C$DW$36, DW_AT_TI_call
+     405 0000006b 7640!         LCR       #_testI2cNACK         ; [CPU_] |113| 
+         0000006c 0000 
+     406                      ; call occurs [#_testI2cNACK] ; [] |113| 
+     407 0000006d 5200          CMPB      AL,#0                 ; [CPU_] |113| 
+     408 0000006e EC08          BF        $C$L14,EQ             ; [CPU_] |113| 
+     409                      ; branchcc occurs ; [] |113| 
+     410                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 114,column 10,is_stmt
+     411              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     412                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     413                      .dwattr $C$DW$37, DW_AT_name("_stopI2Cmsg")
+     414                      .dwattr $C$DW$37, DW_AT_TI_call
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE    9
+
+     415 0000006f 7640!         LCR       #_stopI2Cmsg          ; [CPU_] |114| 
+         00000070 0000 
+     416                      ; call occurs [#_stopI2Cmsg] ; [] |114| 
+     417                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 115,column 19,is_stmt
+     418 00000071 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         00000072 0000 
+     419 00000073 56BF-         MOVB      @_I2C_State,#6,UNC    ; [CPU_] |115| 
+         00000074 0600 
+     420                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 116,column 19,is_stmt
+     421 00000075 6F4E          B         $C$L22,UNC            ; [CPU_] |116| 
+     422                      ; branch occurs ; [] |116| 
+     423 00000076       $C$L14:    
+     424                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 119,column 21,is_stmt
+     425 00000076 761F-         MOVW      DP,#_currentI2C       ; [CPU_U] 
+         00000077 0000 
+     426 00000078 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |119| 
+     427 00000079 92C4          MOV       AL,*+XAR4[0]          ; [CPU_] |119| 
+     428 0000007a 5201          CMPB      AL,#1                 ; [CPU_] |119| 
+     429 0000007b ED06          BF        $C$L15,NEQ            ; [CPU_] |119| 
+     430                      ; branchcc occurs ; [] |119| 
+     431                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 121,column 22,is_stmt
+     432 0000007c 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |121| 
+     433 0000007d 0202          MOVB      ACC,#2                ; [CPU_] |121| 
+     434 0000007e 5601          ADDL      *+XAR4[2],ACC         ; [CPU_] |121| 
+         0000007f 00D4 
+     435                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 122,column 21,is_stmt
+     436 00000080 6F05          B         $C$L16,UNC            ; [CPU_] |122| 
+     437                      ; branch occurs ; [] |122| 
+     438 00000081       $C$L15:    
+     439                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 125,column 22,is_stmt
+     440 00000081 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |125| 
+     441 00000082 0201          MOVB      ACC,#1                ; [CPU_] |125| 
+     442 00000083 5601          ADDL      *+XAR4[2],ACC         ; [CPU_] |125| 
+         00000084 00D4 
+     443 00000085       $C$L16:    
+     444                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 127,column 21,is_stmt
+     445 00000085 C402-         MOVL      XAR6,@_currentI2C     ; [CPU_] |127| 
+     446 00000086 8302-         MOVL      XAR5,@_currentI2C     ; [CPU_] |127| 
+     447 00000087 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |127| 
+     448 00000088 92CE          MOV       AL,*+XAR6[1]          ; [CPU_] |127| 
+     449 00000089 93E5          MOV       AH,*+XAR5[4]          ; [CPU_] |127| 
+     450 0000008a 8AD4          MOVL      XAR4,*+XAR4[2]        ; [CPU_] |127| 
+     451              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     452                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     453                      .dwattr $C$DW$38, DW_AT_name("_startReadI2Cmsg")
+     454                      .dwattr $C$DW$38, DW_AT_TI_call
+     455 0000008b 7640!         LCR       #_startReadI2Cmsg     ; [CPU_] |127| 
+         0000008c 0000 
+     456                      ; call occurs [#_startReadI2Cmsg] ; [] |127| 
+     457                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 128,column 21,is_stmt
+     458 0000008d 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         0000008e 0000 
+     459 0000008f 56BF-         MOVB      @_I2C_State,#8,UNC    ; [CPU_] |128| 
+         00000090 0800 
+     460                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 129,column 21,is_stmt
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   10
+
+     461 00000091 6F32          B         $C$L22,UNC            ; [CPU_] |129| 
+     462                      ; branch occurs ; [] |129| 
+     463 00000092       $C$L17:    
+     464                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 133,column 18,is_stmt
+     465 00000092 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |133| 
+     466 00000093 8302-         MOVL      XAR5,@_currentI2C     ; [CPU_] |133| 
+     467 00000094 92E4          MOV       AL,*+XAR4[4]          ; [CPU_] |133| 
+     468 00000095 8AD5          MOVL      XAR4,*+XAR5[2]        ; [CPU_] |133| 
+     469              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     470                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     471                      .dwattr $C$DW$39, DW_AT_name("_getReadI2Cmsg")
+     472                      .dwattr $C$DW$39, DW_AT_TI_call
+     473 00000096 7640!         LCR       #_getReadI2Cmsg       ; [CPU_] |133| 
+         00000097 0000 
+     474                      ; call occurs [#_getReadI2Cmsg] ; [] |133| 
+     475                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 134,column 6,is_stmt
+     476 00000098 761F-         MOVW      DP,#_currentI2C       ; [CPU_U] 
+         00000099 0000 
+     477 0000009a 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |134| 
+     478 0000009b 2BE4          MOV       *+XAR4[4],#0          ; [CPU_] |134| 
+     479                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 135,column 18,is_stmt
+     480 0000009c 56BF-         MOVB      @_I2C_State,#6,UNC    ; [CPU_] |135| 
+         0000009d 0600 
+     481                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 136,column 18,is_stmt
+     482 0000009e 6F25          B         $C$L22,UNC            ; [CPU_] |136| 
+     483                      ; branch occurs ; [] |136| 
+     484 0000009f       $C$L18:    
+     485                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 142,column 6,is_stmt
+     486 0000009f 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |142| 
+     487 000000a0 56BF          MOVB      *+XAR4[0],#3,UNC      ; [CPU_] |142| 
+         000000a1 03C4 
+     488                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 143,column 6,is_stmt
+     489 000000a2 8A02-         MOVL      XAR4,@_currentI2C     ; [CPU_] |143| 
+     490 000000a3 06F4          MOVL      ACC,*+XAR4[6]         ; [CPU_] |143| 
+     491 000000a4 1E02-         MOVL      @_currentI2C,ACC      ; [CPU_] |143| 
+     492 000000a5       $C$L19:    
+     493                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 146,column 6,is_stmt
+     494 000000a5 2B00-         MOV       @_I2C_State,#0        ; [CPU_] |146| 
+     495                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 148,column 13,is_stmt
+     496 000000a6 6F1D          B         $C$L22,UNC            ; [CPU_] |148| 
+     497                      ; branch occurs ; [] |148| 
+     498 000000a7       $C$L20:    
+     499                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 52,column 13,is_stmt
+     500 000000a7 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         000000a8 0000 
+     501 000000a9 9200-         MOV       AL,@_I2C_State        ; [CPU_] |52| 
+     502 000000aa 5204          CMPB      AL,#4                 ; [CPU_] |52| 
+     503 000000ab 620F          B         $C$L21,GT             ; [CPU_] |52| 
+     504                      ; branchcc occurs ; [] |52| 
+     505 000000ac 5204          CMPB      AL,#4                 ; [CPU_] |52| 
+     506 000000ad ECB0          BF        $C$L11,EQ             ; [CPU_] |52| 
+     507                      ; branchcc occurs ; [] |52| 
+     508 000000ae 5200          CMPB      AL,#0                 ; [CPU_] |52| 
+     509 000000af 56C1          BF        $C$L4,EQ              ; [CPU_] |52| 
+         000000b0 FF78 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   11
+
+     510                      ; branchcc occurs ; [] |52| 
+     511 000000b1 5201          CMPB      AL,#1                 ; [CPU_] |52| 
+     512 000000b2 56C1          BF        $C$L5,EQ              ; [CPU_] |52| 
+         000000b3 FF7D 
+     513                      ; branchcc occurs ; [] |52| 
+     514 000000b4 5202          CMPB      AL,#2                 ; [CPU_] |52| 
+     515 000000b5 56C1          BF        $C$L5,EQ              ; [CPU_] |52| 
+         000000b6 FF7A 
+     516                      ; branchcc occurs ; [] |52| 
+     517 000000b7 5203          CMPB      AL,#3                 ; [CPU_] |52| 
+     518 000000b8 ECA5          BF        $C$L11,EQ             ; [CPU_] |52| 
+     519                      ; branchcc occurs ; [] |52| 
+     520 000000b9 6FEC          B         $C$L19,UNC            ; [CPU_] |52| 
+     521                      ; branch occurs ; [] |52| 
+     522 000000ba       $C$L21:    
+     523 000000ba 5205          CMPB      AL,#5                 ; [CPU_] |52| 
+     524 000000bb ECB0          BF        $C$L13,EQ             ; [CPU_] |52| 
+     525                      ; branchcc occurs ; [] |52| 
+     526 000000bc 5206          CMPB      AL,#6                 ; [CPU_] |52| 
+     527 000000bd ECE2          BF        $C$L18,EQ             ; [CPU_] |52| 
+     528                      ; branchcc occurs ; [] |52| 
+     529 000000be 5207          CMPB      AL,#7                 ; [CPU_] |52| 
+     530 000000bf ECAC          BF        $C$L13,EQ             ; [CPU_] |52| 
+     531                      ; branchcc occurs ; [] |52| 
+     532 000000c0 5208          CMPB      AL,#8                 ; [CPU_] |52| 
+     533 000000c1 ECD1          BF        $C$L17,EQ             ; [CPU_] |52| 
+     534                      ; branchcc occurs ; [] |52| 
+     535 000000c2 6FE3          B         $C$L19,UNC            ; [CPU_] |52| 
+     536                      ; branch occurs ; [] |52| 
+     537              $C$L22:    
+     538              $C$DW$40        .dwtag  DW_TAG_TI_branch
+     539                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
+     540                      .dwattr $C$DW$40, DW_AT_TI_return
+     541 000000c3 0006          LRETR     ; [CPU_] 
+     542                      ; return occurs ; [] 
+     543                      .dwattr $C$DW$28, DW_AT_TI_end_file("../cntrlI2C/I2Ccontrol.c")
+     544                      .dwattr $C$DW$28, DW_AT_TI_end_line(0x97)
+     545                      .dwattr $C$DW$28, DW_AT_TI_end_column(0x01)
+     546                      .dwendentry
+     547                      .dwendtag $C$DW$28
+     548              
+     549 000000c4               .sect   ".text"
+     550                      .clink
+     551                      .global _InitI2C
+     552              
+     553              $C$DW$41        .dwtag  DW_TAG_subprogram, DW_AT_name("InitI2C")
+     554                      .dwattr $C$DW$41, DW_AT_low_pc(_InitI2C)
+     555                      .dwattr $C$DW$41, DW_AT_high_pc(0x00)
+     556                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_InitI2C")
+     557                      .dwattr $C$DW$41, DW_AT_external
+     558                      .dwattr $C$DW$41, DW_AT_TI_begin_file("../cntrlI2C/I2Ccontrol.c")
+     559                      .dwattr $C$DW$41, DW_AT_TI_begin_line(0x99)
+     560                      .dwattr $C$DW$41, DW_AT_TI_begin_column(0x06)
+     561                      .dwattr $C$DW$41, DW_AT_TI_max_frame_size(-2)
+     562                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 154,column 1,is_stmt,address _InitI2C
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   12
+
+     563              
+     564                      .dwfde $C$DW$CIE, _InitI2C
+     565              
+     566              ;***************************************************************
+     567              ;* FNAME: _InitI2C                      FR SIZE:   0           *
+     568              ;*                                                             *
+     569              ;* FUNCTION ENVIRONMENT                                        *
+     570              ;*                                                             *
+     571              ;* FUNCTION PROPERTIES                                         *
+     572              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     573              ;***************************************************************
+     574              
+     575 000000c4       _InitI2C:
+     576                      .dwcfi  cfa_offset, -2
+     577                      .dwcfi  save_reg_to_mem, 26, 0
+     578                      .dwcfi  save_reg_to_reg, 78, 26
+     579                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 155,column 5,is_stmt
+     580              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     581                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     582                      .dwattr $C$DW$42, DW_AT_name("_InitI2CCore")
+     583                      .dwattr $C$DW$42, DW_AT_TI_call
+     584 000000c4 7640!         LCR       #_InitI2CCore         ; [CPU_] |155| 
+         000000c5 0000 
+     585                      ; call occurs [#_InitI2CCore] ; [] |155| 
+     586                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 156,column 5,is_stmt
+     587 000000c6 761F-         MOVW      DP,#_I2C_State        ; [CPU_U] 
+         000000c7 0000 
+     588 000000c8 2B00-         MOV       @_I2C_State,#0        ; [CPU_] |156| 
+     589                      .dwpsn  file "../cntrlI2C/I2Ccontrol.c",line 157,column 1,is_stmt
+     590              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     591                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     592                      .dwattr $C$DW$43, DW_AT_TI_return
+     593 000000c9 0006          LRETR     ; [CPU_] 
+     594                      ; return occurs ; [] 
+     595                      .dwattr $C$DW$41, DW_AT_TI_end_file("../cntrlI2C/I2Ccontrol.c")
+     596                      .dwattr $C$DW$41, DW_AT_TI_end_line(0x9d)
+     597                      .dwattr $C$DW$41, DW_AT_TI_end_column(0x01)
+     598                      .dwendentry
+     599                      .dwendtag $C$DW$41
+     600              
+     601              ;**************************************************************
+     602              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     603              ;**************************************************************
+     604                      .global _restartI2Cwrite
+     605                      .global _InitI2CCore
+     606                      .global _stopI2Cmsg
+     607                      .global _testI2cNACK
+     608                      .global _startReadI2Cmsg
+     609                      .global _getReadI2Cmsg
+     610                      .global _writeI2Cmsg
+     611                      .global _Idle_I2C
+     612                      .global _startReadFromAdrI2Cmsg
+     613                      .global _ReadyI2C
+     614              
+     615              ;***************************************************************
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   13
+
+     616              ;* TYPE INFORMATION                                            *
+     617              ;***************************************************************
+     618              
+     619              $C$DW$T$24      .dwtag  DW_TAG_enumeration_type
+     620                      .dwattr $C$DW$T$24, DW_AT_name("I2C_STATE")
+     621                      .dwattr $C$DW$T$24, DW_AT_byte_size(0x01)
+     622              $C$DW$44        .dwtag  DW_TAG_enumerator, DW_AT_name("IDLE_I2C"), DW_AT_const_value(0x00)
+     623              $C$DW$45        .dwtag  DW_TAG_enumerator, DW_AT_name("START_I2C"), DW_AT_const_value(0x01)
+     624              $C$DW$46        .dwtag  DW_TAG_enumerator, DW_AT_name("ADR_I2C"), DW_AT_const_value(0x02)
+     625              $C$DW$47        .dwtag  DW_TAG_enumerator, DW_AT_name("ACK_I2C_GET"), DW_AT_const_value(0x03)
+     626              $C$DW$48        .dwtag  DW_TAG_enumerator, DW_AT_name("ACK_I2C_SET"), DW_AT_const_value(0x04)
+     627              $C$DW$49        .dwtag  DW_TAG_enumerator, DW_AT_name("DATA_I2C"), DW_AT_const_value(0x05)
+     628              $C$DW$50        .dwtag  DW_TAG_enumerator, DW_AT_name("STOP_I2C"), DW_AT_const_value(0x06)
+     629              $C$DW$51        .dwtag  DW_TAG_enumerator, DW_AT_name("RESTART_I2C"), DW_AT_const_value(0x07)
+     630              $C$DW$52        .dwtag  DW_TAG_enumerator, DW_AT_name("READ_I2C_START"), DW_AT_const_value(0x08)
+     631                      .dwendtag $C$DW$T$24
+     632              
+     633              
+     634              $C$DW$T$19      .dwtag  DW_TAG_enumeration_type
+     635                      .dwattr $C$DW$T$19, DW_AT_name("PORT_OPERATION")
+     636                      .dwattr $C$DW$T$19, DW_AT_byte_size(0x01)
+     637              $C$DW$53        .dwtag  DW_TAG_enumerator, DW_AT_name("READ_I2C"), DW_AT_const_value(0x00)
+     638              $C$DW$54        .dwtag  DW_TAG_enumerator, DW_AT_name("READ_LN_I2C"), DW_AT_const_value(0x01)
+     639              $C$DW$55        .dwtag  DW_TAG_enumerator, DW_AT_name("WRITE_I2C"), DW_AT_const_value(0x02)
+     640              $C$DW$56        .dwtag  DW_TAG_enumerator, DW_AT_name("COMPLITE_OPERATION"), DW_AT_const_value(0x03)
+     641                      .dwendtag $C$DW$T$19
+     642              
+     643              
+     644              $C$DW$T$23      .dwtag  DW_TAG_structure_type
+     645                      .dwattr $C$DW$T$23, DW_AT_name("__I2C_TASK")
+     646                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x08)
+     647              $C$DW$57        .dwtag  DW_TAG_member
+     648                      .dwattr $C$DW$57, DW_AT_type(*$C$DW$T$19)
+     649                      .dwattr $C$DW$57, DW_AT_name("type")
+     650                      .dwattr $C$DW$57, DW_AT_TI_symbol_name("_type")
+     651                      .dwattr $C$DW$57, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     652                      .dwattr $C$DW$57, DW_AT_accessibility(DW_ACCESS_public)
+     653              $C$DW$58        .dwtag  DW_TAG_member
+     654                      .dwattr $C$DW$58, DW_AT_type(*$C$DW$T$5)
+     655                      .dwattr $C$DW$58, DW_AT_name("adress")
+     656                      .dwattr $C$DW$58, DW_AT_TI_symbol_name("_adress")
+     657                      .dwattr $C$DW$58, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+     658                      .dwattr $C$DW$58, DW_AT_accessibility(DW_ACCESS_public)
+     659              $C$DW$59        .dwtag  DW_TAG_member
+     660                      .dwattr $C$DW$59, DW_AT_type(*$C$DW$T$21)
+     661                      .dwattr $C$DW$59, DW_AT_name("data")
+     662                      .dwattr $C$DW$59, DW_AT_TI_symbol_name("_data")
+     663                      .dwattr $C$DW$59, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+     664                      .dwattr $C$DW$59, DW_AT_accessibility(DW_ACCESS_public)
+     665              $C$DW$60        .dwtag  DW_TAG_member
+     666                      .dwattr $C$DW$60, DW_AT_type(*$C$DW$T$5)
+     667                      .dwattr $C$DW$60, DW_AT_name("count")
+     668                      .dwattr $C$DW$60, DW_AT_TI_symbol_name("_count")
+     669                      .dwattr $C$DW$60, DW_AT_data_member_location[DW_OP_plus_uconst 0x4]
+     670                      .dwattr $C$DW$60, DW_AT_accessibility(DW_ACCESS_public)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   14
+
+     671              $C$DW$61        .dwtag  DW_TAG_member
+     672                      .dwattr $C$DW$61, DW_AT_type(*$C$DW$T$22)
+     673                      .dwattr $C$DW$61, DW_AT_name("next")
+     674                      .dwattr $C$DW$61, DW_AT_TI_symbol_name("_next")
+     675                      .dwattr $C$DW$61, DW_AT_data_member_location[DW_OP_plus_uconst 0x6]
+     676                      .dwattr $C$DW$61, DW_AT_accessibility(DW_ACCESS_public)
+     677                      .dwendtag $C$DW$T$23
+     678              
+     679              $C$DW$T$22      .dwtag  DW_TAG_pointer_type
+     680                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$23)
+     681                      .dwattr $C$DW$T$22, DW_AT_address_class(0x16)
+     682              $C$DW$T$25      .dwtag  DW_TAG_typedef, DW_AT_name("pstI2CTask")
+     683                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$22)
+     684                      .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+     685              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     686                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     687                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     688                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     689              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     690                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     691                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     692                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     693              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     694                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     695                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     696                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     697              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     698                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     699                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     700                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     701              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     702                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     703                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     704                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     705              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     706                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     707                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     708                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     709              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     710                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     711                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     712                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     713              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     714                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     715                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     716                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     717              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     718                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     719                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     720                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     721              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     722                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     723                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     724                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     725              $C$DW$T$14      .dwtag  DW_TAG_base_type
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   15
+
+     726                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     727                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     728                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     729              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     730                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     731                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     732                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     733              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     734                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     735                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     736                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     737              $C$DW$T$17      .dwtag  DW_TAG_base_type
+     738                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     739                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     740                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     741              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     742                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     743                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     744                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+     745              $C$DW$T$21      .dwtag  DW_TAG_pointer_type
+     746                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$5)
+     747                      .dwattr $C$DW$T$21, DW_AT_address_class(0x16)
+     748                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     749              
+     750              ;***************************************************************
+     751              ;* DWARF CIE ENTRIES                                           *
+     752              ;***************************************************************
+     753              
+     754              $C$DW$CIE       .dwcie 78
+     755                      .dwcfi  cfa_register, 20
+     756                      .dwcfi  cfa_offset, 0
+     757                      .dwcfi  undefined, 0
+     758                      .dwcfi  undefined, 1
+     759                      .dwcfi  undefined, 2
+     760                      .dwcfi  undefined, 3
+     761                      .dwcfi  undefined, 20
+     762                      .dwcfi  undefined, 21
+     763                      .dwcfi  undefined, 22
+     764                      .dwcfi  undefined, 23
+     765                      .dwcfi  undefined, 24
+     766                      .dwcfi  undefined, 25
+     767                      .dwcfi  undefined, 26
+     768                      .dwcfi  same_value, 28
+     769                      .dwcfi  undefined, 29
+     770                      .dwcfi  undefined, 30
+     771                      .dwcfi  undefined, 31
+     772                      .dwcfi  undefined, 32
+     773                      .dwcfi  undefined, 33
+     774                      .dwcfi  undefined, 34
+     775                      .dwcfi  undefined, 35
+     776                      .dwcfi  undefined, 36
+     777                      .dwcfi  undefined, 37
+     778                      .dwcfi  undefined, 38
+     779                      .dwcfi  undefined, 75
+     780                      .dwcfi  undefined, 76
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   16
+
+     781                      .dwcfi  undefined, 77
+     782                      .dwcfi  undefined, 4
+     783                      .dwcfi  same_value, 6
+     784                      .dwcfi  same_value, 8
+     785                      .dwcfi  same_value, 10
+     786                      .dwcfi  undefined, 12
+     787                      .dwcfi  undefined, 14
+     788                      .dwcfi  undefined, 16
+     789                      .dwcfi  undefined, 17
+     790                      .dwcfi  undefined, 18
+     791                      .dwcfi  undefined, 19
+     792                      .dwcfi  undefined, 5
+     793                      .dwcfi  same_value, 7
+     794                      .dwcfi  same_value, 9
+     795                      .dwcfi  same_value, 11
+     796                      .dwcfi  undefined, 13
+     797                      .dwcfi  undefined, 15
+     798                      .dwcfi  undefined, 43
+     799                      .dwcfi  undefined, 44
+     800                      .dwcfi  undefined, 47
+     801                      .dwcfi  undefined, 48
+     802                      .dwcfi  undefined, 51
+     803                      .dwcfi  undefined, 52
+     804                      .dwcfi  undefined, 55
+     805                      .dwcfi  undefined, 56
+     806                      .dwcfi  same_value, 59
+     807                      .dwcfi  same_value, 60
+     808                      .dwcfi  same_value, 63
+     809                      .dwcfi  same_value, 64
+     810                      .dwcfi  same_value, 67
+     811                      .dwcfi  same_value, 68
+     812                      .dwcfi  same_value, 71
+     813                      .dwcfi  same_value, 72
+     814                      .dwcfi  undefined, 73
+     815                      .dwcfi  undefined, 74
+     816                      .dwcfi  undefined, 39
+     817                      .dwcfi  undefined, 40
+     818                      .dwcfi  undefined, 27
+     819                      .dwcfi  undefined, 78
+     820                      .dwendentry
+     821              
+     822              ;***************************************************************
+     823              ;* DWARF REGISTER MAP                                          *
+     824              ;***************************************************************
+     825              
+     826              $C$DW$62        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AL")
+     827                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg0]
+     828              $C$DW$63        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AH")
+     829                      .dwattr $C$DW$63, DW_AT_location[DW_OP_reg1]
+     830              $C$DW$64        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PL")
+     831                      .dwattr $C$DW$64, DW_AT_location[DW_OP_reg2]
+     832              $C$DW$65        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PH")
+     833                      .dwattr $C$DW$65, DW_AT_location[DW_OP_reg3]
+     834              $C$DW$66        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+     835                      .dwattr $C$DW$66, DW_AT_location[DW_OP_reg20]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   17
+
+     836              $C$DW$67        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XT")
+     837                      .dwattr $C$DW$67, DW_AT_location[DW_OP_reg21]
+     838              $C$DW$68        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T")
+     839                      .dwattr $C$DW$68, DW_AT_location[DW_OP_reg22]
+     840              $C$DW$69        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+     841                      .dwattr $C$DW$69, DW_AT_location[DW_OP_reg23]
+     842              $C$DW$70        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+     843                      .dwattr $C$DW$70, DW_AT_location[DW_OP_reg24]
+     844              $C$DW$71        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+     845                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg25]
+     846              $C$DW$72        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPC")
+     847                      .dwattr $C$DW$72, DW_AT_location[DW_OP_reg26]
+     848              $C$DW$73        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+     849                      .dwattr $C$DW$73, DW_AT_location[DW_OP_reg28]
+     850              $C$DW$74        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("DP")
+     851                      .dwattr $C$DW$74, DW_AT_location[DW_OP_reg29]
+     852              $C$DW$75        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXM")
+     853                      .dwattr $C$DW$75, DW_AT_location[DW_OP_reg30]
+     854              $C$DW$76        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PM")
+     855                      .dwattr $C$DW$76, DW_AT_location[DW_OP_reg31]
+     856              $C$DW$77        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("OVM")
+     857                      .dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x20]
+     858              $C$DW$78        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PAGE0")
+     859                      .dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x21]
+     860              $C$DW$79        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AMODE")
+     861                      .dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x22]
+     862              $C$DW$80        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+     863                      .dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x23]
+     864              $C$DW$81        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IFR")
+     865                      .dwattr $C$DW$81, DW_AT_location[DW_OP_regx 0x24]
+     866              $C$DW$82        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IER")
+     867                      .dwattr $C$DW$82, DW_AT_location[DW_OP_regx 0x25]
+     868              $C$DW$83        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("V")
+     869                      .dwattr $C$DW$83, DW_AT_location[DW_OP_regx 0x26]
+     870              $C$DW$84        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PSEUDOH")
+     871                      .dwattr $C$DW$84, DW_AT_location[DW_OP_regx 0x4c]
+     872              $C$DW$85        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("VOL")
+     873                      .dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x4d]
+     874              $C$DW$86        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+     875                      .dwattr $C$DW$86, DW_AT_location[DW_OP_reg4]
+     876              $C$DW$87        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+     877                      .dwattr $C$DW$87, DW_AT_location[DW_OP_reg6]
+     878              $C$DW$88        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+     879                      .dwattr $C$DW$88, DW_AT_location[DW_OP_reg8]
+     880              $C$DW$89        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+     881                      .dwattr $C$DW$89, DW_AT_location[DW_OP_reg10]
+     882              $C$DW$90        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+     883                      .dwattr $C$DW$90, DW_AT_location[DW_OP_reg12]
+     884              $C$DW$91        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+     885                      .dwattr $C$DW$91, DW_AT_location[DW_OP_reg14]
+     886              $C$DW$92        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+     887                      .dwattr $C$DW$92, DW_AT_location[DW_OP_reg16]
+     888              $C$DW$93        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+     889                      .dwattr $C$DW$93, DW_AT_location[DW_OP_reg17]
+     890              $C$DW$94        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   18
+
+     891                      .dwattr $C$DW$94, DW_AT_location[DW_OP_reg18]
+     892              $C$DW$95        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+     893                      .dwattr $C$DW$95, DW_AT_location[DW_OP_reg19]
+     894              $C$DW$96        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+     895                      .dwattr $C$DW$96, DW_AT_location[DW_OP_reg5]
+     896              $C$DW$97        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+     897                      .dwattr $C$DW$97, DW_AT_location[DW_OP_reg7]
+     898              $C$DW$98        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+     899                      .dwattr $C$DW$98, DW_AT_location[DW_OP_reg9]
+     900              $C$DW$99        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+     901                      .dwattr $C$DW$99, DW_AT_location[DW_OP_reg11]
+     902              $C$DW$100       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+     903                      .dwattr $C$DW$100, DW_AT_location[DW_OP_reg13]
+     904              $C$DW$101       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+     905                      .dwattr $C$DW$101, DW_AT_location[DW_OP_reg15]
+     906              $C$DW$102       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0HL")
+     907                      .dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x2b]
+     908              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0H")
+     909                      .dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x2c]
+     910              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1HL")
+     911                      .dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x2f]
+     912              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1H")
+     913                      .dwattr $C$DW$105, DW_AT_location[DW_OP_regx 0x30]
+     914              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2HL")
+     915                      .dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x33]
+     916              $C$DW$107       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2H")
+     917                      .dwattr $C$DW$107, DW_AT_location[DW_OP_regx 0x34]
+     918              $C$DW$108       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3HL")
+     919                      .dwattr $C$DW$108, DW_AT_location[DW_OP_regx 0x37]
+     920              $C$DW$109       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3H")
+     921                      .dwattr $C$DW$109, DW_AT_location[DW_OP_regx 0x38]
+     922              $C$DW$110       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4HL")
+     923                      .dwattr $C$DW$110, DW_AT_location[DW_OP_regx 0x3b]
+     924              $C$DW$111       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4H")
+     925                      .dwattr $C$DW$111, DW_AT_location[DW_OP_regx 0x3c]
+     926              $C$DW$112       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5HL")
+     927                      .dwattr $C$DW$112, DW_AT_location[DW_OP_regx 0x3f]
+     928              $C$DW$113       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5H")
+     929                      .dwattr $C$DW$113, DW_AT_location[DW_OP_regx 0x40]
+     930              $C$DW$114       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6HL")
+     931                      .dwattr $C$DW$114, DW_AT_location[DW_OP_regx 0x43]
+     932              $C$DW$115       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6H")
+     933                      .dwattr $C$DW$115, DW_AT_location[DW_OP_regx 0x44]
+     934              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7HL")
+     935                      .dwattr $C$DW$116, DW_AT_location[DW_OP_regx 0x47]
+     936              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7H")
+     937                      .dwattr $C$DW$117, DW_AT_location[DW_OP_regx 0x48]
+     938              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RBL")
+     939                      .dwattr $C$DW$118, DW_AT_location[DW_OP_regx 0x49]
+     940              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RB")
+     941                      .dwattr $C$DW$119, DW_AT_location[DW_OP_regx 0x4a]
+     942              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STFL")
+     943                      .dwattr $C$DW$120, DW_AT_location[DW_OP_regx 0x27]
+     944              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STF")
+     945                      .dwattr $C$DW$121, DW_AT_location[DW_OP_regx 0x28]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:06 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0515610                           PAGE   19
+
+     946              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FPUHAZ")
+     947                      .dwattr $C$DW$122, DW_AT_location[DW_OP_reg27]
+     948              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+     949                      .dwattr $C$DW$123, DW_AT_location[DW_OP_regx 0x4e]
+     950                      .dwendtag $C$DW$CU
+     951              
+
+No Assembly Errors, No Assembly Warnings

@@ -1,0 +1,569 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v6.2.7 *
+       3              ;* Date/Time created: Thu Jul 02 08:31:09 2015                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --diag_wrap=off --float_support=fpu32 --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../UART/Rs485hub.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v6.2.7 Copyright (c) 1996-2014 Texas I
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\ActiveProject\EKT5\PKMT_NONBIOS\InvertorCntrl\ISPprg")
+      13              
+      14              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("initMbusMsg")
+      15                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_initMbusMsg")
+      16                      .dwattr $C$DW$1, DW_AT_declaration
+      17                      .dwattr $C$DW$1, DW_AT_external
+      18              
+      19              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlMbusMsg")
+      20                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_cntrlMbusMsg")
+      21                      .dwattr $C$DW$2, DW_AT_declaration
+      22                      .dwattr $C$DW$2, DW_AT_external
+      23              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      24                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$19)
+      25                      .dwendtag $C$DW$2
+      26              
+      27              
+      28              $C$DW$4 .dwtag  DW_TAG_subprogram, DW_AT_name("initModbusType")
+      29                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_initModbusType")
+      30                      .dwattr $C$DW$4, DW_AT_declaration
+      31                      .dwattr $C$DW$4, DW_AT_external
+      32              
+      33              $C$DW$5 .dwtag  DW_TAG_subprogram, DW_AT_name("chengFlow485cntrl")
+      34                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_chengFlow485cntrl")
+      35                      .dwattr $C$DW$5, DW_AT_declaration
+      36                      .dwattr $C$DW$5, DW_AT_external
+      37              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      38                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$23)
+      39                      .dwendtag $C$DW$5
+      40              
+      41              
+      42              $C$DW$7 .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlShellMsg")
+      43                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_cntrlShellMsg")
+      44                      .dwattr $C$DW$7, DW_AT_declaration
+      45                      .dwattr $C$DW$7, DW_AT_external
+      46              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+      47                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$19)
+      48                      .dwendtag $C$DW$7
+      49              
+      50              
+      51              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("testRcBuf485Cnt")
+      52                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_testRcBuf485Cnt")
+      53                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$5)
+      54                      .dwattr $C$DW$9, DW_AT_declaration
+      55                      .dwattr $C$DW$9, DW_AT_external
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    2
+
+      56              
+      57              $C$DW$10        .dwtag  DW_TAG_subprogram, DW_AT_name("getCharUart485")
+      58                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_getCharUart485")
+      59                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$5)
+      60                      .dwattr $C$DW$10, DW_AT_declaration
+      61                      .dwattr $C$DW$10, DW_AT_external
+      62              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      63                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$29)
+      64                      .dwendtag $C$DW$10
+      65              
+      66              ;       C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin\ac2000.exe -@C:\\Users\\Tester\\AppData\\Local\\Temp\\0520
+      67 00000000               .sect   ".text"
+      68                      .clink
+      69                      .global _cntrlModbuAndShellRecive
+      70              
+      71              $C$DW$12        .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlModbuAndShellRecive")
+      72                      .dwattr $C$DW$12, DW_AT_low_pc(_cntrlModbuAndShellRecive)
+      73                      .dwattr $C$DW$12, DW_AT_high_pc(0x00)
+      74                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_cntrlModbuAndShellRecive")
+      75                      .dwattr $C$DW$12, DW_AT_external
+      76                      .dwattr $C$DW$12, DW_AT_TI_begin_file("../UART/Rs485hub.c")
+      77                      .dwattr $C$DW$12, DW_AT_TI_begin_line(0x14)
+      78                      .dwattr $C$DW$12, DW_AT_TI_begin_column(0x06)
+      79                      .dwattr $C$DW$12, DW_AT_TI_max_frame_size(-4)
+      80                      .dwpsn  file "../UART/Rs485hub.c",line 20,column 36,is_stmt,address _cntrlModbuAndShellRecive
+      81              
+      82                      .dwfde $C$DW$CIE, _cntrlModbuAndShellRecive
+      83              
+      84              ;***************************************************************
+      85              ;* FNAME: _cntrlModbuAndShellRecive     FR SIZE:   2           *
+      86              ;*                                                             *
+      87              ;* FUNCTION ENVIRONMENT                                        *
+      88              ;*                                                             *
+      89              ;* FUNCTION PROPERTIES                                         *
+      90              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+      91              ;***************************************************************
+      92              
+      93 00000000       _cntrlModbuAndShellRecive:
+      94                      .dwcfi  cfa_offset, -2
+      95                      .dwcfi  save_reg_to_mem, 26, 0
+      96                      .dwcfi  save_reg_to_reg, 78, 26
+      97 00000000 FE02          ADDB      SP,#2                 ; [CPU_U] 
+      98                      .dwcfi  cfa_offset, -4
+      99              $C$DW$13        .dwtag  DW_TAG_variable, DW_AT_name("tmp")
+     100                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_tmp")
+     101                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$26)
+     102                      .dwattr $C$DW$13, DW_AT_location[DW_OP_breg20 -1]
+     103                      .dwpsn  file "../UART/Rs485hub.c",line 22,column 2,is_stmt
+     104              $C$DW$14        .dwtag  DW_TAG_TI_branch
+     105                      .dwattr $C$DW$14, DW_AT_low_pc(0x00)
+     106                      .dwattr $C$DW$14, DW_AT_name("_testRcBuf485Cnt")
+     107                      .dwattr $C$DW$14, DW_AT_TI_call
+     108 00000001 7640!         LCR       #_testRcBuf485Cnt     ; [CPU_] |22| 
+         00000002 0000 
+     109                      ; call occurs [#_testRcBuf485Cnt] ; [] |22| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    3
+
+     110 00000003 5200          CMPB      AL,#0                 ; [CPU_] |22| 
+     111 00000004 EC0B          BF        $C$L1,EQ              ; [CPU_] |22| 
+     112                      ; branchcc occurs ; [] |22| 
+     113                      .dwpsn  file "../UART/Rs485hub.c",line 24,column 3,is_stmt
+     114 00000005 5CAD          MOVZ      AR4,SP                ; [CPU_U] |24| 
+     115 00000006 DC81          SUBB      XAR4,#1               ; [CPU_U] |24| 
+     116              $C$DW$15        .dwtag  DW_TAG_TI_branch
+     117                      .dwattr $C$DW$15, DW_AT_low_pc(0x00)
+     118                      .dwattr $C$DW$15, DW_AT_name("_getCharUart485")
+     119                      .dwattr $C$DW$15, DW_AT_TI_call
+     120 00000007 7640!         LCR       #_getCharUart485      ; [CPU_] |24| 
+         00000008 0000 
+     121                      ; call occurs [#_getCharUart485] ; [] |24| 
+     122                      .dwpsn  file "../UART/Rs485hub.c",line 26,column 3,is_stmt
+     123 00000009 9241          MOV       AL,*-SP[1]            ; [CPU_] |26| 
+     124              $C$DW$16        .dwtag  DW_TAG_TI_branch
+     125                      .dwattr $C$DW$16, DW_AT_low_pc(0x00)
+     126                      .dwattr $C$DW$16, DW_AT_name("_cntrlMbusMsg")
+     127                      .dwattr $C$DW$16, DW_AT_TI_call
+     128 0000000a 7640!         LCR       #_cntrlMbusMsg        ; [CPU_] |26| 
+         0000000b 0000 
+     129                      ; call occurs [#_cntrlMbusMsg] ; [] |26| 
+     130                      .dwpsn  file "../UART/Rs485hub.c",line 28,column 3,is_stmt
+     131 0000000c 9241          MOV       AL,*-SP[1]            ; [CPU_] |28| 
+     132              $C$DW$17        .dwtag  DW_TAG_TI_branch
+     133                      .dwattr $C$DW$17, DW_AT_low_pc(0x00)
+     134                      .dwattr $C$DW$17, DW_AT_name("_cntrlShellMsg")
+     135                      .dwattr $C$DW$17, DW_AT_TI_call
+     136 0000000d 7640!         LCR       #_cntrlShellMsg       ; [CPU_] |28| 
+         0000000e 0000 
+     137                      ; call occurs [#_cntrlShellMsg] ; [] |28| 
+     138                      .dwpsn  file "../UART/Rs485hub.c",line 30,column 1,is_stmt
+     139 0000000f       $C$L1:    
+     140 0000000f FE82          SUBB      SP,#2                 ; [CPU_U] 
+     141                      .dwcfi  cfa_offset, -2
+     142              $C$DW$18        .dwtag  DW_TAG_TI_branch
+     143                      .dwattr $C$DW$18, DW_AT_low_pc(0x00)
+     144                      .dwattr $C$DW$18, DW_AT_TI_return
+     145 00000010 0006          LRETR     ; [CPU_] 
+     146                      ; return occurs ; [] 
+     147                      .dwattr $C$DW$12, DW_AT_TI_end_file("../UART/Rs485hub.c")
+     148                      .dwattr $C$DW$12, DW_AT_TI_end_line(0x1e)
+     149                      .dwattr $C$DW$12, DW_AT_TI_end_column(0x01)
+     150                      .dwendentry
+     151                      .dwendtag $C$DW$12
+     152              
+     153 00000011               .sect   ".text"
+     154                      .clink
+     155                      .global _initModbusAndShell
+     156              
+     157              $C$DW$19        .dwtag  DW_TAG_subprogram, DW_AT_name("initModbusAndShell")
+     158                      .dwattr $C$DW$19, DW_AT_low_pc(_initModbusAndShell)
+     159                      .dwattr $C$DW$19, DW_AT_high_pc(0x00)
+     160                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_initModbusAndShell")
+     161                      .dwattr $C$DW$19, DW_AT_external
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    4
+
+     162                      .dwattr $C$DW$19, DW_AT_TI_begin_file("../UART/Rs485hub.c")
+     163                      .dwattr $C$DW$19, DW_AT_TI_begin_line(0x20)
+     164                      .dwattr $C$DW$19, DW_AT_TI_begin_column(0x06)
+     165                      .dwattr $C$DW$19, DW_AT_TI_max_frame_size(-2)
+     166                      .dwpsn  file "../UART/Rs485hub.c",line 32,column 30,is_stmt,address _initModbusAndShell
+     167              
+     168                      .dwfde $C$DW$CIE, _initModbusAndShell
+     169              
+     170              ;***************************************************************
+     171              ;* FNAME: _initModbusAndShell           FR SIZE:   0           *
+     172              ;*                                                             *
+     173              ;* FUNCTION ENVIRONMENT                                        *
+     174              ;*                                                             *
+     175              ;* FUNCTION PROPERTIES                                         *
+     176              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     177              ;***************************************************************
+     178              
+     179 00000011       _initModbusAndShell:
+     180                      .dwcfi  cfa_offset, -2
+     181                      .dwcfi  save_reg_to_mem, 26, 0
+     182                      .dwcfi  save_reg_to_reg, 78, 26
+     183                      .dwpsn  file "../UART/Rs485hub.c",line 33,column 2,is_stmt
+     184              $C$DW$20        .dwtag  DW_TAG_TI_branch
+     185                      .dwattr $C$DW$20, DW_AT_low_pc(0x00)
+     186                      .dwattr $C$DW$20, DW_AT_name("_initMbusMsg")
+     187                      .dwattr $C$DW$20, DW_AT_TI_call
+     188 00000011 7640!         LCR       #_initMbusMsg         ; [CPU_] |33| 
+         00000012 0000 
+     189                      ; call occurs [#_initMbusMsg] ; [] |33| 
+     190                      .dwpsn  file "../UART/Rs485hub.c",line 34,column 2,is_stmt
+     191 00000013 8F00'         MOVL      XAR4,#_cntrlModbuAndShellRecive ; [CPU_U] |34| 
+         00000014 0000 
+     192              $C$DW$21        .dwtag  DW_TAG_TI_branch
+     193                      .dwattr $C$DW$21, DW_AT_low_pc(0x00)
+     194                      .dwattr $C$DW$21, DW_AT_name("_chengFlow485cntrl")
+     195                      .dwattr $C$DW$21, DW_AT_TI_call
+     196 00000015 7640!         LCR       #_chengFlow485cntrl   ; [CPU_] |34| 
+         00000016 0000 
+     197                      ; call occurs [#_chengFlow485cntrl] ; [] |34| 
+     198                      .dwpsn  file "../UART/Rs485hub.c",line 35,column 2,is_stmt
+     199              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     200                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     201                      .dwattr $C$DW$22, DW_AT_name("_initModbusType")
+     202                      .dwattr $C$DW$22, DW_AT_TI_call
+     203 00000017 7640!         LCR       #_initModbusType      ; [CPU_] |35| 
+         00000018 0000 
+     204                      ; call occurs [#_initModbusType] ; [] |35| 
+     205                      .dwpsn  file "../UART/Rs485hub.c",line 36,column 1,is_stmt
+     206              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     207                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     208                      .dwattr $C$DW$23, DW_AT_TI_return
+     209 00000019 0006          LRETR     ; [CPU_] 
+     210                      ; return occurs ; [] 
+     211                      .dwattr $C$DW$19, DW_AT_TI_end_file("../UART/Rs485hub.c")
+     212                      .dwattr $C$DW$19, DW_AT_TI_end_line(0x24)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    5
+
+     213                      .dwattr $C$DW$19, DW_AT_TI_end_column(0x01)
+     214                      .dwendentry
+     215                      .dwendtag $C$DW$19
+     216              
+     217              ;**************************************************************
+     218              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     219              ;**************************************************************
+     220                      .global _initMbusMsg
+     221                      .global _cntrlMbusMsg
+     222                      .global _initModbusType
+     223                      .global _chengFlow485cntrl
+     224                      .global _cntrlShellMsg
+     225                      .global _testRcBuf485Cnt
+     226                      .global _getCharUart485
+     227              
+     228              ;***************************************************************
+     229              ;* TYPE INFORMATION                                            *
+     230              ;***************************************************************
+     231              
+     232              $C$DW$T$22      .dwtag  DW_TAG_subroutine_type
+     233                      .dwattr $C$DW$T$22, DW_AT_language(DW_LANG_C)
+     234              $C$DW$T$23      .dwtag  DW_TAG_pointer_type
+     235                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+     236                      .dwattr $C$DW$T$23, DW_AT_address_class(0x16)
+     237              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     238                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     239                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     240                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     241              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     242                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     243                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     244                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     245              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     246                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     247                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     248                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     249              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     250                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     251                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     252                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     253              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     254                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     255                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     256                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     257              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     258                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     259                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     260                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     261              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     262                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     263                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     264                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     265              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     266                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     267                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    6
+
+     268                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     269              $C$DW$T$26      .dwtag  DW_TAG_typedef, DW_AT_name("UINT16")
+     270                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$11)
+     271                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+     272              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("UINT8")
+     273                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$11)
+     274                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+     275              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     276                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     277                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     278                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     279              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     280                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     281                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     282                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     283              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     284                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     285                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     286                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     287              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     288                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     289                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     290                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     291              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     292                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     293                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     294                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     295              $C$DW$T$17      .dwtag  DW_TAG_base_type
+     296                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     297                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     298                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     299              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     300                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     301                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     302                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+     303              $C$DW$T$29      .dwtag  DW_TAG_pointer_type
+     304                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$5)
+     305                      .dwattr $C$DW$T$29, DW_AT_address_class(0x16)
+     306                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     307              
+     308              ;***************************************************************
+     309              ;* DWARF CIE ENTRIES                                           *
+     310              ;***************************************************************
+     311              
+     312              $C$DW$CIE       .dwcie 78
+     313                      .dwcfi  cfa_register, 20
+     314                      .dwcfi  cfa_offset, 0
+     315                      .dwcfi  undefined, 0
+     316                      .dwcfi  undefined, 1
+     317                      .dwcfi  undefined, 2
+     318                      .dwcfi  undefined, 3
+     319                      .dwcfi  undefined, 20
+     320                      .dwcfi  undefined, 21
+     321                      .dwcfi  undefined, 22
+     322                      .dwcfi  undefined, 23
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    7
+
+     323                      .dwcfi  undefined, 24
+     324                      .dwcfi  undefined, 25
+     325                      .dwcfi  undefined, 26
+     326                      .dwcfi  same_value, 28
+     327                      .dwcfi  undefined, 29
+     328                      .dwcfi  undefined, 30
+     329                      .dwcfi  undefined, 31
+     330                      .dwcfi  undefined, 32
+     331                      .dwcfi  undefined, 33
+     332                      .dwcfi  undefined, 34
+     333                      .dwcfi  undefined, 35
+     334                      .dwcfi  undefined, 36
+     335                      .dwcfi  undefined, 37
+     336                      .dwcfi  undefined, 38
+     337                      .dwcfi  undefined, 75
+     338                      .dwcfi  undefined, 76
+     339                      .dwcfi  undefined, 77
+     340                      .dwcfi  undefined, 4
+     341                      .dwcfi  same_value, 6
+     342                      .dwcfi  same_value, 8
+     343                      .dwcfi  same_value, 10
+     344                      .dwcfi  undefined, 12
+     345                      .dwcfi  undefined, 14
+     346                      .dwcfi  undefined, 16
+     347                      .dwcfi  undefined, 17
+     348                      .dwcfi  undefined, 18
+     349                      .dwcfi  undefined, 19
+     350                      .dwcfi  undefined, 5
+     351                      .dwcfi  same_value, 7
+     352                      .dwcfi  same_value, 9
+     353                      .dwcfi  same_value, 11
+     354                      .dwcfi  undefined, 13
+     355                      .dwcfi  undefined, 15
+     356                      .dwcfi  undefined, 43
+     357                      .dwcfi  undefined, 44
+     358                      .dwcfi  undefined, 47
+     359                      .dwcfi  undefined, 48
+     360                      .dwcfi  undefined, 51
+     361                      .dwcfi  undefined, 52
+     362                      .dwcfi  undefined, 55
+     363                      .dwcfi  undefined, 56
+     364                      .dwcfi  same_value, 59
+     365                      .dwcfi  same_value, 60
+     366                      .dwcfi  same_value, 63
+     367                      .dwcfi  same_value, 64
+     368                      .dwcfi  same_value, 67
+     369                      .dwcfi  same_value, 68
+     370                      .dwcfi  same_value, 71
+     371                      .dwcfi  same_value, 72
+     372                      .dwcfi  undefined, 73
+     373                      .dwcfi  undefined, 74
+     374                      .dwcfi  undefined, 39
+     375                      .dwcfi  undefined, 40
+     376                      .dwcfi  undefined, 27
+     377                      .dwcfi  undefined, 78
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    8
+
+     378                      .dwendentry
+     379              
+     380              ;***************************************************************
+     381              ;* DWARF REGISTER MAP                                          *
+     382              ;***************************************************************
+     383              
+     384              $C$DW$24        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AL")
+     385                      .dwattr $C$DW$24, DW_AT_location[DW_OP_reg0]
+     386              $C$DW$25        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AH")
+     387                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg1]
+     388              $C$DW$26        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PL")
+     389                      .dwattr $C$DW$26, DW_AT_location[DW_OP_reg2]
+     390              $C$DW$27        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PH")
+     391                      .dwattr $C$DW$27, DW_AT_location[DW_OP_reg3]
+     392              $C$DW$28        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+     393                      .dwattr $C$DW$28, DW_AT_location[DW_OP_reg20]
+     394              $C$DW$29        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XT")
+     395                      .dwattr $C$DW$29, DW_AT_location[DW_OP_reg21]
+     396              $C$DW$30        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T")
+     397                      .dwattr $C$DW$30, DW_AT_location[DW_OP_reg22]
+     398              $C$DW$31        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+     399                      .dwattr $C$DW$31, DW_AT_location[DW_OP_reg23]
+     400              $C$DW$32        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+     401                      .dwattr $C$DW$32, DW_AT_location[DW_OP_reg24]
+     402              $C$DW$33        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+     403                      .dwattr $C$DW$33, DW_AT_location[DW_OP_reg25]
+     404              $C$DW$34        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPC")
+     405                      .dwattr $C$DW$34, DW_AT_location[DW_OP_reg26]
+     406              $C$DW$35        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+     407                      .dwattr $C$DW$35, DW_AT_location[DW_OP_reg28]
+     408              $C$DW$36        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("DP")
+     409                      .dwattr $C$DW$36, DW_AT_location[DW_OP_reg29]
+     410              $C$DW$37        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXM")
+     411                      .dwattr $C$DW$37, DW_AT_location[DW_OP_reg30]
+     412              $C$DW$38        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PM")
+     413                      .dwattr $C$DW$38, DW_AT_location[DW_OP_reg31]
+     414              $C$DW$39        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("OVM")
+     415                      .dwattr $C$DW$39, DW_AT_location[DW_OP_regx 0x20]
+     416              $C$DW$40        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PAGE0")
+     417                      .dwattr $C$DW$40, DW_AT_location[DW_OP_regx 0x21]
+     418              $C$DW$41        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AMODE")
+     419                      .dwattr $C$DW$41, DW_AT_location[DW_OP_regx 0x22]
+     420              $C$DW$42        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+     421                      .dwattr $C$DW$42, DW_AT_location[DW_OP_regx 0x23]
+     422              $C$DW$43        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IFR")
+     423                      .dwattr $C$DW$43, DW_AT_location[DW_OP_regx 0x24]
+     424              $C$DW$44        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IER")
+     425                      .dwattr $C$DW$44, DW_AT_location[DW_OP_regx 0x25]
+     426              $C$DW$45        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("V")
+     427                      .dwattr $C$DW$45, DW_AT_location[DW_OP_regx 0x26]
+     428              $C$DW$46        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PSEUDOH")
+     429                      .dwattr $C$DW$46, DW_AT_location[DW_OP_regx 0x4c]
+     430              $C$DW$47        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("VOL")
+     431                      .dwattr $C$DW$47, DW_AT_location[DW_OP_regx 0x4d]
+     432              $C$DW$48        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE    9
+
+     433                      .dwattr $C$DW$48, DW_AT_location[DW_OP_reg4]
+     434              $C$DW$49        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+     435                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg6]
+     436              $C$DW$50        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+     437                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg8]
+     438              $C$DW$51        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+     439                      .dwattr $C$DW$51, DW_AT_location[DW_OP_reg10]
+     440              $C$DW$52        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+     441                      .dwattr $C$DW$52, DW_AT_location[DW_OP_reg12]
+     442              $C$DW$53        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+     443                      .dwattr $C$DW$53, DW_AT_location[DW_OP_reg14]
+     444              $C$DW$54        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+     445                      .dwattr $C$DW$54, DW_AT_location[DW_OP_reg16]
+     446              $C$DW$55        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+     447                      .dwattr $C$DW$55, DW_AT_location[DW_OP_reg17]
+     448              $C$DW$56        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+     449                      .dwattr $C$DW$56, DW_AT_location[DW_OP_reg18]
+     450              $C$DW$57        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+     451                      .dwattr $C$DW$57, DW_AT_location[DW_OP_reg19]
+     452              $C$DW$58        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+     453                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg5]
+     454              $C$DW$59        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+     455                      .dwattr $C$DW$59, DW_AT_location[DW_OP_reg7]
+     456              $C$DW$60        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+     457                      .dwattr $C$DW$60, DW_AT_location[DW_OP_reg9]
+     458              $C$DW$61        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+     459                      .dwattr $C$DW$61, DW_AT_location[DW_OP_reg11]
+     460              $C$DW$62        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+     461                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg13]
+     462              $C$DW$63        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+     463                      .dwattr $C$DW$63, DW_AT_location[DW_OP_reg15]
+     464              $C$DW$64        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0HL")
+     465                      .dwattr $C$DW$64, DW_AT_location[DW_OP_regx 0x2b]
+     466              $C$DW$65        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0H")
+     467                      .dwattr $C$DW$65, DW_AT_location[DW_OP_regx 0x2c]
+     468              $C$DW$66        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1HL")
+     469                      .dwattr $C$DW$66, DW_AT_location[DW_OP_regx 0x2f]
+     470              $C$DW$67        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1H")
+     471                      .dwattr $C$DW$67, DW_AT_location[DW_OP_regx 0x30]
+     472              $C$DW$68        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2HL")
+     473                      .dwattr $C$DW$68, DW_AT_location[DW_OP_regx 0x33]
+     474              $C$DW$69        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2H")
+     475                      .dwattr $C$DW$69, DW_AT_location[DW_OP_regx 0x34]
+     476              $C$DW$70        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3HL")
+     477                      .dwattr $C$DW$70, DW_AT_location[DW_OP_regx 0x37]
+     478              $C$DW$71        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3H")
+     479                      .dwattr $C$DW$71, DW_AT_location[DW_OP_regx 0x38]
+     480              $C$DW$72        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4HL")
+     481                      .dwattr $C$DW$72, DW_AT_location[DW_OP_regx 0x3b]
+     482              $C$DW$73        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4H")
+     483                      .dwattr $C$DW$73, DW_AT_location[DW_OP_regx 0x3c]
+     484              $C$DW$74        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5HL")
+     485                      .dwattr $C$DW$74, DW_AT_location[DW_OP_regx 0x3f]
+     486              $C$DW$75        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5H")
+     487                      .dwattr $C$DW$75, DW_AT_location[DW_OP_regx 0x40]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:09 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0520810                           PAGE   10
+
+     488              $C$DW$76        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6HL")
+     489                      .dwattr $C$DW$76, DW_AT_location[DW_OP_regx 0x43]
+     490              $C$DW$77        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6H")
+     491                      .dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x44]
+     492              $C$DW$78        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7HL")
+     493                      .dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x47]
+     494              $C$DW$79        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7H")
+     495                      .dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x48]
+     496              $C$DW$80        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RBL")
+     497                      .dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x49]
+     498              $C$DW$81        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RB")
+     499                      .dwattr $C$DW$81, DW_AT_location[DW_OP_regx 0x4a]
+     500              $C$DW$82        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STFL")
+     501                      .dwattr $C$DW$82, DW_AT_location[DW_OP_regx 0x27]
+     502              $C$DW$83        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STF")
+     503                      .dwattr $C$DW$83, DW_AT_location[DW_OP_regx 0x28]
+     504              $C$DW$84        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FPUHAZ")
+     505                      .dwattr $C$DW$84, DW_AT_location[DW_OP_reg27]
+     506              $C$DW$85        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+     507                      .dwattr $C$DW$85, DW_AT_location[DW_OP_regx 0x4e]
+     508                      .dwendtag $C$DW$CU
+     509              
+
+No Assembly Errors, No Assembly Warnings

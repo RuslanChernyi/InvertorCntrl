@@ -1,0 +1,1758 @@
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                         PC v6.2.7 *
+       3              ;* Date/Time created: Thu Jul 02 08:31:16 2015                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --diag_wrap=off --float_support=fpu32 --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../OsCntrl/OsCntrl.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C2000 C/C++ Codegen PC v6.2.7 Copyright (c) 1996-2014 Texas I
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\ActiveProject\EKT5\PKMT_NONBIOS\InvertorCntrl\ISPprg")
+      13              
+      14              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlPidSimple")
+      15                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_cntrlPidSimple")
+      16                      .dwattr $C$DW$1, DW_AT_declaration
+      17                      .dwattr $C$DW$1, DW_AT_external
+      18              
+      19              $C$DW$2 .dwtag  DW_TAG_subprogram, DW_AT_name("initPidCntrlSimple")
+      20                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_initPidCntrlSimple")
+      21                      .dwattr $C$DW$2, DW_AT_declaration
+      22                      .dwattr $C$DW$2, DW_AT_external
+      23              
+      24              $C$DW$3 .dwtag  DW_TAG_subprogram, DW_AT_name("addedTimeTic")
+      25                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_addedTimeTic")
+      26                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$5)
+      27                      .dwattr $C$DW$3, DW_AT_declaration
+      28                      .dwattr $C$DW$3, DW_AT_external
+      29              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      30                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$23)
+      31                      .dwendtag $C$DW$3
+      32              
+      33                      .global _statusOS
+      34 00000000       _statusOS:      .usect  ".ebss",1,1,0
+      35              $C$DW$5 .dwtag  DW_TAG_variable, DW_AT_name("statusOS")
+      36                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_statusOS")
+      37                      .dwattr $C$DW$5, DW_AT_location[DW_OP_addr _statusOS]
+      38                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$33)
+      39                      .dwattr $C$DW$5, DW_AT_external
+      40                      .global _OsTaskMode
+      41 00000001       _OsTaskMode:    .usect  ".ebss",1,1,0
+      42              $C$DW$6 .dwtag  DW_TAG_variable, DW_AT_name("OsTaskMode")
+      43                      .dwattr $C$DW$6, DW_AT_TI_symbol_name("_OsTaskMode")
+      44                      .dwattr $C$DW$6, DW_AT_location[DW_OP_addr _OsTaskMode]
+      45                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$33)
+      46                      .dwattr $C$DW$6, DW_AT_external
+      47                      .global _modeOs
+      48 00000002       _modeOs:        .usect  ".ebss",1,1,0
+      49              $C$DW$7 .dwtag  DW_TAG_variable, DW_AT_name("modeOs")
+      50                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_modeOs")
+      51                      .dwattr $C$DW$7, DW_AT_location[DW_OP_addr _modeOs]
+      52                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$5)
+      53                      .dwattr $C$DW$7, DW_AT_external
+      54                      .global _delayPID
+      55 00000003       _delayPID:      .usect  ".ebss",1,1,0
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    2
+
+      56              $C$DW$8 .dwtag  DW_TAG_variable, DW_AT_name("delayPID")
+      57                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_delayPID")
+      58                      .dwattr $C$DW$8, DW_AT_location[DW_OP_addr _delayPID]
+      59                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$33)
+      60                      .dwattr $C$DW$8, DW_AT_external
+      61              
+      62              $C$DW$9 .dwtag  DW_TAG_subprogram, DW_AT_name("getRegister")
+      63                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_getRegister")
+      64                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$10)
+      65                      .dwattr $C$DW$9, DW_AT_declaration
+      66                      .dwattr $C$DW$9, DW_AT_external
+      67              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      68                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$5)
+      69                      .dwendtag $C$DW$9
+      70              
+      71              
+      72              $C$DW$11        .dwtag  DW_TAG_subprogram, DW_AT_name("removeTimeTic")
+      73                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_removeTimeTic")
+      74                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$5)
+      75                      .dwattr $C$DW$11, DW_AT_declaration
+      76                      .dwattr $C$DW$11, DW_AT_external
+      77              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+      78                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$23)
+      79                      .dwendtag $C$DW$11
+      80              
+      81                      .global _PidOsPrg
+      82 00000004       _PidOsPrg:      .usect  ".ebss",2,1,1
+      83              $C$DW$13        .dwtag  DW_TAG_variable, DW_AT_name("PidOsPrg")
+      84                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_PidOsPrg")
+      85                      .dwattr $C$DW$13, DW_AT_location[DW_OP_addr _PidOsPrg]
+      86                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$27)
+      87                      .dwattr $C$DW$13, DW_AT_external
+      88              
+      89              $C$DW$14        .dwtag  DW_TAG_subprogram, DW_AT_name("getAnalogTask")
+      90                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_getAnalogTask")
+      91                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$16)
+      92                      .dwattr $C$DW$14, DW_AT_declaration
+      93                      .dwattr $C$DW$14, DW_AT_external
+      94                      .global _taskFinvOs
+      95 00000006       _taskFinvOs:    .usect  ".ebss",2,1,1
+      96              $C$DW$15        .dwtag  DW_TAG_variable, DW_AT_name("taskFinvOs")
+      97                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_taskFinvOs")
+      98                      .dwattr $C$DW$15, DW_AT_location[DW_OP_addr _taskFinvOs]
+      99                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$16)
+     100                      .dwattr $C$DW$15, DW_AT_external
+     101                      .global _UCH_DELAY_PID_DL
+     102 00000008       _UCH_DELAY_PID_DL:      .usect  ".ebss",4,1,1
+     103              $C$DW$16        .dwtag  DW_TAG_variable, DW_AT_name("UCH_DELAY_PID_DL")
+     104                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_UCH_DELAY_PID_DL")
+     105                      .dwattr $C$DW$16, DW_AT_location[DW_OP_addr _UCH_DELAY_PID_DL]
+     106                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$24)
+     107                      .dwattr $C$DW$16, DW_AT_external
+     108              ;       C:\ti\ccsv6\tools\compiler\c2000_6.2.7\bin\ac2000.exe -@C:\\Users\\Tester\\AppData\\Local\\Temp\\0451
+     109 00000000               .sect   ".text"
+     110                      .clink
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    3
+
+     111                      .global _SET_DELAY_PID_DL
+     112              
+     113              $C$DW$17        .dwtag  DW_TAG_subprogram, DW_AT_name("SET_DELAY_PID_DL")
+     114                      .dwattr $C$DW$17, DW_AT_low_pc(_SET_DELAY_PID_DL)
+     115                      .dwattr $C$DW$17, DW_AT_high_pc(0x00)
+     116                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_SET_DELAY_PID_DL")
+     117                      .dwattr $C$DW$17, DW_AT_external
+     118                      .dwattr $C$DW$17, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     119                      .dwattr $C$DW$17, DW_AT_TI_begin_line(0x13)
+     120                      .dwattr $C$DW$17, DW_AT_TI_begin_column(0x01)
+     121                      .dwattr $C$DW$17, DW_AT_TI_max_frame_size(-4)
+     122                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 19,column 1,is_stmt,address _SET_DELAY_PID_DL
+     123              
+     124                      .dwfde $C$DW$CIE, _SET_DELAY_PID_DL
+     125              $C$DW$18        .dwtag  DW_TAG_formal_parameter, DW_AT_name("time")
+     126                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_time")
+     127                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$20)
+     128                      .dwattr $C$DW$18, DW_AT_location[DW_OP_reg0]
+     129              
+     130              ;***************************************************************
+     131              ;* FNAME: _SET_DELAY_PID_DL             FR SIZE:   2           *
+     132              ;*                                                             *
+     133              ;* FUNCTION ENVIRONMENT                                        *
+     134              ;*                                                             *
+     135              ;* FUNCTION PROPERTIES                                         *
+     136              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     137              ;***************************************************************
+     138              
+     139 00000000       _SET_DELAY_PID_DL:
+     140                      .dwcfi  cfa_offset, -2
+     141                      .dwcfi  save_reg_to_mem, 26, 0
+     142                      .dwcfi  save_reg_to_reg, 78, 26
+     143 00000000 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     144                      .dwcfi  cfa_offset, -4
+     145              $C$DW$19        .dwtag  DW_TAG_variable, DW_AT_name("time")
+     146                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_time")
+     147                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$20)
+     148                      .dwattr $C$DW$19, DW_AT_location[DW_OP_breg20 -2]
+     149 00000001 761F-         MOVW      DP,#_UCH_DELAY_PID_DL ; [CPU_U] 
+         00000002 0000 
+     150 00000003 1E42          MOVL      *-SP[2],ACC           ; [CPU_] |19| 
+     151 00000004 1E08-         MOVL      @_UCH_DELAY_PID_DL,ACC ; [CPU_] |19| 
+     152 00000005 FE82          SUBB      SP,#2                 ; [CPU_U] 
+     153                      .dwcfi  cfa_offset, -2
+     154              $C$DW$20        .dwtag  DW_TAG_TI_branch
+     155                      .dwattr $C$DW$20, DW_AT_low_pc(0x00)
+     156                      .dwattr $C$DW$20, DW_AT_TI_return
+     157 00000006 0006          LRETR     ; [CPU_] 
+     158                      ; return occurs ; [] 
+     159                      .dwattr $C$DW$17, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     160                      .dwattr $C$DW$17, DW_AT_TI_end_line(0x13)
+     161                      .dwattr $C$DW$17, DW_AT_TI_end_column(0x01)
+     162                      .dwendentry
+     163                      .dwendtag $C$DW$17
+     164              
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    4
+
+     165 00000007               .sect   ".text"
+     166                      .clink
+     167                      .global _REM_DELAY_PID_DL
+     168              
+     169              $C$DW$21        .dwtag  DW_TAG_subprogram, DW_AT_name("REM_DELAY_PID_DL")
+     170                      .dwattr $C$DW$21, DW_AT_low_pc(_REM_DELAY_PID_DL)
+     171                      .dwattr $C$DW$21, DW_AT_high_pc(0x00)
+     172                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_REM_DELAY_PID_DL")
+     173                      .dwattr $C$DW$21, DW_AT_external
+     174                      .dwattr $C$DW$21, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     175                      .dwattr $C$DW$21, DW_AT_TI_begin_line(0x13)
+     176                      .dwattr $C$DW$21, DW_AT_TI_begin_column(0x01)
+     177                      .dwattr $C$DW$21, DW_AT_TI_max_frame_size(-2)
+     178                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 19,column 1,is_stmt,address _REM_DELAY_PID_DL
+     179              
+     180                      .dwfde $C$DW$CIE, _REM_DELAY_PID_DL
+     181              
+     182              ;***************************************************************
+     183              ;* FNAME: _REM_DELAY_PID_DL             FR SIZE:   0           *
+     184              ;*                                                             *
+     185              ;* FUNCTION ENVIRONMENT                                        *
+     186              ;*                                                             *
+     187              ;* FUNCTION PROPERTIES                                         *
+     188              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     189              ;***************************************************************
+     190              
+     191 00000007       _REM_DELAY_PID_DL:
+     192                      .dwcfi  cfa_offset, -2
+     193                      .dwcfi  save_reg_to_mem, 26, 0
+     194                      .dwcfi  save_reg_to_reg, 78, 26
+     195 00000007 8F00-         MOVL      XAR4,#_UCH_DELAY_PID_DL ; [CPU_U] |19| 
+         00000008 0008 
+     196              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     197                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     198                      .dwattr $C$DW$22, DW_AT_name("_removeTimeTic")
+     199                      .dwattr $C$DW$22, DW_AT_TI_call
+     200 00000009 7640!         LCR       #_removeTimeTic       ; [CPU_] |19| 
+         0000000a 0000 
+     201                      ; call occurs [#_removeTimeTic] ; [] |19| 
+     202              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     203                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     204                      .dwattr $C$DW$23, DW_AT_TI_return
+     205 0000000b 0006          LRETR     ; [CPU_] 
+     206                      ; return occurs ; [] 
+     207                      .dwattr $C$DW$21, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     208                      .dwattr $C$DW$21, DW_AT_TI_end_line(0x13)
+     209                      .dwattr $C$DW$21, DW_AT_TI_end_column(0x01)
+     210                      .dwendentry
+     211                      .dwendtag $C$DW$21
+     212              
+     213 0000000c               .sect   ".text"
+     214                      .clink
+     215                      .global _GET_TIME_PID_DL
+     216              
+     217              $C$DW$24        .dwtag  DW_TAG_subprogram, DW_AT_name("GET_TIME_PID_DL")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    5
+
+     218                      .dwattr $C$DW$24, DW_AT_low_pc(_GET_TIME_PID_DL)
+     219                      .dwattr $C$DW$24, DW_AT_high_pc(0x00)
+     220                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_GET_TIME_PID_DL")
+     221                      .dwattr $C$DW$24, DW_AT_external
+     222                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$19)
+     223                      .dwattr $C$DW$24, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     224                      .dwattr $C$DW$24, DW_AT_TI_begin_line(0x13)
+     225                      .dwattr $C$DW$24, DW_AT_TI_begin_column(0x01)
+     226                      .dwattr $C$DW$24, DW_AT_TI_max_frame_size(-2)
+     227                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 19,column 1,is_stmt,address _GET_TIME_PID_DL
+     228              
+     229                      .dwfde $C$DW$CIE, _GET_TIME_PID_DL
+     230              
+     231              ;***************************************************************
+     232              ;* FNAME: _GET_TIME_PID_DL              FR SIZE:   0           *
+     233              ;*                                                             *
+     234              ;* FUNCTION ENVIRONMENT                                        *
+     235              ;*                                                             *
+     236              ;* FUNCTION PROPERTIES                                         *
+     237              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     238              ;***************************************************************
+     239              
+     240 0000000c       _GET_TIME_PID_DL:
+     241                      .dwcfi  cfa_offset, -2
+     242                      .dwcfi  save_reg_to_mem, 26, 0
+     243                      .dwcfi  save_reg_to_reg, 78, 26
+     244 0000000c 761F-         MOVW      DP,#_UCH_DELAY_PID_DL ; [CPU_U] 
+         0000000d 0000 
+     245 0000000e 0608-         MOVL      ACC,@_UCH_DELAY_PID_DL ; [CPU_] |19| 
+     246              $C$DW$25        .dwtag  DW_TAG_TI_branch
+     247                      .dwattr $C$DW$25, DW_AT_low_pc(0x00)
+     248                      .dwattr $C$DW$25, DW_AT_TI_return
+     249 0000000f 0006          LRETR     ; [CPU_] 
+     250                      ; return occurs ; [] 
+     251                      .dwattr $C$DW$24, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     252                      .dwattr $C$DW$24, DW_AT_TI_end_line(0x13)
+     253                      .dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
+     254                      .dwendentry
+     255                      .dwendtag $C$DW$24
+     256              
+     257 00000010               .sect   ".text"
+     258                      .clink
+     259                      .global _REG_TINE_PID_DL
+     260              
+     261              $C$DW$26        .dwtag  DW_TAG_subprogram, DW_AT_name("REG_TINE_PID_DL")
+     262                      .dwattr $C$DW$26, DW_AT_low_pc(_REG_TINE_PID_DL)
+     263                      .dwattr $C$DW$26, DW_AT_high_pc(0x00)
+     264                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_REG_TINE_PID_DL")
+     265                      .dwattr $C$DW$26, DW_AT_external
+     266                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$5)
+     267                      .dwattr $C$DW$26, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     268                      .dwattr $C$DW$26, DW_AT_TI_begin_line(0x13)
+     269                      .dwattr $C$DW$26, DW_AT_TI_begin_column(0x01)
+     270                      .dwattr $C$DW$26, DW_AT_TI_max_frame_size(-2)
+     271                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 19,column 1,is_stmt,address _REG_TINE_PID_DL
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    6
+
+     272              
+     273                      .dwfde $C$DW$CIE, _REG_TINE_PID_DL
+     274              
+     275              ;***************************************************************
+     276              ;* FNAME: _REG_TINE_PID_DL              FR SIZE:   0           *
+     277              ;*                                                             *
+     278              ;* FUNCTION ENVIRONMENT                                        *
+     279              ;*                                                             *
+     280              ;* FUNCTION PROPERTIES                                         *
+     281              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     282              ;***************************************************************
+     283              
+     284 00000010       _REG_TINE_PID_DL:
+     285                      .dwcfi  cfa_offset, -2
+     286                      .dwcfi  save_reg_to_mem, 26, 0
+     287                      .dwcfi  save_reg_to_reg, 78, 26
+     288 00000010 8F00-         MOVL      XAR4,#_UCH_DELAY_PID_DL ; [CPU_U] |19| 
+         00000011 0008 
+     289              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     290                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     291                      .dwattr $C$DW$27, DW_AT_name("_addedTimeTic")
+     292                      .dwattr $C$DW$27, DW_AT_TI_call
+     293 00000012 7640!         LCR       #_addedTimeTic        ; [CPU_] |19| 
+         00000013 0000 
+     294                      ; call occurs [#_addedTimeTic] ; [] |19| 
+     295              $C$DW$28        .dwtag  DW_TAG_TI_branch
+     296                      .dwattr $C$DW$28, DW_AT_low_pc(0x00)
+     297                      .dwattr $C$DW$28, DW_AT_TI_return
+     298 00000014 0006          LRETR     ; [CPU_] 
+     299                      ; return occurs ; [] 
+     300                      .dwattr $C$DW$26, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     301                      .dwattr $C$DW$26, DW_AT_TI_end_line(0x13)
+     302                      .dwattr $C$DW$26, DW_AT_TI_end_column(0x01)
+     303                      .dwendentry
+     304                      .dwendtag $C$DW$26
+     305              
+     306 00000015               .sect   ".text"
+     307                      .clink
+     308                      .global _setFtaskOs
+     309              
+     310              $C$DW$29        .dwtag  DW_TAG_subprogram, DW_AT_name("setFtaskOs")
+     311                      .dwattr $C$DW$29, DW_AT_low_pc(_setFtaskOs)
+     312                      .dwattr $C$DW$29, DW_AT_high_pc(0x00)
+     313                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_setFtaskOs")
+     314                      .dwattr $C$DW$29, DW_AT_external
+     315                      .dwattr $C$DW$29, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     316                      .dwattr $C$DW$29, DW_AT_TI_begin_line(0x17)
+     317                      .dwattr $C$DW$29, DW_AT_TI_begin_column(0x06)
+     318                      .dwattr $C$DW$29, DW_AT_TI_max_frame_size(-4)
+     319                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 23,column 28,is_stmt,address _setFtaskOs
+     320              
+     321                      .dwfde $C$DW$CIE, _setFtaskOs
+     322              $C$DW$30        .dwtag  DW_TAG_formal_parameter, DW_AT_name("task")
+     323                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_task")
+     324                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$16)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    7
+
+     325                      .dwattr $C$DW$30, DW_AT_location[DW_OP_regx 0x2b]
+     326              
+     327              ;***************************************************************
+     328              ;* FNAME: _setFtaskOs                   FR SIZE:   2           *
+     329              ;*                                                             *
+     330              ;* FUNCTION ENVIRONMENT                                        *
+     331              ;*                                                             *
+     332              ;* FUNCTION PROPERTIES                                         *
+     333              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     334              ;***************************************************************
+     335              
+     336 00000015       _setFtaskOs:
+     337                      .dwcfi  cfa_offset, -2
+     338                      .dwcfi  save_reg_to_mem, 26, 0
+     339                      .dwcfi  save_reg_to_reg, 78, 26
+     340 00000015 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     341                      .dwcfi  cfa_offset, -4
+     342              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("task")
+     343                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_task")
+     344                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$16)
+     345                      .dwattr $C$DW$31, DW_AT_location[DW_OP_breg20 -2]
+     346 00000016 E203          MOV32     *-SP[2],R0H           ; [CPU_] |23| 
+         00000017 0042 
+     347                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 24,column 2,is_stmt
+     348 00000018 0642          MOVL      ACC,*-SP[2]           ; [CPU_] |24| 
+     349 00000019 761F-         MOVW      DP,#_taskFinvOs       ; [CPU_U] 
+         0000001a 0000 
+     350 0000001b 1E06-         MOVL      @_taskFinvOs,ACC      ; [CPU_] |24| 
+     351                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 25,column 1,is_stmt
+     352 0000001c FE82          SUBB      SP,#2                 ; [CPU_U] 
+     353                      .dwcfi  cfa_offset, -2
+     354              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     355                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     356                      .dwattr $C$DW$32, DW_AT_TI_return
+     357 0000001d 0006          LRETR     ; [CPU_] 
+     358                      ; return occurs ; [] 
+     359                      .dwattr $C$DW$29, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     360                      .dwattr $C$DW$29, DW_AT_TI_end_line(0x19)
+     361                      .dwattr $C$DW$29, DW_AT_TI_end_column(0x01)
+     362                      .dwendentry
+     363                      .dwendtag $C$DW$29
+     364              
+     365 0000001e               .sect   ".text"
+     366                      .clink
+     367                      .global _getFtaskOs
+     368              
+     369              $C$DW$33        .dwtag  DW_TAG_subprogram, DW_AT_name("getFtaskOs")
+     370                      .dwattr $C$DW$33, DW_AT_low_pc(_getFtaskOs)
+     371                      .dwattr $C$DW$33, DW_AT_high_pc(0x00)
+     372                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_getFtaskOs")
+     373                      .dwattr $C$DW$33, DW_AT_external
+     374                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$16)
+     375                      .dwattr $C$DW$33, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     376                      .dwattr $C$DW$33, DW_AT_TI_begin_line(0x1b)
+     377                      .dwattr $C$DW$33, DW_AT_TI_begin_column(0x07)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    8
+
+     378                      .dwattr $C$DW$33, DW_AT_TI_max_frame_size(-2)
+     379                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 27,column 23,is_stmt,address _getFtaskOs
+     380              
+     381                      .dwfde $C$DW$CIE, _getFtaskOs
+     382              
+     383              ;***************************************************************
+     384              ;* FNAME: _getFtaskOs                   FR SIZE:   0           *
+     385              ;*                                                             *
+     386              ;* FUNCTION ENVIRONMENT                                        *
+     387              ;*                                                             *
+     388              ;* FUNCTION PROPERTIES                                         *
+     389              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     390              ;***************************************************************
+     391              
+     392 0000001e       _getFtaskOs:
+     393                      .dwcfi  cfa_offset, -2
+     394                      .dwcfi  save_reg_to_mem, 26, 0
+     395                      .dwcfi  save_reg_to_reg, 78, 26
+     396                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 28,column 2,is_stmt
+     397 0000001e 761F-         MOVW      DP,#_taskFinvOs       ; [CPU_U] 
+         0000001f 0000 
+     398 00000020 E2AF-         MOV32     R0H,@_taskFinvOs      ; [CPU_] |28| 
+         00000021 0006 
+     399                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 29,column 1,is_stmt
+     400              $C$DW$34        .dwtag  DW_TAG_TI_branch
+     401                      .dwattr $C$DW$34, DW_AT_low_pc(0x00)
+     402                      .dwattr $C$DW$34, DW_AT_TI_return
+     403 00000022 0006          LRETR     ; [CPU_] 
+     404                      ; return occurs ; [] 
+     405                      .dwattr $C$DW$33, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     406                      .dwattr $C$DW$33, DW_AT_TI_end_line(0x1d)
+     407                      .dwattr $C$DW$33, DW_AT_TI_end_column(0x01)
+     408                      .dwendentry
+     409                      .dwendtag $C$DW$33
+     410              
+     411 00000023               .sect   ".text"
+     412                      .clink
+     413                      .global _initOsPid
+     414              
+     415              $C$DW$35        .dwtag  DW_TAG_subprogram, DW_AT_name("initOsPid")
+     416                      .dwattr $C$DW$35, DW_AT_low_pc(_initOsPid)
+     417                      .dwattr $C$DW$35, DW_AT_high_pc(0x00)
+     418                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_initOsPid")
+     419                      .dwattr $C$DW$35, DW_AT_external
+     420                      .dwattr $C$DW$35, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     421                      .dwattr $C$DW$35, DW_AT_TI_begin_line(0x1f)
+     422                      .dwattr $C$DW$35, DW_AT_TI_begin_column(0x06)
+     423                      .dwattr $C$DW$35, DW_AT_TI_max_frame_size(-4)
+     424                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 31,column 26,is_stmt,address _initOsPid
+     425              
+     426                      .dwfde $C$DW$CIE, _initOsPid
+     427              $C$DW$36        .dwtag  DW_TAG_formal_parameter, DW_AT_name("full")
+     428                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_full")
+     429                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$5)
+     430                      .dwattr $C$DW$36, DW_AT_location[DW_OP_reg0]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE    9
+
+     431              
+     432              ;***************************************************************
+     433              ;* FNAME: _initOsPid                    FR SIZE:   2           *
+     434              ;*                                                             *
+     435              ;* FUNCTION ENVIRONMENT                                        *
+     436              ;*                                                             *
+     437              ;* FUNCTION PROPERTIES                                         *
+     438              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+     439              ;***************************************************************
+     440              
+     441 00000023       _initOsPid:
+     442                      .dwcfi  cfa_offset, -2
+     443                      .dwcfi  save_reg_to_mem, 26, 0
+     444                      .dwcfi  save_reg_to_reg, 78, 26
+     445 00000023 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     446                      .dwcfi  cfa_offset, -4
+     447              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("full")
+     448                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_full")
+     449                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$5)
+     450                      .dwattr $C$DW$37, DW_AT_location[DW_OP_breg20 -1]
+     451 00000024 9641          MOV       *-SP[1],AL            ; [CPU_] |31| 
+     452                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 32,column 2,is_stmt
+     453 00000025 761F-         MOVW      DP,#_delayPID         ; [CPU_U] 
+         00000026 0000 
+     454 00000027 56BF-         MOVB      @_delayPID,#10,UNC    ; [CPU_] |32| 
+         00000028 0A03 
+     455                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 33,column 2,is_stmt
+     456 00000029 9A3F          MOVB      AL,#63                ; [CPU_] |33| 
+     457              $C$DW$38        .dwtag  DW_TAG_TI_branch
+     458                      .dwattr $C$DW$38, DW_AT_low_pc(0x00)
+     459                      .dwattr $C$DW$38, DW_AT_name("_getRegister")
+     460                      .dwattr $C$DW$38, DW_AT_TI_call
+     461 0000002a 7640!         LCR       #_getRegister         ; [CPU_] |33| 
+         0000002b 0000 
+     462                      ; call occurs [#_getRegister] ; [] |33| 
+     463 0000002c 761F-         MOVW      DP,#_modeOs           ; [CPU_U] 
+         0000002d 0000 
+     464 0000002e 9602-         MOV       @_modeOs,AL           ; [CPU_] |33| 
+     465                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 34,column 2,is_stmt
+     466 0000002f 6F1B          B         $C$L5,UNC             ; [CPU_] |34| 
+     467                      ; branch occurs ; [] |34| 
+     468 00000030       $C$L1:    
+     469                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 36,column 4,is_stmt
+     470 00000030 8F00'         MOVL      XAR4,#_noPidOs        ; [CPU_U] |36| 
+         00000031 007F 
+     471 00000032 A804-         MOVL      @_PidOsPrg,XAR4       ; [CPU_] |36| 
+     472                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 37,column 4,is_stmt
+     473 00000033 E590          ZERO      R0H                   ; [CPU_] |37| 
+     474 00000034 E203-         MOV32     @_taskFinvOs,R0H      ; [CPU_] |37| 
+         00000035 0006 
+     475                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 38,column 4,is_stmt
+     476 00000036 6F1B          B         $C$L6,UNC             ; [CPU_] |38| 
+     477                      ; branch occurs ; [] |38| 
+     478 00000037       $C$L2:    
+     479                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 42,column 4,is_stmt
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   10
+
+     480 00000037 8F00'         MOVL      XAR4,#_simplePidOs    ; [CPU_U] |42| 
+         00000038 0073 
+     481 00000039 A804-         MOVL      @_PidOsPrg,XAR4       ; [CPU_] |42| 
+     482                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 43,column 4,is_stmt
+     483              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     484                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     485                      .dwattr $C$DW$39, DW_AT_name("_initPidCntrlSimple")
+     486                      .dwattr $C$DW$39, DW_AT_TI_call
+     487 0000003a 7640!         LCR       #_initPidCntrlSimple  ; [CPU_] |43| 
+         0000003b 0000 
+     488                      ; call occurs [#_initPidCntrlSimple] ; [] |43| 
+     489                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 44,column 4,is_stmt
+     490 0000003c 761F-         MOVW      DP,#_taskFinvOs       ; [CPU_U] 
+         0000003d 0000 
+     491 0000003e E590          ZERO      R0H                   ; [CPU_] |44| 
+     492 0000003f E203-         MOV32     @_taskFinvOs,R0H      ; [CPU_] |44| 
+         00000040 0006 
+     493                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 45,column 4,is_stmt
+     494 00000041 6F10          B         $C$L6,UNC             ; [CPU_] |45| 
+     495                      ; branch occurs ; [] |45| 
+     496 00000042       $C$L3:    
+     497                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 49,column 4,is_stmt
+     498 00000042 8F00'         MOVL      XAR4,#_waterPidOs     ; [CPU_U] |49| 
+         00000043 0089 
+     499 00000044 A804-         MOVL      @_PidOsPrg,XAR4       ; [CPU_] |49| 
+     500                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 50,column 4,is_stmt
+     501 00000045 6F0C          B         $C$L6,UNC             ; [CPU_] |50| 
+     502                      ; branch occurs ; [] |50| 
+     503 00000046       $C$L4:    
+     504                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 54,column 4,is_stmt
+     505 00000046 8F00'         MOVL      XAR4,#_KaskadPidOs    ; [CPU_U] |54| 
+         00000047 0093 
+     506 00000048 A804-         MOVL      @_PidOsPrg,XAR4       ; [CPU_] |54| 
+     507                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 55,column 4,is_stmt
+     508 00000049 6F08          B         $C$L6,UNC             ; [CPU_] |55| 
+     509                      ; branch occurs ; [] |55| 
+     510 0000004a       $C$L5:    
+     511                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 34,column 2,is_stmt
+     512 0000004a 5201          CMPB      AL,#1                 ; [CPU_] |34| 
+     513 0000004b ECEC          BF        $C$L2,EQ              ; [CPU_] |34| 
+     514                      ; branchcc occurs ; [] |34| 
+     515 0000004c 5202          CMPB      AL,#2                 ; [CPU_] |34| 
+     516 0000004d ECF5          BF        $C$L3,EQ              ; [CPU_] |34| 
+     517                      ; branchcc occurs ; [] |34| 
+     518 0000004e 5203          CMPB      AL,#3                 ; [CPU_] |34| 
+     519 0000004f ECF7          BF        $C$L4,EQ              ; [CPU_] |34| 
+     520                      ; branchcc occurs ; [] |34| 
+     521 00000050 6FE0          B         $C$L1,UNC             ; [CPU_] |34| 
+     522                      ; branch occurs ; [] |34| 
+     523 00000051       $C$L6:    
+     524                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 58,column 2,is_stmt
+     525 00000051 9241          MOV       AL,*-SP[1]            ; [CPU_] |58| 
+     526 00000052 EC07          BF        $C$L7,EQ              ; [CPU_] |58| 
+     527                      ; branchcc occurs ; [] |58| 
+     528                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 59,column 3,is_stmt
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   11
+
+     529              $C$DW$40        .dwtag  DW_TAG_TI_branch
+     530                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
+     531                      .dwattr $C$DW$40, DW_AT_name("_REG_TINE_PID_DL")
+     532                      .dwattr $C$DW$40, DW_AT_TI_call
+     533 00000053 7640'         LCR       #_REG_TINE_PID_DL     ; [CPU_] |59| 
+         00000054 0010 
+     534                      ; call occurs [#_REG_TINE_PID_DL] ; [] |59| 
+     535 00000055 020A          MOVB      ACC,#10               ; [CPU_] |59| 
+     536              $C$DW$41        .dwtag  DW_TAG_TI_branch
+     537                      .dwattr $C$DW$41, DW_AT_low_pc(0x00)
+     538                      .dwattr $C$DW$41, DW_AT_name("_SET_DELAY_PID_DL")
+     539                      .dwattr $C$DW$41, DW_AT_TI_call
+     540 00000056 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |59| 
+         00000057 0000 
+     541                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |59| 
+     542                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 60,column 2,is_stmt
+     543 00000058 6F04          B         $C$L8,UNC             ; [CPU_] |60| 
+     544                      ; branch occurs ; [] |60| 
+     545 00000059       $C$L7:    
+     546                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 61,column 3,is_stmt
+     547 00000059 020A          MOVB      ACC,#10               ; [CPU_] |61| 
+     548              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     549                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     550                      .dwattr $C$DW$42, DW_AT_name("_SET_DELAY_PID_DL")
+     551                      .dwattr $C$DW$42, DW_AT_TI_call
+     552 0000005a 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |61| 
+         0000005b 0000 
+     553                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |61| 
+     554 0000005c       $C$L8:    
+     555                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 63,column 2,is_stmt
+     556 0000005c 9A7A          MOVB      AL,#122               ; [CPU_] |63| 
+     557              $C$DW$43        .dwtag  DW_TAG_TI_branch
+     558                      .dwattr $C$DW$43, DW_AT_low_pc(0x00)
+     559                      .dwattr $C$DW$43, DW_AT_name("_getRegister")
+     560                      .dwattr $C$DW$43, DW_AT_TI_call
+     561 0000005d 7640!         LCR       #_getRegister         ; [CPU_] |63| 
+         0000005e 0000 
+     562                      ; call occurs [#_getRegister] ; [] |63| 
+     563 0000005f 761F-         MOVW      DP,#_OsTaskMode       ; [CPU_U] 
+         00000060 0000 
+     564 00000061 9601-         MOV       @_OsTaskMode,AL       ; [CPU_] |63| 
+     565                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 64,column 1,is_stmt
+     566 00000062 FE82          SUBB      SP,#2                 ; [CPU_U] 
+     567                      .dwcfi  cfa_offset, -2
+     568              $C$DW$44        .dwtag  DW_TAG_TI_branch
+     569                      .dwattr $C$DW$44, DW_AT_low_pc(0x00)
+     570                      .dwattr $C$DW$44, DW_AT_TI_return
+     571 00000063 0006          LRETR     ; [CPU_] 
+     572                      ; return occurs ; [] 
+     573                      .dwattr $C$DW$35, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     574                      .dwattr $C$DW$35, DW_AT_TI_end_line(0x40)
+     575                      .dwattr $C$DW$35, DW_AT_TI_end_column(0x01)
+     576                      .dwendentry
+     577                      .dwendtag $C$DW$35
+     578              
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   12
+
+     579 00000064               .sect   ".text"
+     580                      .clink
+     581                      .global _setAtomPidDelay
+     582              
+     583              $C$DW$45        .dwtag  DW_TAG_subprogram, DW_AT_name("setAtomPidDelay")
+     584                      .dwattr $C$DW$45, DW_AT_low_pc(_setAtomPidDelay)
+     585                      .dwattr $C$DW$45, DW_AT_high_pc(0x00)
+     586                      .dwattr $C$DW$45, DW_AT_TI_symbol_name("_setAtomPidDelay")
+     587                      .dwattr $C$DW$45, DW_AT_external
+     588                      .dwattr $C$DW$45, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     589                      .dwattr $C$DW$45, DW_AT_TI_begin_line(0x42)
+     590                      .dwattr $C$DW$45, DW_AT_TI_begin_column(0x06)
+     591                      .dwattr $C$DW$45, DW_AT_TI_max_frame_size(-4)
+     592                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 66,column 35,is_stmt,address _setAtomPidDelay
+     593              
+     594                      .dwfde $C$DW$CIE, _setAtomPidDelay
+     595              $C$DW$46        .dwtag  DW_TAG_formal_parameter, DW_AT_name("delay")
+     596                      .dwattr $C$DW$46, DW_AT_TI_symbol_name("_delay")
+     597                      .dwattr $C$DW$46, DW_AT_type(*$C$DW$T$33)
+     598                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg0]
+     599              
+     600              ;***************************************************************
+     601              ;* FNAME: _setAtomPidDelay              FR SIZE:   2           *
+     602              ;*                                                             *
+     603              ;* FUNCTION ENVIRONMENT                                        *
+     604              ;*                                                             *
+     605              ;* FUNCTION PROPERTIES                                         *
+     606              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+     607              ;***************************************************************
+     608              
+     609 00000064       _setAtomPidDelay:
+     610                      .dwcfi  cfa_offset, -2
+     611                      .dwcfi  save_reg_to_mem, 26, 0
+     612                      .dwcfi  save_reg_to_reg, 78, 26
+     613 00000064 FE02          ADDB      SP,#2                 ; [CPU_U] 
+     614                      .dwcfi  cfa_offset, -4
+     615              $C$DW$47        .dwtag  DW_TAG_variable, DW_AT_name("delay")
+     616                      .dwattr $C$DW$47, DW_AT_TI_symbol_name("_delay")
+     617                      .dwattr $C$DW$47, DW_AT_type(*$C$DW$T$33)
+     618                      .dwattr $C$DW$47, DW_AT_location[DW_OP_breg20 -1]
+     619 00000065 9641          MOV       *-SP[1],AL            ; [CPU_] |66| 
+     620                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 67,column 2,is_stmt
+     621 00000066 761F-         MOVW      DP,#_delayPID         ; [CPU_U] 
+         00000067 0000 
+     622 00000068 9603-         MOV       @_delayPID,AL         ; [CPU_] |67| 
+     623                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 68,column 2,is_stmt
+     624 00000069 0E03-         MOVU      ACC,@_delayPID        ; [CPU_] |68| 
+     625              $C$DW$48        .dwtag  DW_TAG_TI_branch
+     626                      .dwattr $C$DW$48, DW_AT_low_pc(0x00)
+     627                      .dwattr $C$DW$48, DW_AT_name("_SET_DELAY_PID_DL")
+     628                      .dwattr $C$DW$48, DW_AT_TI_call
+     629 0000006a 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |68| 
+         0000006b 0000 
+     630                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |68| 
+     631                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 69,column 1,is_stmt
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   13
+
+     632 0000006c FE82          SUBB      SP,#2                 ; [CPU_U] 
+     633                      .dwcfi  cfa_offset, -2
+     634              $C$DW$49        .dwtag  DW_TAG_TI_branch
+     635                      .dwattr $C$DW$49, DW_AT_low_pc(0x00)
+     636                      .dwattr $C$DW$49, DW_AT_TI_return
+     637 0000006d 0006          LRETR     ; [CPU_] 
+     638                      ; return occurs ; [] 
+     639                      .dwattr $C$DW$45, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     640                      .dwattr $C$DW$45, DW_AT_TI_end_line(0x45)
+     641                      .dwattr $C$DW$45, DW_AT_TI_end_column(0x01)
+     642                      .dwendentry
+     643                      .dwendtag $C$DW$45
+     644              
+     645 0000006e               .sect   ".text"
+     646                      .clink
+     647                      .global _cntrlOsPid
+     648              
+     649              $C$DW$50        .dwtag  DW_TAG_subprogram, DW_AT_name("cntrlOsPid")
+     650                      .dwattr $C$DW$50, DW_AT_low_pc(_cntrlOsPid)
+     651                      .dwattr $C$DW$50, DW_AT_high_pc(0x00)
+     652                      .dwattr $C$DW$50, DW_AT_TI_symbol_name("_cntrlOsPid")
+     653                      .dwattr $C$DW$50, DW_AT_external
+     654                      .dwattr $C$DW$50, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     655                      .dwattr $C$DW$50, DW_AT_TI_begin_line(0x47)
+     656                      .dwattr $C$DW$50, DW_AT_TI_begin_column(0x06)
+     657                      .dwattr $C$DW$50, DW_AT_TI_max_frame_size(-2)
+     658                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 71,column 22,is_stmt,address _cntrlOsPid
+     659              
+     660                      .dwfde $C$DW$CIE, _cntrlOsPid
+     661              
+     662              ;***************************************************************
+     663              ;* FNAME: _cntrlOsPid                   FR SIZE:   0           *
+     664              ;*                                                             *
+     665              ;* FUNCTION ENVIRONMENT                                        *
+     666              ;*                                                             *
+     667              ;* FUNCTION PROPERTIES                                         *
+     668              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     669              ;***************************************************************
+     670              
+     671 0000006e       _cntrlOsPid:
+     672                      .dwcfi  cfa_offset, -2
+     673                      .dwcfi  save_reg_to_mem, 26, 0
+     674                      .dwcfi  save_reg_to_reg, 78, 26
+     675                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 72,column 2,is_stmt
+     676 0000006e 761F-         MOVW      DP,#_PidOsPrg         ; [CPU_U] 
+         0000006f 0000 
+     677 00000070 C504-         MOVL      XAR7,@_PidOsPrg       ; [CPU_] |72| 
+     678              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     679                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     680                      .dwattr $C$DW$51, DW_AT_TI_call
+     681                      .dwattr $C$DW$51, DW_AT_TI_indirect
+     682 00000071 3E67          LCR       *XAR7                 ; [CPU_] |72| 
+     683                      ; call occurs [XAR7] ; [] |72| 
+     684                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 73,column 1,is_stmt
+     685              $C$DW$52        .dwtag  DW_TAG_TI_branch
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   14
+
+     686                      .dwattr $C$DW$52, DW_AT_low_pc(0x00)
+     687                      .dwattr $C$DW$52, DW_AT_TI_return
+     688 00000072 0006          LRETR     ; [CPU_] 
+     689                      ; return occurs ; [] 
+     690                      .dwattr $C$DW$50, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     691                      .dwattr $C$DW$50, DW_AT_TI_end_line(0x49)
+     692                      .dwattr $C$DW$50, DW_AT_TI_end_column(0x01)
+     693                      .dwendentry
+     694                      .dwendtag $C$DW$50
+     695              
+     696 00000073               .sect   ".text"
+     697                      .clink
+     698                      .global _simplePidOs
+     699              
+     700              $C$DW$53        .dwtag  DW_TAG_subprogram, DW_AT_name("simplePidOs")
+     701                      .dwattr $C$DW$53, DW_AT_low_pc(_simplePidOs)
+     702                      .dwattr $C$DW$53, DW_AT_high_pc(0x00)
+     703                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_simplePidOs")
+     704                      .dwattr $C$DW$53, DW_AT_external
+     705                      .dwattr $C$DW$53, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     706                      .dwattr $C$DW$53, DW_AT_TI_begin_line(0x4b)
+     707                      .dwattr $C$DW$53, DW_AT_TI_begin_column(0x06)
+     708                      .dwattr $C$DW$53, DW_AT_TI_max_frame_size(-2)
+     709                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 75,column 23,is_stmt,address _simplePidOs
+     710              
+     711                      .dwfde $C$DW$CIE, _simplePidOs
+     712              
+     713              ;***************************************************************
+     714              ;* FNAME: _simplePidOs                  FR SIZE:   0           *
+     715              ;*                                                             *
+     716              ;* FUNCTION ENVIRONMENT                                        *
+     717              ;*                                                             *
+     718              ;* FUNCTION PROPERTIES                                         *
+     719              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     720              ;***************************************************************
+     721              
+     722 00000073       _simplePidOs:
+     723                      .dwcfi  cfa_offset, -2
+     724                      .dwcfi  save_reg_to_mem, 26, 0
+     725                      .dwcfi  save_reg_to_reg, 78, 26
+     726                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 77,column 2,is_stmt
+     727              $C$DW$54        .dwtag  DW_TAG_TI_branch
+     728                      .dwattr $C$DW$54, DW_AT_low_pc(0x00)
+     729                      .dwattr $C$DW$54, DW_AT_name("_GET_TIME_PID_DL")
+     730                      .dwattr $C$DW$54, DW_AT_TI_call
+     731 00000073 7640'         LCR       #_GET_TIME_PID_DL     ; [CPU_] |77| 
+         00000074 000C 
+     732                      ; call occurs [#_GET_TIME_PID_DL] ; [] |77| 
+     733 00000075 1EA6          MOVL      XAR6,ACC              ; [CPU_] |77| 
+     734 00000076 0200          MOVB      ACC,#0                ; [CPU_] |77| 
+     735 00000077 0FA6          CMPL      ACC,XAR6              ; [CPU_] |77| 
+     736 00000078 ED06          BF        $C$L9,NEQ             ; [CPU_] |77| 
+     737                      ; branchcc occurs ; [] |77| 
+     738                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 78,column 3,is_stmt
+     739 00000079 0214          MOVB      ACC,#20               ; [CPU_] |78| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   15
+
+     740              $C$DW$55        .dwtag  DW_TAG_TI_branch
+     741                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     742                      .dwattr $C$DW$55, DW_AT_name("_SET_DELAY_PID_DL")
+     743                      .dwattr $C$DW$55, DW_AT_TI_call
+     744 0000007a 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |78| 
+         0000007b 0000 
+     745                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |78| 
+     746                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 79,column 3,is_stmt
+     747              $C$DW$56        .dwtag  DW_TAG_TI_branch
+     748                      .dwattr $C$DW$56, DW_AT_low_pc(0x00)
+     749                      .dwattr $C$DW$56, DW_AT_name("_cntrlPidSimple")
+     750                      .dwattr $C$DW$56, DW_AT_TI_call
+     751 0000007c 7640!         LCR       #_cntrlPidSimple      ; [CPU_] |79| 
+         0000007d 0000 
+     752                      ; call occurs [#_cntrlPidSimple] ; [] |79| 
+     753                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 81,column 1,is_stmt
+     754              $C$L9:    
+     755              $C$DW$57        .dwtag  DW_TAG_TI_branch
+     756                      .dwattr $C$DW$57, DW_AT_low_pc(0x00)
+     757                      .dwattr $C$DW$57, DW_AT_TI_return
+     758 0000007e 0006          LRETR     ; [CPU_] 
+     759                      ; return occurs ; [] 
+     760                      .dwattr $C$DW$53, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     761                      .dwattr $C$DW$53, DW_AT_TI_end_line(0x51)
+     762                      .dwattr $C$DW$53, DW_AT_TI_end_column(0x01)
+     763                      .dwendentry
+     764                      .dwendtag $C$DW$53
+     765              
+     766 0000007f               .sect   ".text"
+     767                      .clink
+     768                      .global _noPidOs
+     769              
+     770              $C$DW$58        .dwtag  DW_TAG_subprogram, DW_AT_name("noPidOs")
+     771                      .dwattr $C$DW$58, DW_AT_low_pc(_noPidOs)
+     772                      .dwattr $C$DW$58, DW_AT_high_pc(0x00)
+     773                      .dwattr $C$DW$58, DW_AT_TI_symbol_name("_noPidOs")
+     774                      .dwattr $C$DW$58, DW_AT_external
+     775                      .dwattr $C$DW$58, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     776                      .dwattr $C$DW$58, DW_AT_TI_begin_line(0x53)
+     777                      .dwattr $C$DW$58, DW_AT_TI_begin_column(0x06)
+     778                      .dwattr $C$DW$58, DW_AT_TI_max_frame_size(-2)
+     779                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 83,column 19,is_stmt,address _noPidOs
+     780              
+     781                      .dwfde $C$DW$CIE, _noPidOs
+     782              
+     783              ;***************************************************************
+     784              ;* FNAME: _noPidOs                      FR SIZE:   0           *
+     785              ;*                                                             *
+     786              ;* FUNCTION ENVIRONMENT                                        *
+     787              ;*                                                             *
+     788              ;* FUNCTION PROPERTIES                                         *
+     789              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     790              ;***************************************************************
+     791              
+     792 0000007f       _noPidOs:
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   16
+
+     793                      .dwcfi  cfa_offset, -2
+     794                      .dwcfi  save_reg_to_mem, 26, 0
+     795                      .dwcfi  save_reg_to_reg, 78, 26
+     796                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 85,column 2,is_stmt
+     797              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     798                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     799                      .dwattr $C$DW$59, DW_AT_name("_GET_TIME_PID_DL")
+     800                      .dwattr $C$DW$59, DW_AT_TI_call
+     801 0000007f 7640'         LCR       #_GET_TIME_PID_DL     ; [CPU_] |85| 
+         00000080 000C 
+     802                      ; call occurs [#_GET_TIME_PID_DL] ; [] |85| 
+     803 00000081 1EA6          MOVL      XAR6,ACC              ; [CPU_] |85| 
+     804 00000082 0200          MOVB      ACC,#0                ; [CPU_] |85| 
+     805 00000083 0FA6          CMPL      ACC,XAR6              ; [CPU_] |85| 
+     806 00000084 ED04          BF        $C$L10,NEQ            ; [CPU_] |85| 
+     807                      ; branchcc occurs ; [] |85| 
+     808                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 86,column 3,is_stmt
+     809 00000085 02FA          MOVB      ACC,#250              ; [CPU_] |86| 
+     810              $C$DW$60        .dwtag  DW_TAG_TI_branch
+     811                      .dwattr $C$DW$60, DW_AT_low_pc(0x00)
+     812                      .dwattr $C$DW$60, DW_AT_name("_SET_DELAY_PID_DL")
+     813                      .dwattr $C$DW$60, DW_AT_TI_call
+     814 00000086 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |86| 
+         00000087 0000 
+     815                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |86| 
+     816                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 88,column 1,is_stmt
+     817              $C$L10:    
+     818              $C$DW$61        .dwtag  DW_TAG_TI_branch
+     819                      .dwattr $C$DW$61, DW_AT_low_pc(0x00)
+     820                      .dwattr $C$DW$61, DW_AT_TI_return
+     821 00000088 0006          LRETR     ; [CPU_] 
+     822                      ; return occurs ; [] 
+     823                      .dwattr $C$DW$58, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     824                      .dwattr $C$DW$58, DW_AT_TI_end_line(0x58)
+     825                      .dwattr $C$DW$58, DW_AT_TI_end_column(0x01)
+     826                      .dwendentry
+     827                      .dwendtag $C$DW$58
+     828              
+     829 00000089               .sect   ".text"
+     830                      .clink
+     831                      .global _waterPidOs
+     832              
+     833              $C$DW$62        .dwtag  DW_TAG_subprogram, DW_AT_name("waterPidOs")
+     834                      .dwattr $C$DW$62, DW_AT_low_pc(_waterPidOs)
+     835                      .dwattr $C$DW$62, DW_AT_high_pc(0x00)
+     836                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_waterPidOs")
+     837                      .dwattr $C$DW$62, DW_AT_external
+     838                      .dwattr $C$DW$62, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     839                      .dwattr $C$DW$62, DW_AT_TI_begin_line(0x5a)
+     840                      .dwattr $C$DW$62, DW_AT_TI_begin_column(0x06)
+     841                      .dwattr $C$DW$62, DW_AT_TI_max_frame_size(-2)
+     842                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 90,column 22,is_stmt,address _waterPidOs
+     843              
+     844                      .dwfde $C$DW$CIE, _waterPidOs
+     845              
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   17
+
+     846              ;***************************************************************
+     847              ;* FNAME: _waterPidOs                   FR SIZE:   0           *
+     848              ;*                                                             *
+     849              ;* FUNCTION ENVIRONMENT                                        *
+     850              ;*                                                             *
+     851              ;* FUNCTION PROPERTIES                                         *
+     852              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     853              ;***************************************************************
+     854              
+     855 00000089       _waterPidOs:
+     856                      .dwcfi  cfa_offset, -2
+     857                      .dwcfi  save_reg_to_mem, 26, 0
+     858                      .dwcfi  save_reg_to_reg, 78, 26
+     859                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 92,column 2,is_stmt
+     860              $C$DW$63        .dwtag  DW_TAG_TI_branch
+     861                      .dwattr $C$DW$63, DW_AT_low_pc(0x00)
+     862                      .dwattr $C$DW$63, DW_AT_name("_GET_TIME_PID_DL")
+     863                      .dwattr $C$DW$63, DW_AT_TI_call
+     864 00000089 7640'         LCR       #_GET_TIME_PID_DL     ; [CPU_] |92| 
+         0000008a 000C 
+     865                      ; call occurs [#_GET_TIME_PID_DL] ; [] |92| 
+     866 0000008b 1EA6          MOVL      XAR6,ACC              ; [CPU_] |92| 
+     867 0000008c 0200          MOVB      ACC,#0                ; [CPU_] |92| 
+     868 0000008d 0FA6          CMPL      ACC,XAR6              ; [CPU_] |92| 
+     869 0000008e ED04          BF        $C$L11,NEQ            ; [CPU_] |92| 
+     870                      ; branchcc occurs ; [] |92| 
+     871                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 93,column 3,is_stmt
+     872 0000008f 0E03-         MOVU      ACC,@_delayPID        ; [CPU_] |93| 
+     873              $C$DW$64        .dwtag  DW_TAG_TI_branch
+     874                      .dwattr $C$DW$64, DW_AT_low_pc(0x00)
+     875                      .dwattr $C$DW$64, DW_AT_name("_SET_DELAY_PID_DL")
+     876                      .dwattr $C$DW$64, DW_AT_TI_call
+     877 00000090 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |93| 
+         00000091 0000 
+     878                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |93| 
+     879                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 95,column 1,is_stmt
+     880              $C$L11:    
+     881              $C$DW$65        .dwtag  DW_TAG_TI_branch
+     882                      .dwattr $C$DW$65, DW_AT_low_pc(0x00)
+     883                      .dwattr $C$DW$65, DW_AT_TI_return
+     884 00000092 0006          LRETR     ; [CPU_] 
+     885                      ; return occurs ; [] 
+     886                      .dwattr $C$DW$62, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     887                      .dwattr $C$DW$62, DW_AT_TI_end_line(0x5f)
+     888                      .dwattr $C$DW$62, DW_AT_TI_end_column(0x01)
+     889                      .dwendentry
+     890                      .dwendtag $C$DW$62
+     891              
+     892 00000093               .sect   ".text"
+     893                      .clink
+     894                      .global _KaskadPidOs
+     895              
+     896              $C$DW$66        .dwtag  DW_TAG_subprogram, DW_AT_name("KaskadPidOs")
+     897                      .dwattr $C$DW$66, DW_AT_low_pc(_KaskadPidOs)
+     898                      .dwattr $C$DW$66, DW_AT_high_pc(0x00)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   18
+
+     899                      .dwattr $C$DW$66, DW_AT_TI_symbol_name("_KaskadPidOs")
+     900                      .dwattr $C$DW$66, DW_AT_external
+     901                      .dwattr $C$DW$66, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     902                      .dwattr $C$DW$66, DW_AT_TI_begin_line(0x61)
+     903                      .dwattr $C$DW$66, DW_AT_TI_begin_column(0x06)
+     904                      .dwattr $C$DW$66, DW_AT_TI_max_frame_size(-2)
+     905                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 97,column 23,is_stmt,address _KaskadPidOs
+     906              
+     907                      .dwfde $C$DW$CIE, _KaskadPidOs
+     908              
+     909              ;***************************************************************
+     910              ;* FNAME: _KaskadPidOs                  FR SIZE:   0           *
+     911              ;*                                                             *
+     912              ;* FUNCTION ENVIRONMENT                                        *
+     913              ;*                                                             *
+     914              ;* FUNCTION PROPERTIES                                         *
+     915              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     916              ;***************************************************************
+     917              
+     918 00000093       _KaskadPidOs:
+     919                      .dwcfi  cfa_offset, -2
+     920                      .dwcfi  save_reg_to_mem, 26, 0
+     921                      .dwcfi  save_reg_to_reg, 78, 26
+     922                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 99,column 2,is_stmt
+     923              $C$DW$67        .dwtag  DW_TAG_TI_branch
+     924                      .dwattr $C$DW$67, DW_AT_low_pc(0x00)
+     925                      .dwattr $C$DW$67, DW_AT_name("_GET_TIME_PID_DL")
+     926                      .dwattr $C$DW$67, DW_AT_TI_call
+     927 00000093 7640'         LCR       #_GET_TIME_PID_DL     ; [CPU_] |99| 
+         00000094 000C 
+     928                      ; call occurs [#_GET_TIME_PID_DL] ; [] |99| 
+     929 00000095 1EA6          MOVL      XAR6,ACC              ; [CPU_] |99| 
+     930 00000096 0200          MOVB      ACC,#0                ; [CPU_] |99| 
+     931 00000097 0FA6          CMPL      ACC,XAR6              ; [CPU_] |99| 
+     932 00000098 ED04          BF        $C$L12,NEQ            ; [CPU_] |99| 
+     933                      ; branchcc occurs ; [] |99| 
+     934                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 100,column 3,is_stmt
+     935 00000099 0E03-         MOVU      ACC,@_delayPID        ; [CPU_] |100| 
+     936              $C$DW$68        .dwtag  DW_TAG_TI_branch
+     937                      .dwattr $C$DW$68, DW_AT_low_pc(0x00)
+     938                      .dwattr $C$DW$68, DW_AT_name("_SET_DELAY_PID_DL")
+     939                      .dwattr $C$DW$68, DW_AT_TI_call
+     940 0000009a 7640'         LCR       #_SET_DELAY_PID_DL    ; [CPU_] |100| 
+         0000009b 0000 
+     941                      ; call occurs [#_SET_DELAY_PID_DL] ; [] |100| 
+     942                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 102,column 1,is_stmt
+     943              $C$L12:    
+     944              $C$DW$69        .dwtag  DW_TAG_TI_branch
+     945                      .dwattr $C$DW$69, DW_AT_low_pc(0x00)
+     946                      .dwattr $C$DW$69, DW_AT_TI_return
+     947 0000009c 0006          LRETR     ; [CPU_] 
+     948                      ; return occurs ; [] 
+     949                      .dwattr $C$DW$66, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+     950                      .dwattr $C$DW$66, DW_AT_TI_end_line(0x66)
+     951                      .dwattr $C$DW$66, DW_AT_TI_end_column(0x01)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   19
+
+     952                      .dwendentry
+     953                      .dwendtag $C$DW$66
+     954              
+     955 0000009d               .sect   ".text"
+     956                      .clink
+     957                      .global _getNormaOs
+     958              
+     959              $C$DW$70        .dwtag  DW_TAG_subprogram, DW_AT_name("getNormaOs")
+     960                      .dwattr $C$DW$70, DW_AT_low_pc(_getNormaOs)
+     961                      .dwattr $C$DW$70, DW_AT_high_pc(0x00)
+     962                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_getNormaOs")
+     963                      .dwattr $C$DW$70, DW_AT_external
+     964                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$16)
+     965                      .dwattr $C$DW$70, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+     966                      .dwattr $C$DW$70, DW_AT_TI_begin_line(0x68)
+     967                      .dwattr $C$DW$70, DW_AT_TI_begin_column(0x07)
+     968                      .dwattr $C$DW$70, DW_AT_TI_max_frame_size(-4)
+     969                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 104,column 23,is_stmt,address _getNormaOs
+     970              
+     971                      .dwfde $C$DW$CIE, _getNormaOs
+     972              
+     973              ;***************************************************************
+     974              ;* FNAME: _getNormaOs                   FR SIZE:   2           *
+     975              ;*                                                             *
+     976              ;* FUNCTION ENVIRONMENT                                        *
+     977              ;*                                                             *
+     978              ;* FUNCTION PROPERTIES                                         *
+     979              ;*                            0 Parameter,  2 Auto,  0 SOE     *
+     980              ;***************************************************************
+     981              
+     982 0000009d       _getNormaOs:
+     983                      .dwcfi  cfa_offset, -2
+     984                      .dwcfi  save_reg_to_mem, 26, 0
+     985                      .dwcfi  save_reg_to_reg, 78, 26
+     986 0000009d FE02          ADDB      SP,#2                 ; [CPU_U] 
+     987                      .dwcfi  cfa_offset, -4
+     988              $C$DW$71        .dwtag  DW_TAG_variable, DW_AT_name("tmp")
+     989                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_tmp")
+     990                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$16)
+     991                      .dwattr $C$DW$71, DW_AT_location[DW_OP_breg20 -2]
+     992                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 106,column 2,is_stmt
+     993 0000009e 6F26          B         $C$L16,UNC            ; [CPU_] |106| 
+     994                      ; branch occurs ; [] |106| 
+     995 0000009f       $C$L13:    
+     996                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 108,column 4,is_stmt
+     997 0000009f E590          ZERO      R0H                   ; [CPU_] |108| 
+     998 000000a0 E203          MOV32     *-SP[2],R0H           ; [CPU_] |108| 
+         000000a1 0042 
+     999                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 109,column 4,is_stmt
+    1000 000000a2 6F29          B         $C$L17,UNC            ; [CPU_] |109| 
+    1001                      ; branch occurs ; [] |109| 
+    1002 000000a3       $C$L14:    
+    1003                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 112,column 4,is_stmt
+    1004              $C$DW$72        .dwtag  DW_TAG_TI_branch
+    1005                      .dwattr $C$DW$72, DW_AT_low_pc(0x00)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   20
+
+    1006                      .dwattr $C$DW$72, DW_AT_name("_getAnalogTask")
+    1007                      .dwattr $C$DW$72, DW_AT_TI_call
+    1008 000000a3 7640!         LCR       #_getAnalogTask       ; [CPU_] |112| 
+         000000a4 0000 
+    1009                      ; call occurs [#_getAnalogTask] ; [] |112| 
+    1010 000000a5 E203          MOV32     *-SP[2],R0H           ; [CPU_] |112| 
+         000000a6 0042 
+    1011                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 113,column 4,is_stmt
+    1012 000000a7 6F24          B         $C$L17,UNC            ; [CPU_] |113| 
+    1013                      ; branch occurs ; [] |113| 
+    1014 000000a8       $C$L15:    
+    1015                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 116,column 4,is_stmt
+    1016 000000a8 9A1B          MOVB      AL,#27                ; [CPU_] |116| 
+    1017              $C$DW$73        .dwtag  DW_TAG_TI_branch
+    1018                      .dwattr $C$DW$73, DW_AT_low_pc(0x00)
+    1019                      .dwattr $C$DW$73, DW_AT_name("_getRegister")
+    1020                      .dwattr $C$DW$73, DW_AT_TI_call
+    1021 000000a9 7640!         LCR       #_getRegister         ; [CPU_] |116| 
+         000000aa 0000 
+    1022                      ; call occurs [#_getRegister] ; [] |116| 
+    1023 000000ab 3B01          SETC      SXM                   ; [CPU_] 
+    1024 000000ac 85A9          MOV       ACC,AL                ; [CPU_] |116| 
+    1025 000000ad BDA9          MOV32     R0H,ACC               ; [CPU_] |116| 
+         000000ae 0F12 
+    1026 000000af 7700          NOP       ; [CPU_] 
+    1027 000000b0 7700          NOP       ; [CPU_] 
+    1028 000000b1 7700          NOP       ; [CPU_] 
+    1029 000000b2 7700          NOP       ; [CPU_] 
+    1030 000000b3 E689          I32TOF32  R0H,R0H               ; [CPU_] |116| 
+         000000b4 0000 
+    1031 000000b5 7700          NOP       ; [CPU_] 
+    1032 000000b6 E203          MOV32     *-SP[2],R0H           ; [CPU_] |116| 
+         000000b7 0042 
+    1033                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 117,column 4,is_stmt
+    1034 000000b8 E801          MOVIZ     R0H,#15820            ; [CPU_] |117| 
+         000000b9 EE60 
+    1035 000000ba E2AF          MOV32     R1H,*-SP[2]           ; [CPU_] |117| 
+         000000bb 0142 
+    1036 000000bc E80E          MOVXI     R0H,#52429            ; [CPU_] |117| 
+         000000bd 6668 
+    1037 000000be E700          MPYF32    R0H,R0H,R1H           ; [CPU_] |117| 
+         000000bf 0040 
+    1038 000000c0 7700          NOP       ; [CPU_] 
+    1039 000000c1 E203          MOV32     *-SP[2],R0H           ; [CPU_] |117| 
+         000000c2 0042 
+    1040                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 118,column 4,is_stmt
+    1041 000000c3 6F08          B         $C$L17,UNC            ; [CPU_] |118| 
+    1042                      ; branch occurs ; [] |118| 
+    1043 000000c4       $C$L16:    
+    1044                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 106,column 2,is_stmt
+    1045 000000c4 761F-         MOVW      DP,#_OsTaskMode       ; [CPU_U] 
+         000000c5 0000 
+    1046 000000c6 9201-         MOV       AL,@_OsTaskMode       ; [CPU_] |106| 
+    1047 000000c7 ECDC          BF        $C$L14,EQ             ; [CPU_] |106| 
+    1048                      ; branchcc occurs ; [] |106| 
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   21
+
+    1049 000000c8 5201          CMPB      AL,#1                 ; [CPU_] |106| 
+    1050 000000c9 ECDF          BF        $C$L15,EQ             ; [CPU_] |106| 
+    1051                      ; branchcc occurs ; [] |106| 
+    1052 000000ca 6FD5          B         $C$L13,UNC            ; [CPU_] |106| 
+    1053                      ; branch occurs ; [] |106| 
+    1054 000000cb       $C$L17:    
+    1055                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 121,column 2,is_stmt
+    1056                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 122,column 1,is_stmt
+    1057 000000cb FE82          SUBB      SP,#2                 ; [CPU_U] 
+    1058                      .dwcfi  cfa_offset, -2
+    1059              $C$DW$74        .dwtag  DW_TAG_TI_branch
+    1060                      .dwattr $C$DW$74, DW_AT_low_pc(0x00)
+    1061                      .dwattr $C$DW$74, DW_AT_TI_return
+    1062 000000cc 0006          LRETR     ; [CPU_] 
+    1063                      ; return occurs ; [] 
+    1064                      .dwattr $C$DW$70, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+    1065                      .dwattr $C$DW$70, DW_AT_TI_end_line(0x7a)
+    1066                      .dwattr $C$DW$70, DW_AT_TI_end_column(0x01)
+    1067                      .dwendentry
+    1068                      .dwendtag $C$DW$70
+    1069              
+    1070 000000cd               .sect   ".text"
+    1071                      .clink
+    1072                      .global _setStatusOs
+    1073              
+    1074              $C$DW$75        .dwtag  DW_TAG_subprogram, DW_AT_name("setStatusOs")
+    1075                      .dwattr $C$DW$75, DW_AT_low_pc(_setStatusOs)
+    1076                      .dwattr $C$DW$75, DW_AT_high_pc(0x00)
+    1077                      .dwattr $C$DW$75, DW_AT_TI_symbol_name("_setStatusOs")
+    1078                      .dwattr $C$DW$75, DW_AT_external
+    1079                      .dwattr $C$DW$75, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+    1080                      .dwattr $C$DW$75, DW_AT_TI_begin_line(0x7c)
+    1081                      .dwattr $C$DW$75, DW_AT_TI_begin_column(0x06)
+    1082                      .dwattr $C$DW$75, DW_AT_TI_max_frame_size(-4)
+    1083                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 124,column 30,is_stmt,address _setStatusOs
+    1084              
+    1085                      .dwfde $C$DW$CIE, _setStatusOs
+    1086              $C$DW$76        .dwtag  DW_TAG_formal_parameter, DW_AT_name("stat")
+    1087                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_stat")
+    1088                      .dwattr $C$DW$76, DW_AT_type(*$C$DW$T$33)
+    1089                      .dwattr $C$DW$76, DW_AT_location[DW_OP_reg0]
+    1090              
+    1091              ;***************************************************************
+    1092              ;* FNAME: _setStatusOs                  FR SIZE:   2           *
+    1093              ;*                                                             *
+    1094              ;* FUNCTION ENVIRONMENT                                        *
+    1095              ;*                                                             *
+    1096              ;* FUNCTION PROPERTIES                                         *
+    1097              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+    1098              ;***************************************************************
+    1099              
+    1100 000000cd       _setStatusOs:
+    1101                      .dwcfi  cfa_offset, -2
+    1102                      .dwcfi  save_reg_to_mem, 26, 0
+    1103                      .dwcfi  save_reg_to_reg, 78, 26
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   22
+
+    1104 000000cd FE02          ADDB      SP,#2                 ; [CPU_U] 
+    1105                      .dwcfi  cfa_offset, -4
+    1106              $C$DW$77        .dwtag  DW_TAG_variable, DW_AT_name("stat")
+    1107                      .dwattr $C$DW$77, DW_AT_TI_symbol_name("_stat")
+    1108                      .dwattr $C$DW$77, DW_AT_type(*$C$DW$T$33)
+    1109                      .dwattr $C$DW$77, DW_AT_location[DW_OP_breg20 -1]
+    1110 000000ce 9641          MOV       *-SP[1],AL            ; [CPU_] |124| 
+    1111                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 125,column 2,is_stmt
+    1112 000000cf 761F-         MOVW      DP,#_statusOS         ; [CPU_U] 
+         000000d0 0000 
+    1113 000000d1 9800-         OR        @_statusOS,AL         ; [CPU_] |125| 
+    1114                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 126,column 1,is_stmt
+    1115 000000d2 FE82          SUBB      SP,#2                 ; [CPU_U] 
+    1116                      .dwcfi  cfa_offset, -2
+    1117              $C$DW$78        .dwtag  DW_TAG_TI_branch
+    1118                      .dwattr $C$DW$78, DW_AT_low_pc(0x00)
+    1119                      .dwattr $C$DW$78, DW_AT_TI_return
+    1120 000000d3 0006          LRETR     ; [CPU_] 
+    1121                      ; return occurs ; [] 
+    1122                      .dwattr $C$DW$75, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+    1123                      .dwattr $C$DW$75, DW_AT_TI_end_line(0x7e)
+    1124                      .dwattr $C$DW$75, DW_AT_TI_end_column(0x01)
+    1125                      .dwendentry
+    1126                      .dwendtag $C$DW$75
+    1127              
+    1128 000000d4               .sect   ".text"
+    1129                      .clink
+    1130                      .global _clrStatusOs
+    1131              
+    1132              $C$DW$79        .dwtag  DW_TAG_subprogram, DW_AT_name("clrStatusOs")
+    1133                      .dwattr $C$DW$79, DW_AT_low_pc(_clrStatusOs)
+    1134                      .dwattr $C$DW$79, DW_AT_high_pc(0x00)
+    1135                      .dwattr $C$DW$79, DW_AT_TI_symbol_name("_clrStatusOs")
+    1136                      .dwattr $C$DW$79, DW_AT_external
+    1137                      .dwattr $C$DW$79, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+    1138                      .dwattr $C$DW$79, DW_AT_TI_begin_line(0x80)
+    1139                      .dwattr $C$DW$79, DW_AT_TI_begin_column(0x06)
+    1140                      .dwattr $C$DW$79, DW_AT_TI_max_frame_size(-4)
+    1141                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 128,column 30,is_stmt,address _clrStatusOs
+    1142              
+    1143                      .dwfde $C$DW$CIE, _clrStatusOs
+    1144              $C$DW$80        .dwtag  DW_TAG_formal_parameter, DW_AT_name("stat")
+    1145                      .dwattr $C$DW$80, DW_AT_TI_symbol_name("_stat")
+    1146                      .dwattr $C$DW$80, DW_AT_type(*$C$DW$T$33)
+    1147                      .dwattr $C$DW$80, DW_AT_location[DW_OP_reg0]
+    1148              
+    1149              ;***************************************************************
+    1150              ;* FNAME: _clrStatusOs                  FR SIZE:   2           *
+    1151              ;*                                                             *
+    1152              ;* FUNCTION ENVIRONMENT                                        *
+    1153              ;*                                                             *
+    1154              ;* FUNCTION PROPERTIES                                         *
+    1155              ;*                            0 Parameter,  1 Auto,  0 SOE     *
+    1156              ;***************************************************************
+    1157              
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   23
+
+    1158 000000d4       _clrStatusOs:
+    1159                      .dwcfi  cfa_offset, -2
+    1160                      .dwcfi  save_reg_to_mem, 26, 0
+    1161                      .dwcfi  save_reg_to_reg, 78, 26
+    1162 000000d4 FE02          ADDB      SP,#2                 ; [CPU_U] 
+    1163                      .dwcfi  cfa_offset, -4
+    1164              $C$DW$81        .dwtag  DW_TAG_variable, DW_AT_name("stat")
+    1165                      .dwattr $C$DW$81, DW_AT_TI_symbol_name("_stat")
+    1166                      .dwattr $C$DW$81, DW_AT_type(*$C$DW$T$33)
+    1167                      .dwattr $C$DW$81, DW_AT_location[DW_OP_breg20 -1]
+    1168 000000d5 9641          MOV       *-SP[1],AL            ; [CPU_] |128| 
+    1169                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 129,column 2,is_stmt
+    1170 000000d6 761F-         MOVW      DP,#_statusOS         ; [CPU_U] 
+         000000d7 0000 
+    1171 000000d8 FF5E          NOT       AL                    ; [CPU_] |129| 
+    1172 000000d9 C000-         AND       @_statusOS,AL         ; [CPU_] |129| 
+    1173                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 130,column 1,is_stmt
+    1174 000000da FE82          SUBB      SP,#2                 ; [CPU_U] 
+    1175                      .dwcfi  cfa_offset, -2
+    1176              $C$DW$82        .dwtag  DW_TAG_TI_branch
+    1177                      .dwattr $C$DW$82, DW_AT_low_pc(0x00)
+    1178                      .dwattr $C$DW$82, DW_AT_TI_return
+    1179 000000db 0006          LRETR     ; [CPU_] 
+    1180                      ; return occurs ; [] 
+    1181                      .dwattr $C$DW$79, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+    1182                      .dwattr $C$DW$79, DW_AT_TI_end_line(0x82)
+    1183                      .dwattr $C$DW$79, DW_AT_TI_end_column(0x01)
+    1184                      .dwendentry
+    1185                      .dwendtag $C$DW$79
+    1186              
+    1187 000000dc               .sect   ".text"
+    1188                      .clink
+    1189                      .global _getStatusOs
+    1190              
+    1191              $C$DW$83        .dwtag  DW_TAG_subprogram, DW_AT_name("getStatusOs")
+    1192                      .dwattr $C$DW$83, DW_AT_low_pc(_getStatusOs)
+    1193                      .dwattr $C$DW$83, DW_AT_high_pc(0x00)
+    1194                      .dwattr $C$DW$83, DW_AT_TI_symbol_name("_getStatusOs")
+    1195                      .dwattr $C$DW$83, DW_AT_external
+    1196                      .dwattr $C$DW$83, DW_AT_type(*$C$DW$T$33)
+    1197                      .dwattr $C$DW$83, DW_AT_TI_begin_file("../OsCntrl/OsCntrl.c")
+    1198                      .dwattr $C$DW$83, DW_AT_TI_begin_line(0x84)
+    1199                      .dwattr $C$DW$83, DW_AT_TI_begin_column(0x08)
+    1200                      .dwattr $C$DW$83, DW_AT_TI_max_frame_size(-2)
+    1201                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 132,column 25,is_stmt,address _getStatusOs
+    1202              
+    1203                      .dwfde $C$DW$CIE, _getStatusOs
+    1204              
+    1205              ;***************************************************************
+    1206              ;* FNAME: _getStatusOs                  FR SIZE:   0           *
+    1207              ;*                                                             *
+    1208              ;* FUNCTION ENVIRONMENT                                        *
+    1209              ;*                                                             *
+    1210              ;* FUNCTION PROPERTIES                                         *
+    1211              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   24
+
+    1212              ;***************************************************************
+    1213              
+    1214 000000dc       _getStatusOs:
+    1215                      .dwcfi  cfa_offset, -2
+    1216                      .dwcfi  save_reg_to_mem, 26, 0
+    1217                      .dwcfi  save_reg_to_reg, 78, 26
+    1218                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 133,column 2,is_stmt
+    1219 000000dc 761F-         MOVW      DP,#_statusOS         ; [CPU_U] 
+         000000dd 0000 
+    1220 000000de 9200-         MOV       AL,@_statusOS         ; [CPU_] |133| 
+    1221                      .dwpsn  file "../OsCntrl/OsCntrl.c",line 134,column 1,is_stmt
+    1222              $C$DW$84        .dwtag  DW_TAG_TI_branch
+    1223                      .dwattr $C$DW$84, DW_AT_low_pc(0x00)
+    1224                      .dwattr $C$DW$84, DW_AT_TI_return
+    1225 000000df 0006          LRETR     ; [CPU_] 
+    1226                      ; return occurs ; [] 
+    1227                      .dwattr $C$DW$83, DW_AT_TI_end_file("../OsCntrl/OsCntrl.c")
+    1228                      .dwattr $C$DW$83, DW_AT_TI_end_line(0x86)
+    1229                      .dwattr $C$DW$83, DW_AT_TI_end_column(0x01)
+    1230                      .dwendentry
+    1231                      .dwendtag $C$DW$83
+    1232              
+    1233              ;**************************************************************
+    1234              ;* UNDEFINED EXTERNAL REFERENCES                              *
+    1235              ;**************************************************************
+    1236                      .global _cntrlPidSimple
+    1237                      .global _initPidCntrlSimple
+    1238                      .global _addedTimeTic
+    1239                      .global _getRegister
+    1240                      .global _removeTimeTic
+    1241                      .global _getAnalogTask
+    1242              
+    1243              ;***************************************************************
+    1244              ;* TYPE INFORMATION                                            *
+    1245              ;***************************************************************
+    1246              
+    1247              $C$DW$T$22      .dwtag  DW_TAG_structure_type
+    1248                      .dwattr $C$DW$T$22, DW_AT_name("_TIME_TIC")
+    1249                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x04)
+    1250              $C$DW$85        .dwtag  DW_TAG_member
+    1251                      .dwattr $C$DW$85, DW_AT_type(*$C$DW$T$20)
+    1252                      .dwattr $C$DW$85, DW_AT_name("tic")
+    1253                      .dwattr $C$DW$85, DW_AT_TI_symbol_name("_tic")
+    1254                      .dwattr $C$DW$85, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1255                      .dwattr $C$DW$85, DW_AT_accessibility(DW_ACCESS_public)
+    1256              $C$DW$86        .dwtag  DW_TAG_member
+    1257                      .dwattr $C$DW$86, DW_AT_type(*$C$DW$T$21)
+    1258                      .dwattr $C$DW$86, DW_AT_name("next")
+    1259                      .dwattr $C$DW$86, DW_AT_TI_symbol_name("_next")
+    1260                      .dwattr $C$DW$86, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1261                      .dwattr $C$DW$86, DW_AT_accessibility(DW_ACCESS_public)
+    1262                      .dwendtag $C$DW$T$22
+    1263              
+    1264              $C$DW$T$21      .dwtag  DW_TAG_pointer_type
+    1265                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$22)
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   25
+
+    1266                      .dwattr $C$DW$T$21, DW_AT_address_class(0x16)
+    1267              $C$DW$T$23      .dwtag  DW_TAG_typedef, DW_AT_name("pTimeTic")
+    1268                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$21)
+    1269                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+    1270              $C$DW$T$24      .dwtag  DW_TAG_typedef, DW_AT_name("stTimeTic")
+    1271                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$22)
+    1272                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+    1273              
+    1274              $C$DW$T$26      .dwtag  DW_TAG_subroutine_type
+    1275                      .dwattr $C$DW$T$26, DW_AT_language(DW_LANG_C)
+    1276              $C$DW$T$27      .dwtag  DW_TAG_pointer_type
+    1277                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$26)
+    1278                      .dwattr $C$DW$T$27, DW_AT_address_class(0x16)
+    1279              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1280                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1281                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1282                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1283              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1284                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1285                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1286                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1287              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1288                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1289                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1290                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1291              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1292                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1293                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1294                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1295              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1296                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1297                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1298                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1299              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1300                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1301                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1302                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1303              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1304                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1305                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1306                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1307              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1308                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1309                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1310                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1311              $C$DW$T$33      .dwtag  DW_TAG_typedef, DW_AT_name("UINT16")
+    1312                      .dwattr $C$DW$T$33, DW_AT_type(*$C$DW$T$11)
+    1313                      .dwattr $C$DW$T$33, DW_AT_language(DW_LANG_C)
+    1314              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1315                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1316                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1317                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1318              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1319                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1320                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   26
+
+    1321                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1322              $C$DW$T$19      .dwtag  DW_TAG_typedef, DW_AT_name("UINT32")
+    1323                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$13)
+    1324                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1325              $C$DW$T$20      .dwtag  DW_TAG_typedef, DW_AT_name("typeTIC")
+    1326                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+    1327                      .dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
+    1328              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1329                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1330                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1331                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1332              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1333                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1334                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1335                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1336              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1337                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1338                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1339                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1340              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1341                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1342                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1343                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1344              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1345                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1346                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1347                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+    1348                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1349              
+    1350              ;***************************************************************
+    1351              ;* DWARF CIE ENTRIES                                           *
+    1352              ;***************************************************************
+    1353              
+    1354              $C$DW$CIE       .dwcie 78
+    1355                      .dwcfi  cfa_register, 20
+    1356                      .dwcfi  cfa_offset, 0
+    1357                      .dwcfi  undefined, 0
+    1358                      .dwcfi  undefined, 1
+    1359                      .dwcfi  undefined, 2
+    1360                      .dwcfi  undefined, 3
+    1361                      .dwcfi  undefined, 20
+    1362                      .dwcfi  undefined, 21
+    1363                      .dwcfi  undefined, 22
+    1364                      .dwcfi  undefined, 23
+    1365                      .dwcfi  undefined, 24
+    1366                      .dwcfi  undefined, 25
+    1367                      .dwcfi  undefined, 26
+    1368                      .dwcfi  same_value, 28
+    1369                      .dwcfi  undefined, 29
+    1370                      .dwcfi  undefined, 30
+    1371                      .dwcfi  undefined, 31
+    1372                      .dwcfi  undefined, 32
+    1373                      .dwcfi  undefined, 33
+    1374                      .dwcfi  undefined, 34
+    1375                      .dwcfi  undefined, 35
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   27
+
+    1376                      .dwcfi  undefined, 36
+    1377                      .dwcfi  undefined, 37
+    1378                      .dwcfi  undefined, 38
+    1379                      .dwcfi  undefined, 75
+    1380                      .dwcfi  undefined, 76
+    1381                      .dwcfi  undefined, 77
+    1382                      .dwcfi  undefined, 4
+    1383                      .dwcfi  same_value, 6
+    1384                      .dwcfi  same_value, 8
+    1385                      .dwcfi  same_value, 10
+    1386                      .dwcfi  undefined, 12
+    1387                      .dwcfi  undefined, 14
+    1388                      .dwcfi  undefined, 16
+    1389                      .dwcfi  undefined, 17
+    1390                      .dwcfi  undefined, 18
+    1391                      .dwcfi  undefined, 19
+    1392                      .dwcfi  undefined, 5
+    1393                      .dwcfi  same_value, 7
+    1394                      .dwcfi  same_value, 9
+    1395                      .dwcfi  same_value, 11
+    1396                      .dwcfi  undefined, 13
+    1397                      .dwcfi  undefined, 15
+    1398                      .dwcfi  undefined, 43
+    1399                      .dwcfi  undefined, 44
+    1400                      .dwcfi  undefined, 47
+    1401                      .dwcfi  undefined, 48
+    1402                      .dwcfi  undefined, 51
+    1403                      .dwcfi  undefined, 52
+    1404                      .dwcfi  undefined, 55
+    1405                      .dwcfi  undefined, 56
+    1406                      .dwcfi  same_value, 59
+    1407                      .dwcfi  same_value, 60
+    1408                      .dwcfi  same_value, 63
+    1409                      .dwcfi  same_value, 64
+    1410                      .dwcfi  same_value, 67
+    1411                      .dwcfi  same_value, 68
+    1412                      .dwcfi  same_value, 71
+    1413                      .dwcfi  same_value, 72
+    1414                      .dwcfi  undefined, 73
+    1415                      .dwcfi  undefined, 74
+    1416                      .dwcfi  undefined, 39
+    1417                      .dwcfi  undefined, 40
+    1418                      .dwcfi  undefined, 27
+    1419                      .dwcfi  undefined, 78
+    1420                      .dwendentry
+    1421              
+    1422              ;***************************************************************
+    1423              ;* DWARF REGISTER MAP                                          *
+    1424              ;***************************************************************
+    1425              
+    1426              $C$DW$87        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AL")
+    1427                      .dwattr $C$DW$87, DW_AT_location[DW_OP_reg0]
+    1428              $C$DW$88        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AH")
+    1429                      .dwattr $C$DW$88, DW_AT_location[DW_OP_reg1]
+    1430              $C$DW$89        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PL")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   28
+
+    1431                      .dwattr $C$DW$89, DW_AT_location[DW_OP_reg2]
+    1432              $C$DW$90        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PH")
+    1433                      .dwattr $C$DW$90, DW_AT_location[DW_OP_reg3]
+    1434              $C$DW$91        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1435                      .dwattr $C$DW$91, DW_AT_location[DW_OP_reg20]
+    1436              $C$DW$92        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XT")
+    1437                      .dwattr $C$DW$92, DW_AT_location[DW_OP_reg21]
+    1438              $C$DW$93        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T")
+    1439                      .dwattr $C$DW$93, DW_AT_location[DW_OP_reg22]
+    1440              $C$DW$94        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1441                      .dwattr $C$DW$94, DW_AT_location[DW_OP_reg23]
+    1442              $C$DW$95        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1443                      .dwattr $C$DW$95, DW_AT_location[DW_OP_reg24]
+    1444              $C$DW$96        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1445                      .dwattr $C$DW$96, DW_AT_location[DW_OP_reg25]
+    1446              $C$DW$97        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPC")
+    1447                      .dwattr $C$DW$97, DW_AT_location[DW_OP_reg26]
+    1448              $C$DW$98        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1449                      .dwattr $C$DW$98, DW_AT_location[DW_OP_reg28]
+    1450              $C$DW$99        .dwtag  DW_TAG_TI_assign_register, DW_AT_name("DP")
+    1451                      .dwattr $C$DW$99, DW_AT_location[DW_OP_reg29]
+    1452              $C$DW$100       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXM")
+    1453                      .dwattr $C$DW$100, DW_AT_location[DW_OP_reg30]
+    1454              $C$DW$101       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PM")
+    1455                      .dwattr $C$DW$101, DW_AT_location[DW_OP_reg31]
+    1456              $C$DW$102       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("OVM")
+    1457                      .dwattr $C$DW$102, DW_AT_location[DW_OP_regx 0x20]
+    1458              $C$DW$103       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PAGE0")
+    1459                      .dwattr $C$DW$103, DW_AT_location[DW_OP_regx 0x21]
+    1460              $C$DW$104       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AMODE")
+    1461                      .dwattr $C$DW$104, DW_AT_location[DW_OP_regx 0x22]
+    1462              $C$DW$105       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1463                      .dwattr $C$DW$105, DW_AT_location[DW_OP_regx 0x23]
+    1464              $C$DW$106       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IFR")
+    1465                      .dwattr $C$DW$106, DW_AT_location[DW_OP_regx 0x24]
+    1466              $C$DW$107       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("IER")
+    1467                      .dwattr $C$DW$107, DW_AT_location[DW_OP_regx 0x25]
+    1468              $C$DW$108       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("V")
+    1469                      .dwattr $C$DW$108, DW_AT_location[DW_OP_regx 0x26]
+    1470              $C$DW$109       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PSEUDOH")
+    1471                      .dwattr $C$DW$109, DW_AT_location[DW_OP_regx 0x4c]
+    1472              $C$DW$110       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("VOL")
+    1473                      .dwattr $C$DW$110, DW_AT_location[DW_OP_regx 0x4d]
+    1474              $C$DW$111       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1475                      .dwattr $C$DW$111, DW_AT_location[DW_OP_reg4]
+    1476              $C$DW$112       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1477                      .dwattr $C$DW$112, DW_AT_location[DW_OP_reg6]
+    1478              $C$DW$113       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1479                      .dwattr $C$DW$113, DW_AT_location[DW_OP_reg8]
+    1480              $C$DW$114       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1481                      .dwattr $C$DW$114, DW_AT_location[DW_OP_reg10]
+    1482              $C$DW$115       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+    1483                      .dwattr $C$DW$115, DW_AT_location[DW_OP_reg12]
+    1484              $C$DW$116       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1485                      .dwattr $C$DW$116, DW_AT_location[DW_OP_reg14]
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   29
+
+    1486              $C$DW$117       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1487                      .dwattr $C$DW$117, DW_AT_location[DW_OP_reg16]
+    1488              $C$DW$118       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1489                      .dwattr $C$DW$118, DW_AT_location[DW_OP_reg17]
+    1490              $C$DW$119       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1491                      .dwattr $C$DW$119, DW_AT_location[DW_OP_reg18]
+    1492              $C$DW$120       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1493                      .dwattr $C$DW$120, DW_AT_location[DW_OP_reg19]
+    1494              $C$DW$121       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1495                      .dwattr $C$DW$121, DW_AT_location[DW_OP_reg5]
+    1496              $C$DW$122       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1497                      .dwattr $C$DW$122, DW_AT_location[DW_OP_reg7]
+    1498              $C$DW$123       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1499                      .dwattr $C$DW$123, DW_AT_location[DW_OP_reg9]
+    1500              $C$DW$124       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1501                      .dwattr $C$DW$124, DW_AT_location[DW_OP_reg11]
+    1502              $C$DW$125       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1503                      .dwattr $C$DW$125, DW_AT_location[DW_OP_reg13]
+    1504              $C$DW$126       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1505                      .dwattr $C$DW$126, DW_AT_location[DW_OP_reg15]
+    1506              $C$DW$127       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0HL")
+    1507                      .dwattr $C$DW$127, DW_AT_location[DW_OP_regx 0x2b]
+    1508              $C$DW$128       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R0H")
+    1509                      .dwattr $C$DW$128, DW_AT_location[DW_OP_regx 0x2c]
+    1510              $C$DW$129       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1HL")
+    1511                      .dwattr $C$DW$129, DW_AT_location[DW_OP_regx 0x2f]
+    1512              $C$DW$130       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R1H")
+    1513                      .dwattr $C$DW$130, DW_AT_location[DW_OP_regx 0x30]
+    1514              $C$DW$131       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2HL")
+    1515                      .dwattr $C$DW$131, DW_AT_location[DW_OP_regx 0x33]
+    1516              $C$DW$132       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R2H")
+    1517                      .dwattr $C$DW$132, DW_AT_location[DW_OP_regx 0x34]
+    1518              $C$DW$133       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3HL")
+    1519                      .dwattr $C$DW$133, DW_AT_location[DW_OP_regx 0x37]
+    1520              $C$DW$134       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R3H")
+    1521                      .dwattr $C$DW$134, DW_AT_location[DW_OP_regx 0x38]
+    1522              $C$DW$135       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4HL")
+    1523                      .dwattr $C$DW$135, DW_AT_location[DW_OP_regx 0x3b]
+    1524              $C$DW$136       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R4H")
+    1525                      .dwattr $C$DW$136, DW_AT_location[DW_OP_regx 0x3c]
+    1526              $C$DW$137       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5HL")
+    1527                      .dwattr $C$DW$137, DW_AT_location[DW_OP_regx 0x3f]
+    1528              $C$DW$138       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R5H")
+    1529                      .dwattr $C$DW$138, DW_AT_location[DW_OP_regx 0x40]
+    1530              $C$DW$139       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6HL")
+    1531                      .dwattr $C$DW$139, DW_AT_location[DW_OP_regx 0x43]
+    1532              $C$DW$140       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R6H")
+    1533                      .dwattr $C$DW$140, DW_AT_location[DW_OP_regx 0x44]
+    1534              $C$DW$141       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7HL")
+    1535                      .dwattr $C$DW$141, DW_AT_location[DW_OP_regx 0x47]
+    1536              $C$DW$142       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("R7H")
+    1537                      .dwattr $C$DW$142, DW_AT_location[DW_OP_regx 0x48]
+    1538              $C$DW$143       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RBL")
+    1539                      .dwattr $C$DW$143, DW_AT_location[DW_OP_regx 0x49]
+    1540              $C$DW$144       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RB")
+TMS320C2000 Assembler PC v6.2.7 Thu Jul 02 08:31:16 2015
+
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+C:\Users\Tester\AppData\Local\Temp\0451210                           PAGE   30
+
+    1541                      .dwattr $C$DW$144, DW_AT_location[DW_OP_regx 0x4a]
+    1542              $C$DW$145       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STFL")
+    1543                      .dwattr $C$DW$145, DW_AT_location[DW_OP_regx 0x27]
+    1544              $C$DW$146       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("STF")
+    1545                      .dwattr $C$DW$146, DW_AT_location[DW_OP_regx 0x28]
+    1546              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FPUHAZ")
+    1547                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg27]
+    1548              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1549                      .dwattr $C$DW$148, DW_AT_location[DW_OP_regx 0x4e]
+    1550                      .dwendtag $C$DW$CU
+    1551              
+
+No Assembly Errors, No Assembly Warnings
